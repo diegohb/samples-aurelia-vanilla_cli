@@ -9,6 +9,16 @@ namespace dotnetnew_mvc.Controllers
             return View();
         }
 
+        public IActionResult SPAOne()
+        {
+            return View();
+        }
+
+        public IActionResult SPATwo()
+        {
+            return View();
+        }
+
         public IActionResult Error()
         {
             return View();
