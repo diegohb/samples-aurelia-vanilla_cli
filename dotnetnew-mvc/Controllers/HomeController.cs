@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 
 namespace dotnetnew_mvc.Controllers
 {
@@ -13,17 +9,13 @@ namespace dotnetnew_mvc.Controllers
             return View();
         }
 
-        public IActionResult About()
+        public IActionResult SPAOne()
         {
-            ViewData["Message"] = "Your application description page.";
-
             return View();
         }
 
-        public IActionResult Contact()
+        public IActionResult SPATwo()
         {
-            ViewData["Message"] = "Your contact page.";
-
             return View();
         }
 

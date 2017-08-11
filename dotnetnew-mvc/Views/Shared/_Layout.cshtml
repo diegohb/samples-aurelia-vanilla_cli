@@ -26,13 +26,12 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">dotnetnew_mvc</a>
+          <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">ASP.NET MVC Index</a>
       </div>
       <div class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
-          <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
-          <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
-          <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
+            <li><a asp-area="" asp-controller="Home" asp-action="SPAOne" class="navbar-brand">SPA One</a></li>
+            <li><a asp-area="" asp-controller="Home" asp-action="SPATwo" class="navbar-brand">SPA Two</a></li>
         </ul>
       </div>
     </div>
@@ -63,7 +62,10 @@
             integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa">
     </script>
   </environment>
-
+  <script src="/js/vendor-bundle.js"></script>
+  <script>
+    SystemJS.import("aurelia-bootstrapper").catch(function(err) { console.log(err); });
+</script>
   @RenderSection("Scripts", required: false)
 </body>
 </html>
