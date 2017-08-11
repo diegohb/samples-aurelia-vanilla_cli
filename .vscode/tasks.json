@@ -15,6 +15,61 @@
                 "reveal": "silent"
             },
             "problemMatcher": "$msCompile"
+        },
+        {
+            "taskName": "au-build",
+            "command": "au build",
+            "type": "shell",
+            "group": "build",
+            "options": {
+                "cwd": "${workspaceRoot}/dotnetnew-mvc/"
+            },
+            "dependsOn": ["build"],
+            "presentation": {
+                "reveal": "always",
+                "panel": "dedicated"
+            },
+            "isBackground": true,
+            "problemMatcher": ["$gulp-tsc"],
+            "identifier": "au-build-watch"
+        },
+        {
+            "taskName": "au-build-watch",
+            "command": "au build --watch",
+            "type": "shell",
+            "group": "build",
+            "options": {
+                "cwd": "${workspaceRoot}/dotnetnew-mvc/"
+            },
+            "dependsOn": ["build"],
+            "presentation": {
+                "reveal": "always",
+                "panel": "dedicated"
+            },
+            "isBackground": true,
+            "problemMatcher": ["$gulp-tsc"],
+            "identifier": "au-build-watch"
+        },
+        {
+            "taskName": "au-test",
+            "command": "au test",
+            "options": {
+                "cwd": "${workspaceRoot}/dotnetnew-mvc/"
+            },
+            "dependsOn": ["build"],
+            "group": {
+                "kind": "test",
+                "isDefault": true
+            },
+            "identifier": "au-test",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "panel": "dedicated",
+                "focus": true
+            },
+            "type": "shell",
+            "problemMatcher": ["$gulp-tsc"]
         }
     ]
 }
