@@ -4,10 +4,10 @@
   "platform": {
     "id": "aspnetcore",
     "displayName": "ASP.NET Core",
-    "output": "wwwroot/scripts",
-    "index": "wwwroot/index.html",
+    "output": "wwwroot/js",
+    "index": "views/shared/_layout.cshtml",
     "baseDir": "./wwwroot",
-    "baseUrl": "scripts"
+    "baseUrl": "js"
   },
   "transpiler": {
     "id": "typescript",
