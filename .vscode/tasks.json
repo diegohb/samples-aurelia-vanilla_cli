@@ -15,6 +15,26 @@
                 "reveal": "silent"
             },
             "problemMatcher": "$msCompile"
+        },
+        {
+            "taskName": "au-test",
+            "command": "au test",
+            "options": {
+                "cwd": "${workspaceRoot}/dotnetnew-mvc/"
+            },
+            "dependsOn": ["build"],
+            "group": {
+                "kind": "test",
+                "isDefault": true
+            },
+            "identifier": "au-test",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "panel": "dedicated",
+                "focus": true
+            },
+            "type": "shell"
         }
     ]
 }
