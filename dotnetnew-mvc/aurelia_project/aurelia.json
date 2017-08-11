@@ -56,10 +56,10 @@
       {
         "id": "aspnetcore",
         "displayName": "ASP.NET Core",
-        "output": "wwwroot/scripts",
-        "index": "wwwroot/index.html",
+        "output": "wwwroot/js",
+        "index": "views/home/index.cshtml",
         "baseDir": "./wwwroot",
-        "baseUrl": "scripts"
+        "baseUrl": "/js"
       }
     ],
     "loader": {
