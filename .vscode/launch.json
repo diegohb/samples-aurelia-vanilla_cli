@@ -2,10 +2,10 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": ".NET Core Launch (console)",
+            "name": "launch (console)",
             "type": "coreclr",
             "request": "launch",
-            "preLaunchTask": "build",
+            "preLaunchTask": "au-build",
             "program": "${workspaceRoot}/dotnetnew-mvc/bin/Debug/netcoreapp1.1/dotnetnew-mvc.dll",
             "args": [],
             "cwd": "${workspaceRoot}/dotnetnew-mvc/",
@@ -13,10 +13,10 @@
             "console": "internalConsole"
         },
         {
-            "name": ".NET Core Launch (web)",
+            "name": "launch (web)",
             "type": "coreclr",
             "request": "launch",
-            "preLaunchTask": "build",
+            "preLaunchTask": "au-build-watch",
             "program": "${workspaceRoot}/dotnetnew-mvc/bin/Debug/netcoreapp1.1/dotnetnew-mvc.dll",
             "args": [],
             "cwd": "${workspaceRoot}/dotnetnew-mvc/",
