@@ -1,0 +1,5 @@
+{
+    "terminal.integrated.cwd": "./dotnetnew-mvc/",
+    "tslint.configFile": "./dotnetnew-mvc/tsconfig.json",
+    "tslint.jsEnable": true
+}
