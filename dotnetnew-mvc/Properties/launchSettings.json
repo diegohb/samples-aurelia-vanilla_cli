@@ -15,8 +15,13 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "dotnetnew-mvc": {
-      "commandName": "Project"
+    "DotNetConsole": {
+        "commandName": "Project",
+        "launchBrowser": true,
+        "launchUrl": "http://localhost:5000/",
+        "environmentVariables": {
+            "ASPNETCORE_ENVIRONMENT": "Development"
+        }
     }
   }
 }
