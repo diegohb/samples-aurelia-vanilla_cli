@@ -7,6 +7,10 @@
         "url": "???"
     },
     "license": "MIT",
+    "engines": {
+        "vscode": "^1.10.0",
+        "node": "^8.0.0"
+    },
     "scripts": {
         "au-update": "yarn upgrade aurelia-binding@latest aurelia-bootstrapper@latest aurelia-dependency-injection@latest aurelia-event-aggregator@latest aurelia-framework@latest aurelia-history@latest aurelia-history-browser@latest aurelia-loader@latest aurelia-loader-default@latest aurelia-logging@latest aurelia-logging-console@latest aurelia-metadata@latest aurelia-pal@latest aurelia-pal-browser@latest aurelia-path@latest aurelia-polyfills@latest aurelia-route-recognizer@latest aurelia-router@latest aurelia-task-queue@latest aurelia-templating@latest aurelia-templating-binding@latest aurelia-templating-resources@latest aurelia-templating-router@latest"
     },
@@ -42,7 +46,7 @@
     "peerDependencies": {},
     "devDependencies": {
         "@types/jasmine": "^2.2.0",
-        "@types/node": "^6.0.45",
+        "@types/node": "^8.0.20",
         "aurelia-cli": "^0.30.1",
         "aurelia-testing": "^1.0.0-beta.3.0.1",
         "aurelia-tools": "^1.0.0",
