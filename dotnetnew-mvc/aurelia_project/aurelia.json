@@ -97,49 +97,72 @@
           "node_modules/systemjs/dist/system.js"
         ],
         "dependencies": [
-          "aurelia-binding",
-          "aurelia-bootstrapper",
-          "aurelia-dependency-injection",
-          "aurelia-event-aggregator",
-          "aurelia-framework",
-          "aurelia-history",
-          "aurelia-history-browser",
-          "aurelia-loader",
-          "aurelia-loader-default",
-          "aurelia-logging",
-          "aurelia-logging-console",
-          "aurelia-metadata",
-          "aurelia-pal",
-          "aurelia-pal-browser",
-          "aurelia-path",
-          "aurelia-polyfills",
-          "aurelia-route-recognizer",
-          "aurelia-router",
-          "aurelia-task-queue",
-          "aurelia-templating",
-          "aurelia-templating-binding",
-          {
-            "name": "text",
-            "path": "../node_modules/systemjs-plugin-text",
-            "main": "text"
-          },
-          {
-            "name": "aurelia-templating-resources",
-            "path": "../node_modules/aurelia-templating-resources/dist/amd",
-            "main": "aurelia-templating-resources"
-          },
-          {
-            "name": "aurelia-templating-router",
-            "path": "../node_modules/aurelia-templating-router/dist/amd",
-            "main": "aurelia-templating-router"
-          },
-          {
-            "name": "aurelia-testing",
-            "path": "../node_modules/aurelia-testing/dist/amd",
-            "main": "aurelia-testing",
-            "env": "dev"
-          },
-          "jquery"
+            "aurelia-binding",
+            "aurelia-bootstrapper",
+            "aurelia-dependency-injection",
+            "aurelia-event-aggregator",
+            "aurelia-framework",
+            "aurelia-history",
+            "aurelia-history-browser",
+            "aurelia-loader",
+            "aurelia-loader-default",
+            "aurelia-logging",
+            "aurelia-logging-console",
+            "aurelia-metadata",
+            "aurelia-pal",
+            "aurelia-pal-browser",
+            "aurelia-path",
+            "aurelia-polyfills",
+            "aurelia-route-recognizer",
+            "aurelia-router",
+            "aurelia-task-queue",
+            "aurelia-templating",
+            "aurelia-templating-binding",
+            {
+                "name": "text",
+                "path": "../node_modules/systemjs-plugin-text",
+                "main": "text"
+            },
+            {
+                "name": "aurelia-templating-resources",
+                "path": "../node_modules/aurelia-templating-resources/dist/amd",
+                "main": "aurelia-templating-resources"
+            },
+            {
+                "name": "aurelia-templating-router",
+                "path": "../node_modules/aurelia-templating-router/dist/amd",
+                "main": "aurelia-templating-router"
+            },
+            {
+                "name": "aurelia-testing",
+                "path": "../node_modules/aurelia-testing/dist/amd",
+                "main": "aurelia-testing",
+                "env": "dev"
+            },
+            "jquery",
+            {
+                "name": "bootstrap",
+                "path": "../node_modules/bootstrap/dist",
+                "main": "js/bootstrap.min.js",
+                "deps": [
+                    "jquery"
+                ],
+                "exports": "$",
+                "resources": [
+                    "css/bootstrap.css"
+                ]
+            },
+            "velocity-animate",
+            "tether",
+            {
+                "name": "aurelia-bootstrap",
+                "path": "../node_modules/aurelia-bootstrap/dist/amd",
+                "main": "index",
+                "resources": [
+                    "**/*.html"
+                ],
+                "deps":  ["bootstrap"] 
+            }
         ]
       }
     ]
