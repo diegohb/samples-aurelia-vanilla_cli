@@ -1,4 +1,4 @@
-import {Aurelia} from "aurelia-framework"
+import { Aurelia } from "aurelia-framework"
 import environment from "./environment";
 
 export function configure(aurelia: Aurelia) {
@@ -7,15 +7,17 @@ export function configure(aurelia: Aurelia) {
         .plugin("aurelia-bootstrap")
         .feature("resources");
 
-  if (environment.debug) {
-    aurelia.use.developmentLogging();
-  }
+    aurelia.use.globalResources("bootstrap/css/bootstrap.css");
 
-  if (environment.testing) {
-    aurelia.use.plugin("aurelia-testing");
-  }
+    if (environment.debug) {
+        aurelia.use.developmentLogging();
+    }
 
-    aurelia.start().then((pAurelia:Aurelia) => {
+    if (environment.testing) {
+        aurelia.use.plugin("aurelia-testing");
+    }
+
+    aurelia.start().then((pAurelia: Aurelia) => {
         let startModuleName = (<any>pAurelia.host.attributes).start.value;
         pAurelia.setRoot(startModuleName);
     });

@@ -11,3 +11,12 @@
         <section aurelia-app="main" start="spa-two"></section>
     </div>
 </div>
+
+@section Scripts
+{
+    <script src="~/js/vendor-bundle.js"></script>
+
+    <script>
+        SystemJS.import("aurelia-bootstrapper").catch(function (err) { console.log(err); });
+    </script>
+}

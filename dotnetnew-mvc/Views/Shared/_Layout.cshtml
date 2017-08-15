@@ -6,15 +6,19 @@
     <title>@ViewData["Title"] - dotnetnew_mvc</title>
 
     <environment names="Development">
-        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
         <link rel="stylesheet" href="~/css/site.css" />
     </environment>
     <environment names="Staging,Production">
+        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
+    </environment>
+
+    @RenderSection("Styles", false)
+    @if (!IsSectionDefined("Styles"))
+    {
         <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css"
               asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
               asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
-        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
-    </environment>
+    }
 </head>
 <body>
     <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -44,11 +48,9 @@
         </footer>
     </div>
 
-    <script src="~/js/vendor-bundle.js"></script>
-    <environment names="Development">
-        <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
-    </environment>
-    <environment names="Staging,Production">
+    @RenderSection("Scripts", false)
+    @if (!IsSectionDefined("Scripts"))
+    {
         <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.2.0.min.js"
                 asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
                 asp-fallback-test="window.jQuery"
@@ -61,11 +63,7 @@
                 crossorigin="anonymous"
                 integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa">
         </script>
-    </environment>
+    }
 
-    <script>
-        SystemJS.import("aurelia-bootstrapper").catch(function (err) { console.log(err); });
-    </script>
-    @RenderSection("Scripts", required: false)
 </body>
 </html>
