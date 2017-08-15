@@ -14,6 +14,14 @@
 
   <ItemGroup>
     <Content Remove="package-lock.json" />
+    <Content Remove="wwwroot\js\bootstrap.min.js" CopyToPublishDirectory="Always" />
+    <Content Remove="wwwroot\js\jquery*" CopyToPublishDirectory="Always" />
+    <Content Remove="wwwroot\css\bootstrap.css" CopyToPublishDirectory="Always" />
+    <Content Remove="wwwroot\css\bootstrap.min.css" CopyToPublishDirectory="Always" />
+    <Content Remove="wwwroot\css\bootstrap.min.css.map" CopyToPublishDirectory="Always" />
+    <Content Remove="wwwroot\css\bootstrap*" CopyToPublishDirectory="Always" />
+    <Content Remove="wwwroot\fonts\**" CopyToPublishDirectory="Always" />
+    <Content Include="wwwroot\fonts\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -32,6 +40,4 @@
   <ItemGroup>
     <Folder Include="custom_typings\" />
   </ItemGroup>
-
-
 </Project>
