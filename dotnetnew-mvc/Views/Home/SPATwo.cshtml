@@ -10,10 +10,17 @@
 
 <h2>SPA Two</h2>
 
+<div id="loader"></div>
+
 <div class="row">
     <div class="col-md-3">...Left Side...</div>
     <div class="col-md-9">
-        <section aurelia-app="main" start="spa-two"></section>
+        <section aurelia-app="main" start="spa-two">
+            <div class="splash">
+                <div class="message">Aurelia Navigation Skeleton</div>
+                <i class="fa fa-spinner fa-spin"></i>
+            </div>
+        </section>
     </div>
 </div>
 
@@ -22,6 +29,10 @@
     <script src="~/js/vendor-bundle.js"></script>
 
     <script>
-        SystemJS.import("aurelia-bootstrapper").catch(function (err) { console.log(err); });
+        SystemJS.import("aurelia-bootstrapper")
+        .then(function() {
+                $("#loader").hide();
+            })
+        .catch(function (err) { console.log(err); });
     </script>
 }

@@ -1,5 +1,6 @@
 import { Aurelia } from "aurelia-framework"
 import environment from "./environment";
+import * as $ from "jquery";
 
 export function configure(aurelia: Aurelia) {
     aurelia.use
@@ -20,5 +21,6 @@ export function configure(aurelia: Aurelia) {
     aurelia.start().then((pAurelia: Aurelia) => {
         let startModuleName = (<any>pAurelia.host.attributes).start.value;
         pAurelia.setRoot(startModuleName);
+        $("#loader").fadeOut("slow");
     });
 }
