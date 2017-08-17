@@ -31,5 +31,7 @@
 
   <ItemGroup>
     <Folder Include="custom_typings\" />
+    <Folder Include="wwwroot\fonts\" />
+    <Folder Include="wwwroot\js\" />
   </ItemGroup>
 </Project>

@@ -28,7 +28,7 @@
     "id": "less",
     "displayName": "Less",
     "fileExtension": ".less",
-    "source": "src/**/*.less"
+    "source": [ "less/**/*.less", "src/**/*.less"]
   },
   "editor": {
     "id": "visualstudio",
@@ -141,16 +141,13 @@
                     },
                     "jquery",
                     {
-                        "name": "bootstrap",
-                        "path": "../node_modules/bootstrap/dist",
+                        "name": "bootstrap-less",
+                        "path": "../node_modules/bootstrap-less",
                         "main": "js/bootstrap.min.js",
                         "deps": [
                             "jquery"
                         ],
-                        "exports": "$",
-                        "resources": [
-                            "css/bootstrap.css"
-                        ]
+                        "exports": "$"
                     },
                     "velocity-animate",
                     "tether",
@@ -161,15 +158,13 @@
                         "resources": [
                             "**/*.html"
                         ],
-                        "deps": [ "bootstrap" ]
+                        "deps": [ "bootstrap-less" ]
                     }
                 ]
             }
         ],
         "copyFiles": {
-            "node_modules/bootstrap/dist/css/**": "wwwroot/css",
-            "node_modules/bootstrap/dist/fonts/**": "wwwroot/fonts",
-            "node_modules/bootstrap/dist/js/bootstrap.min.*": "wwwroot/js",
+            "node_modules/bootstrap-less/fonts/**": "wwwroot/fonts",
             "node_modules/jquery/dist/jquery.min.*": "wwwroot/js"
         }
     }
