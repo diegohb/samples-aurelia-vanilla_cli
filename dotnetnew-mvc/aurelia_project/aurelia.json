@@ -169,7 +169,7 @@
         "copyFiles": {
             "node_modules/bootstrap/dist/css/**": "wwwroot/css",
             "node_modules/bootstrap/dist/fonts/**": "wwwroot/fonts",
-            "node_modules/bootstrap/dist/js/bootstrap.min.js": "wwwroot/js",
+            "node_modules/bootstrap/dist/js/bootstrap.min.*": "wwwroot/js",
             "node_modules/jquery/dist/jquery.min.*": "wwwroot/js"
         }
     }
