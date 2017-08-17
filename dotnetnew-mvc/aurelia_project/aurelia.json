@@ -165,6 +165,7 @@
         ],
         "copyFiles": {
             "node_modules/bootstrap-less/fonts/**": "wwwroot/fonts",
+            "node_modules/bootstrap-less/js/bootstrap.min**": "wwwroot/js",
             "node_modules/jquery/dist/jquery.min.*": "wwwroot/js"
         }
     }
