@@ -10,5 +10,8 @@ gulp.task("au-test-watch", shell.task(["au test --watch"]));
 
 gulp.task("au-build-prod", shell.task(["au build --env prod"]));
 
+/*
+TODO: http://shermandigital.com/blog/use-browsersync-with-visual-studio/
 gulp.task("au-browsersync", shell.task(["au run"]));
 gulp.task("au-browsersync-watch", shell.task(["au run --watch"]));
+*/
