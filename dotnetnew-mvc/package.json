@@ -48,6 +48,7 @@
     },
     "peerDependencies": {},
     "devDependencies": {
+        "@types/bootstrap": "^3.3.35",
         "@types/jasmine": "^2.5.53",
         "@types/jquery": "^3.2.11",
         "@types/node": "^8.0.20",
