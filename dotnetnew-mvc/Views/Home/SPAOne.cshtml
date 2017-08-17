@@ -3,6 +3,11 @@
     Layout = "_Layout";
 }
 
+@section Styles
+{
+    <!--dont call from CDN because CSS is bundled-->
+}
+
 <h2>SPA One</h2>
 
 <div class="row">
@@ -13,3 +18,12 @@
         ...Right side..
     </div>
 </div>
+
+@section Scripts
+{
+    <script src="~/js/vendor-bundle.js"></script>
+
+    <script>
+        SystemJS.import("aurelia-bootstrapper").catch(function (err) { console.log(err); });
+    </script>
+}

@@ -32,6 +32,4 @@
   <ItemGroup>
     <Folder Include="custom_typings\" />
   </ItemGroup>
-
-
 </Project>

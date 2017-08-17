@@ -2,10 +2,6 @@
     ViewData["Title"] = "Home Page";
 }
 
-@section Scripts {
-
-}
-
 <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="6000">
     <ol class="carousel-indicators">
         <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -71,7 +67,12 @@
 
 <section>
     <h2>MVC Index Page</h2>
-    <p>Click on SPA One or SPA Two from the navigation menu.</p>
+    <div class="alert alert-dismissable">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        Click on SPA One or SPA Two from the navigation menu.
+    </div>
 </section>
 
 
