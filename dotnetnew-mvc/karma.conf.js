@@ -27,7 +27,7 @@ module.exports = function(config) {
       typescript: require('typescript'),
       options: tsconfig.compilerOptions
     },
-    reporters: ['progress'],
+    reporters: ['spec'],
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
