@@ -1,4 +1,4 @@
-///<reference path="..\node_modules\@types\jquery\index.d.ts"/>
+import * as $ from "jquery";
 
 export class SpaOneApp {
     message = 'Hello World from SPA One!';
