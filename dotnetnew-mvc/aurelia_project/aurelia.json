@@ -78,7 +78,20 @@
             ]
         },
         "options": {
-            "minify": "stage & prod",
+            "minify": {
+                "prod": {
+                  "ie8": true,
+                  "output": {
+                    "max_line_len": 1000000
+                  }
+                },
+                "stage": {
+                    "ie8": true,
+                    "output": {
+                        "max_line_len": 1000000
+                      }
+                }
+            },
             "sourcemaps": "dev & stage"
         },
         "bundles": [
