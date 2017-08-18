@@ -78,7 +78,14 @@
             ]
         },
         "options": {
-            "minify": "stage & prod",
+            "minify": {
+                "prod": {
+                  "output": {
+                    "max_line_len": 1000000
+                  }
+                },
+                "stage": true
+            },
             "sourcemaps": "dev & stage"
         },
         "bundles": [
