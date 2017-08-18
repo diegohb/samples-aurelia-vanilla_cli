@@ -1,7 +1,9 @@
-﻿/// <binding ProjectOpened='au-build-watch' />
+﻿/// <binding AfterBuild='vs-build' ProjectOpened='au-build-watch' />
 var gulp = require("gulp");
 var shell = require("gulp-shell");
  
+gulp.task("vs-build", shell.task(["au copy-files"]));
+
 gulp.task("au-build", shell.task(["au build"]));
 gulp.task("au-build-watch", shell.task(["au build --watch"]));
 
