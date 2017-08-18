@@ -1,56 +1,56 @@
 {
-  "name": "dotnetnew-mvc",
-  "type": "project:application",
-  "platform": {
-    "id": "aspnetcore",
-    "displayName": "ASP.NET Core",
-    "output": "wwwroot/js",
-    "index": "views/shared/_layout.cshtml",
-    "baseDir": "./wwwroot",
-    "baseUrl": "js"
-  },
-  "transpiler": {
-    "id": "typescript",
-    "displayName": "TypeScript",
-    "fileExtension": ".ts",
-    "dtsSource": [
-      "./custom_typings/**/*.d.ts"
-    ],
-    "source": "src/**/*.ts"
-  },
-  "markupProcessor": {
-    "id": "minimum",
-    "displayName": "Minimal Minification",
-    "fileExtension": ".html",
-    "source": "src/**/*.html"
-  },
-  "cssProcessor": {
-    "id": "less",
-    "displayName": "Less",
-    "fileExtension": ".less",
-    "source": "src/**/*.less"
-  },
-  "editor": {
-    "id": "visualstudio",
-    "displayName": "Visual Studio"
-  },
-  "unitTestRunner": {
-    "id": "karma",
-    "displayName": "Karma",
-    "source": "test/unit/**/*.ts"
-  },
-  "paths": {
-    "root": "src",
-    "resources": "resources",
-    "elements": "resources/elements",
-    "attributes": "resources/attributes",
-    "valueConverters": "resources/value-converters",
-    "bindingBehaviors": "resources/binding-behaviors"
-  },
-  "testFramework": {
-    "id": "jasmine",
-    "displayName": "Jasmine"
-  },
+    "name": "dotnetnew-mvc",
+    "type": "project:application",
+    "platform": {
+        "id": "aspnetcore",
+        "displayName": "ASP.NET Core",
+        "output": "wwwroot/js",
+        "index": "views/shared/_layout.cshtml",
+        "baseDir": "./wwwroot",
+        "baseUrl": "js"
+    },
+    "transpiler": {
+        "id": "typescript",
+        "displayName": "TypeScript",
+        "fileExtension": ".ts",
+        "dtsSource": [
+            "./custom_typings/**/*.d.ts"
+        ],
+        "source": "src/**/*.ts"
+    },
+    "markupProcessor": {
+        "id": "minimum",
+        "displayName": "Minimal Minification",
+        "fileExtension": ".html",
+        "source": "src/**/*.html"
+    },
+    "cssProcessor": {
+        "id": "less",
+        "displayName": "Less",
+        "fileExtension": ".less",
+        "source": "src/**/*.less"
+    },
+    "editor": {
+        "id": "visualstudio",
+        "displayName": "Visual Studio"
+    },
+    "unitTestRunner": {
+        "id": "karma",
+        "displayName": "Karma",
+        "source": "test/unit/**/*.ts"
+    },
+    "paths": {
+        "root": "src",
+        "resources": "resources",
+        "elements": "resources/elements",
+        "attributes": "resources/attributes",
+        "valueConverters": "resources/value-converters",
+        "bindingBehaviors": "resources/binding-behaviors"
+    },
+    "testFramework": {
+        "id": "jasmine",
+        "displayName": "Jasmine"
+    },
     "build": {
         "targets": [
             {
@@ -64,7 +64,7 @@
         ],
         "loader": {
             "type": "system",
-            "configTarget": "vendor-bundle.js",
+            "configTarget": "infra.aurelia-bundle.js",
             "includeBundleMetadataInConfig": "auto",
             "plugins": [
                 {
@@ -80,9 +80,9 @@
         "options": {
             "minify": {
                 "prod": {
-                  "output": {
-                    "max_line_len": 1000000
-                  }
+                    "output": {
+                        "max_line_len": 1000000
+                    }
                 },
                 "stage": true
             },
@@ -97,7 +97,7 @@
                 ]
             },
             {
-                "name": "vendor-bundle.js",
+                "name": "infra.aurelia-bundle.js",
                 "prepend": [
                     "node_modules/bluebird/js/browser/bluebird.core.js",
                     "node_modules/aurelia-cli/lib/resources/scripts/configure-bluebird.js",
@@ -145,7 +145,12 @@
                         "path": "../node_modules/aurelia-testing/dist/amd",
                         "main": "aurelia-testing",
                         "env": "dev"
-                    },
+                    }
+                ]
+            },
+            {
+                "name": "infra.vendor-bundle.js",
+                "dependencies": [
                     "jquery",
                     {
                         "name": "bootstrap",
