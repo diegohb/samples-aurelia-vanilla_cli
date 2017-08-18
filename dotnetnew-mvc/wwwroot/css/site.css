@@ -36,7 +36,7 @@ textarea {
     width: 100%;
     height: 100%;
     overflow: visible;
-    background: #333 url('//files.mimoymima.com/images/loading.gif') no-repeat center center;
+    background: #333 url('../images/loading.gif') no-repeat center center;
 }
 
 @-webkit-keyframes load3 {
