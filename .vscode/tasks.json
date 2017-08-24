@@ -7,10 +7,7 @@
             "taskName": "build",
             "command": "dotnet build",
             "type": "shell",
-            "group": {
-                "kind": "build",
-                "isDefault": true
-            },
+            "group": "build",
             "presentation": {
                 "reveal": "silent"
             },
@@ -20,7 +17,10 @@
             "taskName": "au-build",
             "command": "au build",
             "type": "shell",
-            "group": "build",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
             "options": {
                 "cwd": "${workspaceRoot}/dotnetnew-mvc/"
             },
