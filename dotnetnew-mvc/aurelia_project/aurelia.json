@@ -96,10 +96,17 @@
         },
         "bundles": [
             {
-                "name": "app-bundle.js",
+                "name": "appOne-bundle.js",
                 "source": [
-                    "[**/*.js]",
-                    "**/*.{css,html}"
+                    "[app-one/**/*.js]",
+                    "app-one/**/*.{css,html}"
+                ]
+            },
+            {
+                "name": "appTwo-bundle.js",
+                "source": [
+                    "[app-two/**/*.js]",
+                    "app-two/**/*.{css,html}"
                 ]
             },
             {
@@ -108,6 +115,9 @@
                     "node_modules/bluebird/js/browser/bluebird.core.js",
                     "node_modules/aurelia-cli/lib/resources/scripts/configure-bluebird.js",
                     "node_modules/systemjs/dist/system.js"
+                ],
+                "source": [
+                    "[*.js]"
                 ],
                 "dependencies": [
                     "aurelia-binding",
