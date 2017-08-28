@@ -57,7 +57,7 @@
                 "id": "aspnetcore",
                 "displayName": "ASP.NET Core",
                 "output": "wwwroot/js",
-                "index": "views/home/SPAOne.cshtml",
+                "index": "views/shared/_AureliaBundleInclude.cshtml",
                 "baseDir": "./wwwroot",
                 "baseUrl": "/js"
             }
