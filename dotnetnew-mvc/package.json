@@ -42,6 +42,7 @@
         "aurelia-templating-router": "^1.1.0",
         "bluebird": "^3.5.0",
         "bootstrap": "^3.3.7",
+        "breeze-client": "^1.6.3",
         "jquery": "^3.2.1",
         "systemjs": "0.20.18",
         "systemjs-plugin-text": "0.0.11"
