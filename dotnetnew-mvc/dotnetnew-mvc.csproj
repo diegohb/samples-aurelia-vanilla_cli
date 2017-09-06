@@ -32,10 +32,15 @@
   <ItemGroup>
     <Folder Include="custom_typings\" />
     <Folder Include="wwwroot\js\" />
-	<Folder Include="wwwroot\css\" />
+	  <Folder Include="wwwroot\css\" />
   </ItemGroup>
 
   <Target Name="SPAProdPrepare" AfterTargets="ComputeFilesToPublish">
+    <ItemGroup>
+      <JSFiles Include="wwwroot\js\**"></JSFiles>
+    </ItemGroup>
+    <Delete Files="@(JSFiles)" ContinueOnError="True" />
+    <Message Text="Deleted generated files in js directories." />
     <Exec Command="yarn install" />
     <Exec Command="au build --env prod" />
 
