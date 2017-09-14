@@ -94,7 +94,7 @@
             },
             "sourcemaps": "dev & stage",
             "rev": {
-                "dev": true,
+                "dev": false,
                 "stage": false,
                 "prod": true
             }
