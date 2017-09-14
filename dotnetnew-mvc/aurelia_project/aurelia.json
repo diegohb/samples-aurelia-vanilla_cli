@@ -80,19 +80,24 @@
         "options": {
             "minify": {
                 "prod": {
-                  "ie8": true,
-                  "output": {
-                    "max_line_len": 1000000
-                  }
+                    "ie8": true,
+                    "output": {
+                        "max_line_len": 1000000
+                    }
                 },
                 "stage": {
                     "ie8": true,
                     "output": {
                         "max_line_len": 1000000
-                      }
+                    }
                 }
             },
-            "sourcemaps": "dev & stage"
+            "sourcemaps": "dev & stage",
+            "rev": {
+                "dev": false,
+                "stage": false,
+                "prod": true
+            }
         },
         "bundles": [
             {
