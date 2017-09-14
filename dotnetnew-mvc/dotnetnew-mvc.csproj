@@ -12,6 +12,12 @@
     <TypeScriptCompileBlocked>True</TypeScriptCompileBlocked>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(ASPNETCORE_ENVIRONMENT)'==''">
+    <!-- When aspnetcore environment is not specified, defaults based on compile configuration setting. -->
+    <ASPNETCORE_ENVIRONMENT Condition="'$(Configuration)' == 'Debug'">Development</ASPNETCORE_ENVIRONMENT>
+    <ASPNETCORE_ENVIRONMENT Condition="'$(Configuration)' == 'Release'">Production</ASPNETCORE_ENVIRONMENT>
+  </PropertyGroup>
+
   <ItemGroup>
     <Content Remove="package-lock.json" />
   </ItemGroup>
@@ -35,14 +41,12 @@
 	  <Folder Include="wwwroot\css\" />
   </ItemGroup>
 
-  <Target Name="SPAProdPrepare" AfterTargets="ComputeFilesToPublish">
-    <ItemGroup>
-      <JSFiles Include="wwwroot\js\**"></JSFiles>
-    </ItemGroup>
-    <Delete Files="@(JSFiles)" ContinueOnError="True" />
-    <Message Text="Deleted generated files in js directories." />
+  <Target Name="SPAPublishPrepare" AfterTargets="ComputeFilesToPublish">   
+    <Message Text="Starting SPA package preparation for publish. Running with environment '$(ASPNETCORE_ENVIRONMENT)' and compilation config '$(Configuration)'." />
     <Exec Command="yarn install" />
-    <Exec Command="au build --env prod" />
+    <Exec Command="au build --env dev" Condition="'$(ASPNETCORE_ENVIRONMENT)' == 'Development'" />
+    <Exec Command="au build --env stage" Condition="'$(ASPNETCORE_ENVIRONMENT)' == 'Staging'" />
+    <Exec Command="au build --env prod" Condition="'$(ASPNETCORE_ENVIRONMENT)' == 'Production'" />
 
     <!-- Include the newly-built files in the publish output -->
     <ItemGroup>
@@ -52,5 +56,27 @@
         <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       </ResolvedFileToPublish>
     </ItemGroup>
+
+    <Message Text="Finished packaging SPA for publish." />
+  </Target>
+
+  <Target Name="EchoEnvInfo">
+    <Message Text="The ASPNETCore Env is '$(ASPNETCORE_ENVIRONMENT)'." />
+    <Message Text="The config is '$(Configuration)'." />
+    <Message Text="The config is '$(Config)'." />
+
+    <Message Text="au build --env dev" Condition="'$(ASPNETCORE_ENVIRONMENT)' == 'Development'" />
+    <Message Text="au build --env stage" Condition="'$(ASPNETCORE_ENVIRONMENT)' == 'Staging'" />
+    <Message Text="au build --env prod" Condition="'$(ASPNETCORE_ENVIRONMENT)' == 'Production'" />
+  </Target>
+
+  <Target Name="DeleteGeneratedFiles" AfterTargets="Clean">
+    <ItemGroup>
+      <JSFiles Include="wwwroot\js\**"></JSFiles>
+      <!--<CSSFiles Include="wwwroot\css\**"></CSSFiles>-->
+    </ItemGroup>
+    <Delete Files="@(JSFiles)" ContinueOnError="True" />
+    <!--<Delete Files="@(CSSFiles)" ContinueOnError="True" />-->
+    <Message Text="Deleted generated files in JS directory." />
   </Target>
 </Project>
