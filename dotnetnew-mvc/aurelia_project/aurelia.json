@@ -5,7 +5,7 @@
     "id": "aspnetcore",
     "displayName": "ASP.NET Core",
     "output": "wwwroot/js",
-    "index": "views/shared/_layout.cshtml",
+    "index": "views/shared/_AureliaBundleInclude.cshtml",
     "baseDir": "./wwwroot",
     "baseUrl": "js"
   },
@@ -57,7 +57,7 @@
                 "id": "aspnetcore",
                 "displayName": "ASP.NET Core",
                 "output": "wwwroot/js",
-                "index": "views/home/SPAOne.cshtml",
+                "index": "views/shared/_AureliaBundleInclude.cshtml",
                 "baseDir": "./wwwroot",
                 "baseUrl": "/js"
             }
@@ -80,19 +80,24 @@
         "options": {
             "minify": {
                 "prod": {
-                  "ie8": true,
-                  "output": {
-                    "max_line_len": 1000000
-                  }
+                    "ie8": true,
+                    "output": {
+                        "max_line_len": 1000000
+                    }
                 },
                 "stage": {
                     "ie8": true,
                     "output": {
                         "max_line_len": 1000000
-                      }
+                    }
                 }
             },
-            "sourcemaps": "dev & stage"
+            "sourcemaps": "dev & stage",
+            "rev": {
+                "dev": false,
+                "stage": false,
+                "prod": true
+            }
         },
         "bundles": [
             {
