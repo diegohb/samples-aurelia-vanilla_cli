@@ -27,5 +27,4 @@ node_modules
 package-lock.json
 /**/wwwroot/**
 !/**/wwwroot/images/**
-!/**/wwwroot/css/site.css
 

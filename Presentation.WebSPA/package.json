@@ -41,13 +41,14 @@
         "aurelia-templating-resources": "^1.4.0",
         "aurelia-templating-router": "^1.1.0",
         "bluebird": "^3.5.0",
-        "bootstrap": "^3.3.7",
+        "bootstrap-less": "^3.3.8",
         "jquery": "^3.2.1",
         "systemjs": "0.20.18",
         "systemjs-plugin-text": "0.0.11"
     },
     "peerDependencies": {},
     "devDependencies": {
+		"@types/bootstrap": "^3.3.35",
         "@types/jasmine": "^2.5.54",
         "@types/jquery": "^3.2.12",
         "@types/node": "^8.0.24",
