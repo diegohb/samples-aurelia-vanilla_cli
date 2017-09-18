@@ -1,5 +1,12 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
+  <PropertyGroup Label="Globals">
+    <SccProjectName>Plastic SCM</SccProjectName>
+    <SccProvider>Plastic SCM Source Control Service:{774e58ba-f1b9-40a7-b676-834fa2c220fe}</SccProvider>
+    <SccAuxPath>Plastic SCM</SccAuxPath>
+    <SccLocalPath>Plastic SCM</SccLocalPath>
+  </PropertyGroup>
+
   <PropertyGroup>
     <TargetFramework>netcoreapp2.0</TargetFramework>
   </PropertyGroup>
