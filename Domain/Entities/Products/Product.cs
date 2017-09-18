@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using Domain.Orders;
+using Domain.Entities.Orders;
 
-namespace Domain.Products
+namespace Domain.Entities.Products
 {
     public partial class Product
     {

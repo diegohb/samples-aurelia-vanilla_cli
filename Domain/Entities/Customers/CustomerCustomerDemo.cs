@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Domain.Customers
+namespace Domain.Entities.Customers
 {
     public partial class CustomerCustomerDemo
     {

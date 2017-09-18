@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Domain.Employees
+namespace Domain.Entities.Employees
 {
     public partial class EmployeeTerritory
     {

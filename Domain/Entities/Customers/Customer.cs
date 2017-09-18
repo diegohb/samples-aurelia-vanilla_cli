@@ -1,19 +1,21 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using Domain.Products;
+using Domain.Entities.Orders;
 
-namespace Domain.Orders
+namespace Domain.Entities.Customers
 {
-    public partial class Supplier
+    public partial class Customer
     {
-        public Supplier()
+        public Customer()
         {
-            Products = new HashSet<Product>();
+            CustomerCustomerDemo = new HashSet<CustomerCustomerDemo>();
+            Orders = new HashSet<Order>();
         }
 
-        [Column("SupplierID")]
-        public int SupplierId { get; set; }
+        [Column("CustomerID")]
+        [MaxLength(5)]
+        public string CustomerId { get; set; }
 
         [MaxLength(60)]
         public string Address { get; set; }
@@ -36,8 +38,6 @@ namespace Domain.Orders
 
         [MaxLength(24)]
         public string Fax { get; set; }
-        
-        public string HomePage { get; set; }
 
         [MaxLength(24)]
         public string Phone { get; set; }
@@ -48,7 +48,10 @@ namespace Domain.Orders
         [MaxLength(15)]
         public string Region { get; set; }
 
-        [InverseProperty("Supplier")]
-        public virtual ICollection<Product> Products { get; set; }
+        [InverseProperty("Customer")]
+        public virtual ICollection<CustomerCustomerDemo> CustomerCustomerDemo { get; set; }
+
+        [InverseProperty("Customer")]
+        public virtual ICollection<Order> Orders { get; set; }
     }
 }

@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
-using Domain.Products;
+using Domain.Entities.Products;
 
-namespace Domain.Orders
+namespace Domain.Entities.Orders
 {
     [Table("Order Details")]
     public partial class OrderDetail

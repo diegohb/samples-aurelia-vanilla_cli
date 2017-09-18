@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using Domain.Customers;
-using Domain.Employees;
+using Domain.Entities.Customers;
+using Domain.Entities.Employees;
 
-namespace Domain.Orders
+namespace Domain.Entities.Orders
 {
     public partial class Order
     {

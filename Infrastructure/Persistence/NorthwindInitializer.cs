@@ -1,12 +1,13 @@
-﻿using Domain.Employees;
-using Domain.Orders;
-using Domain.Products;
-using Domain.Customers;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Domain.Entities.Customers;
+using Domain.Entities.Employees;
+using Domain.Entities.Orders;
+using Domain.Entities.Products;
+using Infrastructure.Persistence;
 
-namespace Infrastructure
+namespace Infrastructure.Persistence
 {
     public class NorthwindInitializer
     {

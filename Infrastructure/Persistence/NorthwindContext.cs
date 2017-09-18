@@ -1,10 +1,10 @@
-﻿using Domain.Customers;
-using Domain.Employees;
-using Domain.Orders;
-using Domain.Products;
+﻿using Domain.Entities.Customers;
+using Domain.Entities.Employees;
+using Domain.Entities.Orders;
+using Domain.Entities.Products;
 using Microsoft.EntityFrameworkCore;
 
-namespace Infrastructure
+namespace Infrastructure.Persistence
 {
     public partial class NorthwindContext : DbContext
     {

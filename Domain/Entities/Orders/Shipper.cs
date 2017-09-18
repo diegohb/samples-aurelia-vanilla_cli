@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Domain.Orders
+namespace Domain.Entities.Orders
 {
     public partial class Shipper
     {

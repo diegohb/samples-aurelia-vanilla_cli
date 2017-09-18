@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Domain.Products
+namespace Domain.Entities.Products
 {
     public partial class Category
     {
