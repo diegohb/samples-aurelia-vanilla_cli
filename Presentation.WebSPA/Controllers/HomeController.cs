@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace dotnetnew_mvc.Controllers
+namespace Presentation.WebSPA.Controllers
 {
     public class HomeController : Controller
     {

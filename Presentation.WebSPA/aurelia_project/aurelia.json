@@ -1,5 +1,5 @@
 {
-  "name": "dotnetnew-mvc",
+  "name": "aurelia-vanilla.presentation-webspa",
   "type": "project:application",
   "platform": {
     "id": "aspnetcore",
