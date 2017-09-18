@@ -22,7 +22,7 @@
                 "isDefault": true
             },
             "options": {
-                "cwd": "${workspaceRoot}/dotnetnew-mvc/"
+                "cwd": "${workspaceRoot}/Presentation.WebSPA/"
             },
             "dependsOn": ["build"],
             "presentation": {
@@ -39,7 +39,7 @@
             "type": "shell",
             "group": "build",
             "options": {
-                "cwd": "${workspaceRoot}/dotnetnew-mvc/"
+                "cwd": "${workspaceRoot}/Presentation.WebSPA/"
             },
             "dependsOn": ["build"],
             "presentation": {
@@ -54,7 +54,7 @@
             "taskName": "au-test",
             "command": "au test",
             "options": {
-                "cwd": "${workspaceRoot}/dotnetnew-mvc/"
+                "cwd": "${workspaceRoot}/Presentation.WebSPA/"
             },
             "dependsOn": ["build"],
             "group": {

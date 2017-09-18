@@ -1,5 +1,5 @@
 {
-    "terminal.integrated.cwd": "./dotnetnew-mvc/",
-    "tslint.configFile": "./dotnetnew-mvc/tsconfig.json",
+    "terminal.integrated.cwd": "./Presentation.WebSPA/",
+    "tslint.configFile": "./Presentation.WebSPA/tsconfig.json",
     "tslint.jsEnable": true
 }

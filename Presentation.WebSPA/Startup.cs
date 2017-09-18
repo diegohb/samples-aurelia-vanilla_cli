@@ -9,7 +9,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Logging;
 
-namespace dotnetnew_mvc
+namespace Presentation.WebSPA
 {
     public class Startup
     {

@@ -6,9 +6,9 @@
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "au-build",
-            "program": "${workspaceRoot}/dotnetnew-mvc/bin/Debug/netcoreapp2.0/dotnetnew-mvc.dll",
+            "program": "${workspaceRoot}/Presentation.WebSPA/bin/Debug/netcoreapp2.0/Presentation.WebSPA.dll",
             "args": [],
-            "cwd": "${workspaceRoot}/dotnetnew-mvc/",
+            "cwd": "${workspaceRoot}/Presentation.WebSPA/",
             "stopAtEntry": false,
             "console": "internalConsole"
         },
@@ -17,9 +17,9 @@
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "au-build-watch",
-            "program": "${workspaceRoot}/dotnetnew-mvc/bin/Debug/netcoreapp2.0/dotnetnew-mvc.dll",
+            "program": "${workspaceRoot}/Presentation.WebSPA/bin/Debug/netcoreapp2.0/Presentation.WebSPA.dll",
             "args": [],
-            "cwd": "${workspaceRoot}/dotnetnew-mvc/",
+            "cwd": "${workspaceRoot}/Presentation.WebSPA/",
             "stopAtEntry": false,
             "launchBrowser": {
                 "enabled": true,
@@ -39,7 +39,7 @@
                 "ASPNETCORE_ENVIRONMENT": "Development"
             },
             "sourceFileMap": {
-                "/Views": "${workspaceRoot}/dotnetnew-mvc/Views"
+                "/Views": "${workspaceRoot}/Presentation.WebSPA/Views"
             }
         },
         {
