@@ -1,7 +1,10 @@
-﻿using System;
+﻿using Domain.Employees;
+using Domain.Orders;
+using Domain.Products;
+using Domain.Customers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using NorthwindTraders.Domain;
 
 namespace NorthwindTraders.Persistance
 {

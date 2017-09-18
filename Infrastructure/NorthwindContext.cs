@@ -1,5 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore;
-using NorthwindTraders.Domain;
+﻿using Domain.Customers;
+using Domain.Employees;
+using Domain.Orders;
+using Domain.Products;
+using Microsoft.EntityFrameworkCore;
 
 namespace NorthwindTraders.Persistance
 {
