@@ -1,8 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Domain.Orders;
 
-namespace NorthwindTraders.Domain
+namespace Domain.Products
 {
     public partial class Product
     {

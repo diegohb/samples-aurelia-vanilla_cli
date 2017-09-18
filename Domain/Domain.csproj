@@ -8,9 +8,9 @@
   </PropertyGroup>
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp1.1</TargetFramework>
-    <AssemblyName>NorthwindTraders.Domain</AssemblyName>
-    <RootNamespace>NorthwindTraders.Domain</RootNamespace>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <AssemblyName>Domain</AssemblyName>
+    <RootNamespace>Domain</RootNamespace>
   </PropertyGroup>
 
 </Project>

@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Domain.Orders;
 
-namespace NorthwindTraders.Domain
+namespace Domain.Employees
 {
     public partial class Employee
     {

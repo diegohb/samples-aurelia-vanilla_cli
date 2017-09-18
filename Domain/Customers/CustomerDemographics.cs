@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace NorthwindTraders.Domain
+namespace Domain.Customers
 {
     public partial class CustomerDemographics
     {

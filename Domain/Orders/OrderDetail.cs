@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
+using Domain.Products;
 
-namespace NorthwindTraders.Domain
+namespace Domain.Orders
 {
     [Table("Order Details")]
     public partial class OrderDetail
