@@ -4,7 +4,7 @@ using Domain.Orders;
 using Domain.Products;
 using Microsoft.EntityFrameworkCore;
 
-namespace NorthwindTraders.Persistance
+namespace Infrastructure
 {
     public partial class NorthwindContext : DbContext
     {
