@@ -1,6 +1,7 @@
 import { Aurelia } from "aurelia-framework"
 import environment from "./environment";
 import * as $ from "jquery";
+import "bootstrap-less";
 
 export function configure(aurelia: Aurelia) {
     aurelia.use
@@ -8,7 +9,7 @@ export function configure(aurelia: Aurelia) {
         .plugin("aurelia-bootstrap")
         .feature("resources");
 
-    aurelia.use.globalResources("bootstrap/css/bootstrap.css");
+    aurelia.use.globalResources("/less/bootstrap.css");
 
     if (environment.debug) {
         aurelia.use.developmentLogging();
