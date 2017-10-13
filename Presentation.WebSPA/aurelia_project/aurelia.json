@@ -28,7 +28,7 @@
     "id": "less",
     "displayName": "Less",
     "fileExtension": ".less",
-    "source": "src/**/*.less"
+    "source": ["src/one.less", "src/resources/two.less"]
   },
   "editor": {
     "id": "visualstudio",

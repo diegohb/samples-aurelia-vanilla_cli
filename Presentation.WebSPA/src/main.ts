@@ -9,6 +9,8 @@ export function configure(aurelia: Aurelia) {
         .feature("resources");
 
     aurelia.use.globalResources("bootstrap/css/bootstrap.css");
+    aurelia.use.globalResources("./one.css"); 
+    aurelia.use.globalResources("./resources/two.css");
 
     if (environment.debug) {
         aurelia.use.developmentLogging();
