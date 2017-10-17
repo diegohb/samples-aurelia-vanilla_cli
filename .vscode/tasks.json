@@ -5,7 +5,10 @@
     "tasks": [
         {
             "taskName": "build",
-            "command": "dotnet build",
+            "command": "dotnet",
+            "args": [
+                "build"
+            ],
             "type": "shell",
             "group": "build",
             "presentation": {
@@ -15,7 +18,10 @@
         },
         {
             "taskName": "au-build",
-            "command": "au build",
+            "command": "au",
+            "args": [
+                "build"
+            ],
             "type": "shell",
             "group": {
                 "kind": "build",
@@ -31,11 +37,15 @@
             },
             "isBackground": true,
             "problemMatcher": ["$gulp-tsc"],
-            "identifier": "au-build-watch"
+            "identifier": "au-build"
         },
         {
             "taskName": "au-build-watch",
-            "command": "au build --watch",
+            "command": "au",
+            "args": [
+                "build",
+                "--watch"
+            ],
             "type": "shell",
             "group": "build",
             "options": {
@@ -52,7 +62,10 @@
         },
         {
             "taskName": "au-test",
-            "command": "au test",
+            "command": "au",
+            "args": [
+                "test"
+            ],
             "options": {
                 "cwd": "${workspaceRoot}/Presentation.WebSPA/"
             },
