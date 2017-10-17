@@ -17,7 +17,16 @@ let watchCallback = () => { };
 
 watches[project.transpiler.source] = { name: 'transpile', callback: transpile };
 watches[project.markupProcessor.source] = { name: 'markup', callback: processMarkup };
-watches[project.cssProcessor.source] = { name: 'CSS', callback: processCSS };
+
+if (typeof(project.cssProcessor.source) === "object") {
+  for (let sourceItem of project.cssProcessor.source) {
+    watches[sourceItem] = { name: "css", callback: processCSS };
+  }
+}
+else {
+  watches[project.cssProcessor.source] = { name: 'CSS', callback: processCSS };
+}
+
 if (typeof project.build.copyFiles === 'object') {
   for (let src of Object.keys(project.build.copyFiles)) {
     watches[src] = { name: 'file copy', callback: copyFiles };
