@@ -20,7 +20,7 @@ watches[project.markupProcessor.source] = { name: 'markup', callback: processMar
 
 if (typeof(project.cssProcessor.source) === "object") {
   for (let sourceItem of project.cssProcessor.source) {
-    watches[sourceItem] = { name: "css", callback: processMarkup };
+    watches[sourceItem] = { name: "css", callback: processCSS };
   }
 }
 else {
