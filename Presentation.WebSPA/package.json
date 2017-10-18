@@ -42,10 +42,10 @@
         "aurelia-templating-binding": "^1.4.0",
         "aurelia-templating-resources": "^1.5.1",
         "aurelia-templating-router": "^1.2.0",
-        "bluebird": "^3.5.0",
+        "bluebird": "^3.5.1",
         "bootstrap": "^3.3.7",
         "jquery": "^3.2.1",
-        "systemjs": "0.20.18",
+        "systemjs": "0.20.19",
         "systemjs-plugin-text": "0.0.11"
     },
     "peerDependencies": {},
