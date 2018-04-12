@@ -9,7 +9,7 @@
     "license": "MIT",
     "engines": {
         "vscode": "^1.17.0",
-        "node": "^8.0.0",
+        "node": "^9.0.0",
         "npm": "^5.0.0"
     },
     "scripts": {
