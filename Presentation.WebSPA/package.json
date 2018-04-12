@@ -71,7 +71,7 @@
         "gulp-shell": "^0.6.3",
         "gulp-sourcemaps": "^2.6.1",
         "gulp-tslint": "^8.1.2",
-        "gulp-typescript": "^3.2.2",
+        "gulp-typescript": "^4.0.2",
         "gulp-watch": "^4.3.11",
         "html-minifier": "^3.5.6",
         "jasmine-core": "^2.8.0",
@@ -83,7 +83,7 @@
         "minimatch": "^3.0.4",
         "through2": "^2.0.3",
         "tslint": "^5.7.0",
-        "typescript": ">=2.5.3",
+        "typescript": "^2.8.1",
         "uglify-js": "^3.1.4",
         "vinyl-fs": "^2.4.4"
     }
