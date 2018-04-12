@@ -54,7 +54,7 @@
         "@types/jasmine": "^2.6.0",
         "@types/jquery": "^3.2.15",
         "@types/node": "^8.0.44",
-        "aurelia-cli": "^0.31.3",
+        "aurelia-cli": "^0.33.1",
         "aurelia-testing": "^1.0.0-beta.3.0.1",
         "aurelia-tools": "^1.0.0",
         "browser-sync": "^2.18.13",
