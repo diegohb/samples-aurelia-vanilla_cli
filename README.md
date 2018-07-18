@@ -46,11 +46,22 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.We
     7. CTRL+F5 and the browser should launch.
 
     Visual Studio 2017:
-    1.
+    1. Open PowerShell or Command Prompt and CD into Presentation.Web directory.
+    2. Execute `yarn install`.
+    3. Open solution file.
+    4. Install Web Extensions (Task Runner Explorer)
+    5. Restart Visual Studio (w/ elevated permissions).
+    6. Task Runner Explorer will show an error.   
+    7. Go to Tools -> Options
+        1. Projects & Solutions -> Web Package Management -> External Web Tools: Ensure path to nodejs is at the top of the list, typically "c:\program files\nodejs\" 
+        2.  Projects & Solutions -> Web Package Management -> Package Restore: Disable NPM Restore on Project Open and Save.
+    8. In Task Runner Explorer, close the au-build-watch task that threw error. Double-click "au-build-watch" task to restart.
+    9. Verify last line is "Finished 'writeBundles'.
+    10. CTRL+F5 to Run w/o Debugging.
 
 
 ## learning resources
-1. [Official Aurelia Docs](http://aurelia.io/docs.html)
+- [Official Aurelia Docs](http://aurelia.io/docs.html)
 - [Aurelia Guides - From-Scractch](https://github.com/aurelia-guides/aurelia-guides.md-articles/blob/master/Building-Skeleton-Navigation-From-Scratch.md) (found this after the fact...)
 - [SO Posting on Minimalistic Aurelia Project](http://stackoverflow.com/a/32081822/1240322)
 - [Gitter chat room](https://gitter.im/Aurelia/Discuss)

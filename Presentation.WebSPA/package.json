@@ -10,7 +10,7 @@
     "engines": {
         "vscode": "^1.25.0",
         "node": "^10.0.0",
-        "npm": "5.0.0"
+        "npm": "6.1.0"
     },
     "scripts": {
         "au-update": "yarn upgrade aurelia-binding@latest aurelia-bootstrapper@latest aurelia-dependency-injection@latest aurelia-event-aggregator@latest aurelia-framework@latest aurelia-history@latest aurelia-history-browser@latest aurelia-loader@latest aurelia-loader-default@latest aurelia-logging@latest aurelia-logging-console@latest aurelia-metadata@latest aurelia-pal@latest aurelia-pal-browser@latest aurelia-path@latest aurelia-polyfills@latest aurelia-route-recognizer@latest aurelia-router@latest aurelia-task-queue@latest aurelia-templating@latest aurelia-templating-binding@latest aurelia-templating-resources@latest aurelia-templating-router@latest aurelia-animator-css@latest",
