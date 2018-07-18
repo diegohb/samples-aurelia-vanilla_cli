@@ -1,5 +1,6 @@
 {
     "terminal.integrated.cwd": "./Presentation.WebSPA/",
     "tslint.configFile": "./Presentation.WebSPA/tsconfig.json",
-    "tslint.jsEnable": true
+    "tslint.jsEnable": true,
+    "npm.packageManager": "yarn"
 }
