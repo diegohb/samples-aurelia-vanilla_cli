@@ -1,6 +1,7 @@
 {
   "name": "aurelia-vanilla.presentation-webspa",
   "type": "project:application",
+  "packageManager": "yarn",
   "platform": {
     "id": "aspnetcore",
     "displayName": "ASP.NET Core",
@@ -115,27 +116,6 @@
                     "node_modules/systemjs/dist/system.js"
                 ],
                 "dependencies": [
-                    "aurelia-binding",
-                    "aurelia-bootstrapper",
-                    "aurelia-dependency-injection",
-                    "aurelia-event-aggregator",
-                    "aurelia-framework",
-                    "aurelia-history",
-                    "aurelia-history-browser",
-                    "aurelia-loader",
-                    "aurelia-loader-default",
-                    "aurelia-logging",
-                    "aurelia-logging-console",
-                    "aurelia-metadata",
-                    "aurelia-pal",
-                    "aurelia-pal-browser",
-                    "aurelia-path",
-                    "aurelia-polyfills",
-                    "aurelia-route-recognizer",
-                    "aurelia-router",
-                    "aurelia-task-queue",
-                    "aurelia-templating",
-                    "aurelia-templating-binding",
                     {
                         "name": "text",
                         "path": "../node_modules/systemjs-plugin-text",
