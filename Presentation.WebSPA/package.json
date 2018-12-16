@@ -60,7 +60,7 @@
         "browser-sync": "^2.26.0",
         "connect-history-api-fallback": "^1.5.0",
         "debounce": "^1.2.0",
-        "event-stream": "^4.0.1",
+        "event-stream": "3.3.4",
         "gulp": "^4.0.0",
         "gulp-changed-in-place": "^2.3.0",
         "gulp-htmlmin": "^5.0.1",
