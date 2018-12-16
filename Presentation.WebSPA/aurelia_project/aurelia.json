@@ -174,14 +174,10 @@
                     "jquery",
                     {
                         "name": "bootstrap",
-                        "path": "../node_modules/bootstrap/dist",
-                        "main": "js/bootstrap.min.js",
+                        "path": "../node_modules/bootstrap",
+                        "main": "dist/js/bootstrap.min",
                         "deps": [
                             "jquery"
-                        ],
-                        "exports": "$",
-                        "resources": [
-                            "css/bootstrap.css"
                         ]
                     },
                     "velocity-animate",
