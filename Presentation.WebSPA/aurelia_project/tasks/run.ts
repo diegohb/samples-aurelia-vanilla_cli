@@ -11,8 +11,8 @@ let serve = gulp.series(
   done => {
     browserSync({
       online: false,
-      open: false,
-      port: 9000,
+      open: CLIOptions.hasFlag('open'),
+      port: project.platform.port,
       logLevel: 'silent',
       server: {
         baseDir: [project.platform.baseDir],
@@ -40,15 +40,9 @@ function reload() {
   browserSync.reload();
 }
 
-let run;
-
-if (CLIOptions.hasFlag('watch')) {
-  run = gulp.series(
-    serve,
-    done => { watch(reload); done(); }
-  );
-} else {
-  run = serve;
-}
+let run = gulp.series(
+  serve,
+  done => { watch(reload); done(); }
+);
 
 export default run;

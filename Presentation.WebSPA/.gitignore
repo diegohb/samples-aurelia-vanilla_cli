@@ -18,12 +18,15 @@ Thumbs.db
 # Ref: https://github.com/github/gitignore/blob/master/Global/JetBrains.gitignore
 # Ref: https://github.com/github/gitignore/blob/master/Global/VisualStudioCode.gitignore
 .idea
-.vscode
 
 # Dependencies
 node_modules
+yarn.lock
+package-lock.json
 
 # Compiled files
+bin
+obj
 package-lock.json
 /**/wwwroot/**
 !/**/wwwroot/images/**

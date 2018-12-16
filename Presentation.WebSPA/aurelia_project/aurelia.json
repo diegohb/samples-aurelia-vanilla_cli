@@ -1,61 +1,76 @@
 {
-  "name": "aurelia-vanilla.presentation-webspa",
-  "type": "project:application",
-  "platform": {
-    "id": "aspnetcore",
-    "displayName": "ASP.NET Core",
-    "output": "wwwroot/js",
-    "index": "views/shared/_AureliaBundleInclude.cshtml",
-    "baseDir": "./wwwroot",
-    "baseUrl": "js"
-  },
-  "transpiler": {
-    "id": "typescript",
-    "displayName": "TypeScript",
-    "fileExtension": ".ts",
-    "dtsSource": [
-      "./custom_typings/**/*.d.ts"
+    "name": "aurelia-vanilla.presentation-webspa",
+    "type": "project:application",
+    "packageManager": "yarn",
+    "platform": {
+        "id": "aspnetcore",
+        "displayName": "ASP.NET Core",
+        "port": 5100,
+        "output": "wwwroot/js",
+        "index": "views/shared/_AureliaBundleInclude.cshtml",
+        "baseDir": "./wwwroot",
+        "baseUrl": "js"
+    },
+    "transpiler": {
+        "id": "typescript",
+        "displayName": "TypeScript",
+        "fileExtension": ".ts",
+        "dtsSource": [
+            "./custom_typings/**/*.d.ts"
+        ],
+        "source": "src/**/*.ts"
+    },
+    "markupProcessor": {
+        "id": "minimum",
+        "displayName": "Minimal Minification",
+        "fileExtension": ".html",
+        "source": "src/**/*.html"
+    },
+    "cssProcessor": {
+        "id": "less",
+        "displayName": "Less",
+        "fileExtension": ".less",
+        "source": "src/**/*.less"
+    },
+    "jsonProcessor": {
+        "id": "none",
+        "displayName": "None",
+        "fileExtension": ".json",
+        "source": "src/**/*.json"
+    },
+    "editor": {
+        "id": "visualstudio",
+        "displayName": "Visual Studio"
+    },
+    "unitTestRunners": [
+        {
+            "id": "karma",
+            "displayName": "Karma",
+            "source": "test/unit/**/*.ts"
+        }
     ],
-    "source": "src/**/*.ts"
-  },
-  "markupProcessor": {
-    "id": "minimum",
-    "displayName": "Minimal Minification",
-    "fileExtension": ".html",
-    "source": "src/**/*.html"
-  },
-  "cssProcessor": {
-    "id": "less",
-    "displayName": "Less",
-    "fileExtension": ".less",
-    "source": "src/**/*.less"
-  },
-  "editor": {
-    "id": "visualstudio",
-    "displayName": "Visual Studio"
-  },
-  "unitTestRunner": {
-    "id": "karma",
-    "displayName": "Karma",
-    "source": "test/unit/**/*.ts"
-  },
-  "paths": {
-    "root": "src",
-    "resources": "resources",
-    "elements": "resources/elements",
-    "attributes": "resources/attributes",
-    "valueConverters": "resources/value-converters",
-    "bindingBehaviors": "resources/binding-behaviors"
-  },
-  "testFramework": {
-    "id": "jasmine",
-    "displayName": "Jasmine"
-  },
+    "integrationTestRunner": {
+        "id": "none",
+        "displayName": "None"
+    },
+    "paths": {
+        "root": "src",
+        "resources": "resources",
+        "elements": "resources/elements",
+        "attributes": "resources/attributes",
+        "valueConverters": "resources/value-converters",
+        "bindingBehaviors": "resources/binding-behaviors"
+    },
+    "testFramework": {
+        "id": "jasmine",
+        "displayName": "Jasmine"
+    },
     "build": {
         "targets": [
             {
                 "id": "aspnetcore",
                 "displayName": "ASP.NET Core",
+                "port": 5100,
                 "output": "wwwroot/js",
                 "index": "views/shared/_AureliaBundleInclude.cshtml",
                 "baseDir": "./wwwroot",
@@ -97,21 +112,30 @@
                 "dev": false,
                 "stage": false,
                 "prod": true
-            }
+            },
+            "cache": "dev & stage"
         },
         "bundles": [
             {
                 "name": "app-bundle.js",
                 "source": [
                     "[**/*.js]",
-                    "**/*.{css,html}"
+                    "**/*.{json,css,html}"
                 ]
             },
             {
                 "name": "vendor-bundle.js",
                 "prepend": [
                     "node_modules/bluebird/js/browser/bluebird.core.js",
-                    "node_modules/aurelia-cli/lib/resources/scripts/configure-bluebird.js",
+                    {
+                        "path": "node_modules/aurelia-cli/lib/resources/scripts/configure-bluebird-no-long-stacktraces.js",
+                        "env": "stage & prod"
+                    },
+                    {
+                        "path": "node_modules/aurelia-cli/lib/resources/scripts/configure-bluebird.js",
+                        "env": "dev"
+                    },
+                    "node_modules/@babel/polyfill/browser.js",
                     "node_modules/systemjs/dist/system.js"
                 ],
                 "dependencies": [
@@ -136,25 +160,15 @@
                     "aurelia-task-queue",
                     "aurelia-templating",
                     "aurelia-templating-binding",
+                    "aurelia-templating-resources",
+                    "aurelia-templating-router",
                     {
                         "name": "text",
                         "path": "../node_modules/systemjs-plugin-text",
                         "main": "text"
                     },
                     {
-                        "name": "aurelia-templating-resources",
-                        "path": "../node_modules/aurelia-templating-resources/dist/amd",
-                        "main": "aurelia-templating-resources"
-                    },
-                    {
-                        "name": "aurelia-templating-router",
-                        "path": "../node_modules/aurelia-templating-router/dist/amd",
-                        "main": "aurelia-templating-router"
-                    },
-                    {
                         "name": "aurelia-testing",
-                        "path": "../node_modules/aurelia-testing/dist/amd",
-                        "main": "aurelia-testing",
                         "env": "dev"
                     },
                     "jquery",
