@@ -42,11 +42,13 @@
         "id": "visualstudio",
         "displayName": "Visual Studio"
     },
-    "unitTestRunner": {
-        "id": "karma",
-        "displayName": "Karma",
-        "source": "test/unit/**/*.ts"
-    },
+    "unitTestRunners": [
+        {
+            "id": "karma",
+            "displayName": "Karma",
+            "source": "test/unit/**/*.ts"
+        }
+    ],
     "integrationTestRunner": {
         "id": "none",
         "displayName": "None"
