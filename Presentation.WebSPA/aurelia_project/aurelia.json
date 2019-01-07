@@ -139,29 +139,9 @@
                     "node_modules/systemjs/dist/system.js"
                 ],
                 "dependencies": [
-                    "aurelia-binding",
                     "aurelia-bootstrapper",
-                    "aurelia-dependency-injection",
-                    "aurelia-event-aggregator",
-                    "aurelia-framework",
-                    "aurelia-history",
-                    "aurelia-history-browser",
-                    "aurelia-loader",
                     "aurelia-loader-default",
-                    "aurelia-logging",
-                    "aurelia-logging-console",
-                    "aurelia-metadata",
-                    "aurelia-pal",
                     "aurelia-pal-browser",
-                    "aurelia-path",
-                    "aurelia-polyfills",
-                    "aurelia-route-recognizer",
-                    "aurelia-router",
-                    "aurelia-task-queue",
-                    "aurelia-templating",
-                    "aurelia-templating-binding",
-                    "aurelia-templating-resources",
-                    "aurelia-templating-router",
                     {
                         "name": "text",
                         "path": "../node_modules/systemjs-plugin-text",
@@ -174,14 +154,10 @@
                     "jquery",
                     {
                         "name": "bootstrap",
-                        "path": "../node_modules/bootstrap/dist",
-                        "main": "js/bootstrap.min.js",
+                        "path": "../node_modules/bootstrap",
+                        "main": "dist/js/bootstrap.min",
                         "deps": [
                             "jquery"
-                        ],
-                        "exports": "$",
-                        "resources": [
-                            "css/bootstrap.css"
                         ]
                     },
                     "velocity-animate",
