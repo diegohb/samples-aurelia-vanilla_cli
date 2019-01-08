@@ -154,29 +154,19 @@
                     "jquery",
                     {
                         "name": "bootstrap",
-                        "path": "../node_modules/bootstrap",
-                        "main": "dist/js/bootstrap.min",
-                        "deps": [
-                            "jquery"
-                        ]
-                    },
-                    "velocity-animate",
-                    "tether",
-                    {
-                        "name": "aurelia-bootstrap",
-                        "path": "../node_modules/aurelia-bootstrap/dist/amd",
-                        "main": "index",
+                        "path": "../node_modules/bootstrap/dist",
+                        "main": "js/bootstrap.min",
+                        "deps": ["jquery", "popper.js"],
+                        "exports": "$",
                         "resources": [
-                            "**/*.html"
-                        ],
-                        "deps": [ "bootstrap" ]
+                            "css/bootstrap.css"
+                        ]
                     }
                 ]
             }
         ],
         "copyFiles": {
-            "node_modules/bootstrap/dist/css/**": "wwwroot/css",
-            "node_modules/bootstrap/dist/fonts/**": "wwwroot/fonts",
+            "node_modules/bootstrap/dist/css/bootstrap.min.*": "wwwroot/css",
             "node_modules/bootstrap/dist/js/bootstrap.min.*": "wwwroot/js",
             "node_modules/jquery/dist/jquery.min.*": "wwwroot/js"
         }
