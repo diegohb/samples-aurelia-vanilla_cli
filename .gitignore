@@ -3,4 +3,5 @@ _ReSharper.Caches
 .vs
 **/obj/
 **/bin/
+dist/**
 codealike.json
