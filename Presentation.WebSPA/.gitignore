@@ -31,4 +31,6 @@ package-lock.json
 /**/wwwroot/**
 !/**/wwwroot/images/**
 !/**/wwwroot/css/site.css
+_AureliaBundleInclude.cshtml
+environment.ts
 
