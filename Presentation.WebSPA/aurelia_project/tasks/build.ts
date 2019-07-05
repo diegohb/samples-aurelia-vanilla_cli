@@ -1,4 +1,5 @@
 import * as gulp from 'gulp';
+import * as project from '../aurelia.json';
 import {CLIOptions, build as buildCLI} from 'aurelia-cli';
 import transpile from './transpile';
 import processMarkup from './process-markup';
@@ -6,7 +7,6 @@ import processJson from './process-json';
 import processCSS from './process-css';
 import copyFiles from './copy-files';
 import watch from './watch';
-import * as project from '../aurelia.json';
 
 let build = gulp.series(
   readProjectConfiguration,
