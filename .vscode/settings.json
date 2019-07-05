@@ -1,6 +1,13 @@
 {
     "terminal.integrated.cwd": "./Presentation.WebSPA/",
+    "typescript.tsdk": "node_modules/typescript/lib",
+    "html.suggest.angular1": false,
+    "html.suggest.ionic": false,
     "tslint.configFile": "./Presentation.WebSPA/tsconfig.json",
     "tslint.jsEnable": true,
-    "npm.packageManager": "yarn"
+    "npm.packageManager": "yarn",
+    "autoimport.doubleQuotes": true,
+    "autoimport.spaceBetweenBraces": true,
+    "autoimport.useSemiColon": true,
+    "aurelia.autocomplete.quotes": "double"
 }
