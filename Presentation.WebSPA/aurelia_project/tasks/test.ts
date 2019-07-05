@@ -1,4 +1,4 @@
-import * as jest from 'jest-cli';
+import * as jest from "jest-cli";
 import * as path from "path";
 import * as packageJson from "../../package.json";
 
