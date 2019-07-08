@@ -24,19 +24,19 @@
         "id": "minimum",
         "displayName": "Minimal Minification",
         "fileExtension": ".html",
-        "source": "src/**/*.html"
+        "source": ["src/**/*.html"]
     },
     "cssProcessor": {
         "id": "less",
         "displayName": "Less",
         "fileExtension": ".less",
-        "source": "src/**/*.less"
+        "source": ["src/**/*.less"]
     },
     "jsonProcessor": {
         "id": "none",
         "displayName": "None",
         "fileExtension": ".json",
-        "source": "src/**/*.json"
+        "source": ["src/**/*.json"]
     },
     "editor": {
         "id": "visualstudio",
@@ -126,16 +126,7 @@
             {
                 "name": "vendor-bundle.js",
                 "prepend": [
-                    "node_modules/bluebird/js/browser/bluebird.core.js",
-                    {
-                        "path": "node_modules/aurelia-cli/lib/resources/scripts/configure-bluebird-no-long-stacktraces.js",
-                        "env": "stage & prod"
-                    },
-                    {
-                        "path": "node_modules/aurelia-cli/lib/resources/scripts/configure-bluebird.js",
-                        "env": "dev"
-                    },
-                    "node_modules/@babel/polyfill/browser.js",
+                    "node_modules/promise-polyfill/dist/polyfill.min.js",
                     "node_modules/systemjs/dist/system.js"
                 ],
                 "dependencies": [

@@ -5,3 +5,4 @@ _ReSharper.Caches
 **/bin/
 dist/**
 codealike.json
+coverage-jest

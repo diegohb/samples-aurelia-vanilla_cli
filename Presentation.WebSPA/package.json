@@ -10,9 +10,12 @@
     "engines": {
         "vscode": "^1.17.0",
         "node": "^10.0.0",
-        "npm": "^6.0.0"
+        "npm": "^10.0.0"
     },
     "scripts": {
+        "build": "au build",
+        "start": "echo 'MUST RUN WITH DOTNET RUN'",
+        "test": "au test",
         "au-update": "yarn upgrade aurelia-binding@latest aurelia-bootstrapper@latest aurelia-dependency-injection@latest aurelia-event-aggregator@latest aurelia-framework@latest aurelia-history@latest aurelia-history-browser@latest aurelia-loader@latest aurelia-loader-default@latest aurelia-logging@latest aurelia-logging-console@latest aurelia-metadata@latest aurelia-pal@latest aurelia-pal-browser@latest aurelia-path@latest aurelia-polyfills@latest aurelia-route-recognizer@latest aurelia-router@latest aurelia-task-queue@latest aurelia-templating@latest aurelia-templating-binding@latest aurelia-templating-resources@latest aurelia-templating-router@latest aurelia-animator-css@latest",
         "devtooling-versions": "node -v && npm -v && yarn -v && au -v"
     },
@@ -41,20 +44,18 @@
         "aurelia-templating-binding": "^1.5.3",
         "aurelia-templating-resources": "^1.11.0",
         "aurelia-templating-router": "^1.4.0",
-        "bluebird": "^3.5.5",
         "bootstrap": "^4.3.1",
         "jquery": "^3.4.1",
 		"popper.js": "^1.15.0",
+        "promise-polyfill": "^8.1.3",
         "systemjs": "^0.21.5",
         "systemjs-plugin-text": "0.0.11"
     },
     "peerDependencies": {},
     "devDependencies": {
         "@types/bootstrap": "^4.3.0",
-        "@types/jasmine": "^3.3.13",
         "@types/jquery": "^3.3.30",
         "@types/node": "^10.14.10",
-        "@babel/polyfill":"7.4.4",
         "aurelia-cli": "^1.0.2",
         "aurelia-testing": "^1.0.0",
         "aurelia-tools": "^2.0.0",
@@ -75,18 +76,56 @@
         "gulp-typescript": "^5.0.1",
         "gulp-watch": "^5.0.1",
         "html-minifier": "^4.0.0",
-        "jasmine-core": "^3.4.0",
-        "karma": "^4.1.0",
-        "karma-chrome-launcher": "^2.2.0",
-        "karma-jasmine": "^2.0.1",
-        "karma-sourcemap-loader": "^0.3.7",
-        "karma-spec-reporter": "^0.0.32",
-        "karma-typescript-preprocessor": "^0.4.0",
         "merge2": "^1.2.3",
         "minimatch": "^3.0.4",
         "through2": "^3.0.1",
         "tslint": "^5.18.0",
         "typescript": "^3.5.2",
-        "vinyl-fs": "^3.0.3"
+        "vinyl-fs": "^3.0.3",
+		"@types/jest": "^24.0.15",
+        "aurelia-loader-nodejs": "^1.0.1",
+        "aurelia-pal-nodejs": "^1.2.0",
+        "jest": "^24.8.0",
+        "jest-cli": "^24.8.0",
+        "jest-transform-stub": "^2.0.0",
+        "ts-jest": "^24.0.2"
+    },
+    "jest": {
+        "moduleNameMapper": {
+          "^aurelia-binding$": "<rootDir>/node_modules/aurelia-binding",
+          "^.+\\.css$": "<rootDir>/test/mock-css"
+        },
+        "modulePaths": [
+          "<rootDir>/src",
+          "<rootDir>/node_modules"
+        ],
+        "moduleFileExtensions": [
+          "ts",
+          "js",
+          "json"
+        ],
+        "transform": {
+          "^.+\\.(css|less|sass|scss|styl|jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "jest-transform-stub",
+          "^.+\\.ts$": "ts-jest"
+        },
+        "testRegex": "\\.spec\\.(ts|js)$",
+        "setupFiles": [
+          "<rootDir>/test/jest-pretest.ts"
+        ],
+        "testEnvironment": "node",
+        "collectCoverage": true,
+        "collectCoverageFrom": [
+          "src/**/*.{js,ts}",
+          "!**/*.spec.{js,ts}",
+          "!**/node_modules/**",
+          "!**/test/**"
+        ],
+        "coverageDirectory": "<rootDir>/test/coverage-jest",
+        "coverageReporters": [
+          "json",
+          "lcov",
+          "text",
+          "html"
+        ]
     }
 }
