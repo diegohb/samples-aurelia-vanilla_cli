@@ -7,8 +7,7 @@
             "label": "build",
             "command": "dotnet",
             "args": [
-                "build",
-                "${workspaceFolder}/${config:app.spa-name}/${config:app.spa-name}.csproj"
+                "build"
             ],
             "type": "process",
             "group": "build",
