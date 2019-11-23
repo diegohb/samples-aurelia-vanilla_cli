@@ -10,7 +10,11 @@
             "args": [],
             "cwd": "${workspaceRoot}/Presentation.WebSPA/",
             "stopAtEntry": false,
-            "console": "internalConsole"
+            "console": "internalConsole",
+            "serverReadyAction": {
+                "action": "openExternally",
+                "pattern": "^\\s*Now listening on:\\s+(https?://\\S+)"
+            }
         },
         {
             "name": "launch (web)",
