@@ -6,14 +6,19 @@
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "au-build",
-            "program": "${workspaceRoot}/Presentation.WebSPA/bin/Debug/netcoreapp2.0/Presentation.WebSPA.dll",
+            "program": "${workspaceFolder}/Presentation.WebSPA/bin/Debug/netcoreapp2.0/Presentation.WebSPA.dll",
             "args": [],
-            "cwd": "${workspaceRoot}/Presentation.WebSPA/",
+            "cwd": "${workspaceFolder}/Presentation.WebSPA/",
             "stopAtEntry": false,
             "console": "internalConsole",
+            "internalConsoleOptions": "openOnSessionStart",
             "serverReadyAction": {
                 "action": "openExternally",
                 "pattern": "^\\s*Now listening on:\\s+(https?://\\S+)"
+            },
+            "env": {
+                "ASPNETCORE_ENVIRONMENT": "Development",
+                "ASPNETCORE_URLS": "http://localhost:5001"
             }
         },
         {
@@ -21,10 +26,11 @@
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "au-build-watch",
-            "program": "${workspaceRoot}/Presentation.WebSPA/bin/Debug/netcoreapp2.0/Presentation.WebSPA.dll",
+            "program": "${workspaceFolder}/Presentation.WebSPA/bin/Debug/netcoreapp2.0/Presentation.WebSPA.dll",
             "args": [],
-            "cwd": "${workspaceRoot}/Presentation.WebSPA/",
+            "cwd": "${workspaceFolder}/Presentation.WebSPA/",
             "stopAtEntry": false,
+            "internalConsoleOptions": "openOnSessionStart",
             "launchBrowser": {
                 "enabled": true,
                 "args": "${auto-detect-url}",
@@ -40,10 +46,11 @@
                 }
             },
             "env": {
-                "ASPNETCORE_ENVIRONMENT": "Development"
+                "ASPNETCORE_ENVIRONMENT": "Development",
+                "ASPNETCORE_URLS": "http://localhost:5001"
             },
             "sourceFileMap": {
-                "/Views": "${workspaceRoot}/Presentation.WebSPA/Views"
+                "/Views": "${workspaceFolder}/Presentation.WebSPA/Views"
             }
         },
         {
