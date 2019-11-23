@@ -6,9 +6,9 @@
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "au-build",
-            "program": "${workspaceFolder}/Presentation.WebSPA/bin/Debug/netcoreapp2.0/Presentation.WebSPA.dll",
+            "program": "${workspaceFolder}/${config:app.spa-name}/bin/Debug/${config:app.target-runtime}/${config:app.spa-name}.dll",
             "args": [],
-            "cwd": "${workspaceFolder}/Presentation.WebSPA/",
+            "cwd": "${workspaceFolder}/${config:app.spa-name}/",
             "stopAtEntry": false,
             "console": "internalConsole",
             "internalConsoleOptions": "openOnSessionStart",
@@ -26,9 +26,9 @@
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "au-build-watch",
-            "program": "${workspaceFolder}/Presentation.WebSPA/bin/Debug/netcoreapp2.0/Presentation.WebSPA.dll",
+            "program": "${workspaceFolder}/${config:app.spa-name}/bin/Debug/${config:app.target-runtime}/${config:app.spa-name}.dll",
             "args": [],
-            "cwd": "${workspaceFolder}/Presentation.WebSPA/",
+            "cwd": "${workspaceFolder}/${config:app.spa-name}/",
             "stopAtEntry": false,
             "internalConsoleOptions": "openOnSessionStart",
             "launchBrowser": {
@@ -50,7 +50,7 @@
                 "ASPNETCORE_URLS": "http://localhost:5001"
             },
             "sourceFileMap": {
-                "/Views": "${workspaceFolder}/Presentation.WebSPA/Views"
+                "/Views": "${workspaceFolder}/${config:app.spa-name}/Views"
             }
         },
         {

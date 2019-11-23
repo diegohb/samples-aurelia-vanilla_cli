@@ -31,7 +31,7 @@
                 "isDefault": true
             },
             "options": {
-                "cwd": "${workspaceFolder}/Presentation.WebSPA/"
+                "cwd": "${workspaceFolder}/${config:app.spa-name}/"
             },
             "dependsOn": [
                 "build"
@@ -57,7 +57,7 @@
             "type": "shell",
             "group": "build",
             "options": {
-                "cwd": "${workspaceFolder}/Presentation.WebSPA/"
+                "cwd": "${workspaceFolder}/${config:app.spa-name}/"
             },
             "dependsOn": [
                 "build"
@@ -80,7 +80,7 @@
                 "test"
             ],
             "options": {
-                "cwd": "${workspaceFolder}/Presentation.WebSPA/"
+                "cwd": "${workspaceFolder}/${config:app.spa-name}/"
             },
             "dependsOn": [
                 "build"
