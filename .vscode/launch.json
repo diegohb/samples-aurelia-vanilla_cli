@@ -6,21 +6,31 @@
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "au-build",
-            "program": "${workspaceRoot}/Presentation.WebSPA/bin/Debug/netcoreapp2.0/Presentation.WebSPA.dll",
+            "program": "${workspaceFolder}/${config:app.spa-name}/bin/Debug/${config:app.target-runtime}/${config:app.spa-name}.dll",
             "args": [],
-            "cwd": "${workspaceRoot}/Presentation.WebSPA/",
+            "cwd": "${workspaceFolder}/${config:app.spa-name}/",
             "stopAtEntry": false,
-            "console": "internalConsole"
+            "console": "internalConsole",
+            "internalConsoleOptions": "openOnSessionStart",
+            "serverReadyAction": {
+                "action": "openExternally",
+                "pattern": "^\\s*Now listening on:\\s+(https?://\\S+)"
+            },
+            "env": {
+                "ASPNETCORE_ENVIRONMENT": "Development",
+                "ASPNETCORE_URLS": "http://localhost:5001"
+            }
         },
         {
             "name": "launch (web)",
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "au-build-watch",
-            "program": "${workspaceRoot}/Presentation.WebSPA/bin/Debug/netcoreapp2.0/Presentation.WebSPA.dll",
+            "program": "${workspaceFolder}/${config:app.spa-name}/bin/Debug/${config:app.target-runtime}/${config:app.spa-name}.dll",
             "args": [],
-            "cwd": "${workspaceRoot}/Presentation.WebSPA/",
+            "cwd": "${workspaceFolder}/${config:app.spa-name}/",
             "stopAtEntry": false,
+            "internalConsoleOptions": "openOnSessionStart",
             "launchBrowser": {
                 "enabled": true,
                 "args": "${auto-detect-url}",
@@ -36,10 +46,11 @@
                 }
             },
             "env": {
-                "ASPNETCORE_ENVIRONMENT": "Development"
+                "ASPNETCORE_ENVIRONMENT": "Development",
+                "ASPNETCORE_URLS": "http://localhost:5001"
             },
             "sourceFileMap": {
-                "/Views": "${workspaceRoot}/Presentation.WebSPA/Views"
+                "/Views": "${workspaceFolder}/${config:app.spa-name}/Views"
             }
         },
         {
