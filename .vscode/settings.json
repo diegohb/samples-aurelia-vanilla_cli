@@ -9,5 +9,10 @@
     "autoimport.doubleQuotes": true,
     "autoimport.spaceBetweenBraces": true,
     "autoimport.useSemiColon": true,
-    "aurelia.autocomplete.quotes": "double"
+    "aurelia.autocomplete.quotes": "double",
+    "files.eol": "\r\n",
+    "editor.formatOnSave": true,
+    "editor.formatOnSaveTimeout": 750,
+    "app.spa-name": "Presentation.WebSPA",
+    "app.target-runtime": "netcoreapp2.0"
 }

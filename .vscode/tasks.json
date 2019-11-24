@@ -9,7 +9,7 @@
             "args": [
                 "build"
             ],
-            "type": "shell",
+            "type": "process",
             "group": "build",
             "presentation": {
                 "echo": true,
@@ -31,9 +31,11 @@
                 "isDefault": true
             },
             "options": {
-                "cwd": "${workspaceRoot}/Presentation.WebSPA/"
+                "cwd": "${workspaceFolder}/${config:app.spa-name}/"
             },
-            "dependsOn": ["build"],
+            "dependsOn": [
+                "build"
+            ],
             "presentation": {
                 "echo": true,
                 "reveal": "always",
@@ -41,7 +43,9 @@
                 "panel": "shared"
             },
             "isBackground": false,
-            "problemMatcher": ["$gulp-tsc"]
+            "problemMatcher": [
+                "$gulp-tsc"
+            ]
         },
         {
             "label": "au-build-watch",
@@ -53,9 +57,11 @@
             "type": "shell",
             "group": "build",
             "options": {
-                "cwd": "${workspaceRoot}/Presentation.WebSPA/"
+                "cwd": "${workspaceFolder}/${config:app.spa-name}/"
             },
-            "dependsOn": ["build"],
+            "dependsOn": [
+                "build"
+            ],
             "presentation": {
                 "echo": true,
                 "reveal": "always",
@@ -63,7 +69,9 @@
                 "panel": "dedicated"
             },
             "isBackground": true,
-            "problemMatcher": ["$gulp-tsc"]
+            "problemMatcher": [
+                "$gulp-tsc"
+            ]
         },
         {
             "label": "au-test",
@@ -72,9 +80,11 @@
                 "test"
             ],
             "options": {
-                "cwd": "${workspaceRoot}/Presentation.WebSPA/"
+                "cwd": "${workspaceFolder}/${config:app.spa-name}/"
             },
-            "dependsOn": ["build"],
+            "dependsOn": [
+                "build"
+            ],
             "group": {
                 "kind": "test",
                 "isDefault": true
@@ -86,7 +96,9 @@
                 "focus": true
             },
             "type": "shell",
-            "problemMatcher": ["$gulp-tsc"]
+            "problemMatcher": [
+                "$gulp-tsc"
+            ]
         }
     ]
 }
