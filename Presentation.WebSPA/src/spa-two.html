@@ -1,5 +1,21 @@
 <template>
     <require from="materialize-css/dist/css/materialize.css"></require>
+    <md-navbar>
+        <a href="#/samples/navbar" class="brand-logo">
+            <span>Brand logo</span>
+        </a>
+        <ul class="hide-on-med-and-down right">
+            <li md-waves>
+                <a>About</a>
+            </li>
+            <li md-waves>
+                <a>Installation</a>
+            </li>
+            <li md-waves>
+                <a>Project Status</a>
+            </li>
+        </ul>
+    </md-navbar>
 
     <h3>${message}</h3>
 </template>
