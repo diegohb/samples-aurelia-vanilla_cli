@@ -56,10 +56,10 @@
     "devDependencies": {
         "@types/bootstrap": "^3.4.0",
         "@types/jest": "^24.0.23",
-        "@types/jquery": "^3.3.31",
-        "@types/node": "^12.12.12",
+        "@types/jquery": "^3.3.33",
+        "@types/node": "^12.12.28",
         "aurelia-cli": "^1.2.3",
-        "aurelia-loader-nodejs": "^1.0.1",
+        "aurelia-loader-nodejs": "^1.1.0",
         "aurelia-pal-nodejs": "^1.2.0",
         "aurelia-testing": "^1.0.0",
         "aurelia-tools": "^2.0.0",
@@ -88,7 +88,7 @@
         "through2": "^3.0.1",
         "ts-jest": "^24.2.0",
         "tslint": "^5.20.1",
-        "typescript": "^3.7.2",
+        "typescript": "^3.8.2",
         "vinyl-fs": "^3.0.3"
     },
     "jest": {
