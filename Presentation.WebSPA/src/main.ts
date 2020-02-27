@@ -1,14 +1,10 @@
 import { Aurelia } from "aurelia-framework"
 import environment from "./environment";
-import * as $ from "jquery";
 
 export function configure(aurelia: Aurelia) {
     aurelia.use
         .standardConfiguration()
-        .plugin("aurelia-bootstrap")
         .feature("resources");
-
-    aurelia.use.globalResources("bootstrap/css/bootstrap.css");
 
     aurelia.use.developmentLogging(environment.debug ? "debug" : "warn");
 
@@ -28,6 +24,6 @@ export function configure(aurelia: Aurelia) {
         //specifying via html-attribute what spa module to load
         let startModuleName = (<any>pAurelia.host.attributes).start.value;
         pAurelia.setRoot(startModuleName);
-        $("#loader").fadeOut("slow");
+        document.getElementById("loader").style.display = "none";
     });
 }

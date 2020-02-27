@@ -24,19 +24,25 @@
         "id": "minimum",
         "displayName": "Minimal Minification",
         "fileExtension": ".html",
-        "source": ["src/**/*.html"]
+        "source": [
+            "src/**/*.html"
+        ]
     },
     "cssProcessor": {
         "id": "less",
         "displayName": "Less",
         "fileExtension": ".less",
-        "source": ["src/**/*.less"]
+        "source": [
+            "src/**/*.less"
+        ]
     },
     "jsonProcessor": {
         "id": "none",
         "displayName": "None",
         "fileExtension": ".json",
-        "source": ["src/**/*.json"]
+        "source": [
+            "src/**/*.json"
+        ]
     },
     "editor": {
         "id": "visualstudio",
@@ -141,35 +147,13 @@
                     {
                         "name": "aurelia-testing",
                         "env": "dev"
-                    },
-                    "jquery",
-                    {
-                        "name": "bootstrap",
-                        "path": "../node_modules/bootstrap",
-                        "main": "dist/js/bootstrap.min",
-                        "deps": [
-                            "jquery"
-                        ]
-                    },
-                    "velocity-animate",
-                    "tether",
-                    {
-                        "name": "aurelia-bootstrap",
-                        "path": "../node_modules/aurelia-bootstrap/dist/amd",
-                        "main": "index",
-                        "resources": [
-                            "**/*.html"
-                        ],
-                        "deps": [ "bootstrap" ]
                     }
                 ]
             }
         ],
         "copyFiles": {
             "node_modules/bootstrap/dist/css/**": "wwwroot/css",
-            "node_modules/bootstrap/dist/fonts/**": "wwwroot/fonts",
-            "node_modules/bootstrap/dist/js/bootstrap.min.*": "wwwroot/js",
-            "node_modules/jquery/dist/jquery.min.*": "wwwroot/js"
+            "node_modules/bootstrap/dist/fonts/**": "wwwroot/fonts"
         }
     }
 }
