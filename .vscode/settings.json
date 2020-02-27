@@ -14,5 +14,5 @@
     "editor.formatOnSave": true,
     "editor.formatOnSaveTimeout": 750,
     "app.spa-name": "Presentation.WebSPA",
-    "app.target-runtime": "netcoreapp2.0"
+    "app.target-runtime": "netcoreapp2.1"
 }
