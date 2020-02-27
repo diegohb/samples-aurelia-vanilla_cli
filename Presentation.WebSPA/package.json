@@ -58,7 +58,7 @@
         "@types/jest": "^24.0.23",
         "@types/jquery": "^3.3.31",
         "@types/node": "^12.12.12",
-        "aurelia-cli": "^1.2.2",
+        "aurelia-cli": "^1.2.3",
         "aurelia-loader-nodejs": "^1.0.1",
         "aurelia-pal-nodejs": "^1.2.0",
         "aurelia-testing": "^1.0.0",
