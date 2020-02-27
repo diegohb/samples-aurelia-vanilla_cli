@@ -150,10 +150,6 @@
                     }
                 ]
             }
-        ],
-        "copyFiles": {
-            "node_modules/bootstrap/dist/css/**": "wwwroot/css",
-            "node_modules/bootstrap/dist/fonts/**": "wwwroot/fonts"
-        }
+        ]
     }
 }
