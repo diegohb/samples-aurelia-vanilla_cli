@@ -27,7 +27,7 @@
         public void ConfigureServices(IServiceCollection services)
         {
             // Add framework services.
-            services.AddMvc();
+            services.AddControllersWithViews();
             services.AddLogging(pLoggingBuilder =>
             {
                 pLoggingBuilder.AddConfiguration(Configuration.GetSection("Logging"));
@@ -58,13 +58,13 @@
 
             app.UseStaticFiles();
 
-            app.UseMvc
-            (routes =>
+            app.UseRouting();
+
+            app.UseEndpoints(endpoints =>
             {
-                routes.MapRoute
-                (
-                    "default",
-                    "{controller=Home}/{action=Index}/{id?}");
+                endpoints.MapControllerRoute(
+                    name: "default",
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
             });
         }
     }
