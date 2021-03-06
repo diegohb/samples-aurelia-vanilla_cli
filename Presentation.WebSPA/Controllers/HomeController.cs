@@ -4,16 +4,19 @@
 
     public class HomeController : Controller
     {
+        [Route("")]
         public IActionResult Index()
         {
             return View();
         }
 
+        [Route("One")]
         public IActionResult SPAOne()
         {
             return View();
         }
 
+        [Route("Two")]
         public IActionResult SPATwo()
         {
             return View();
