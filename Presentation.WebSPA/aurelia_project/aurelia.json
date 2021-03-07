@@ -123,18 +123,7 @@
                     "[**/*.js]",
                     "**/*.{json,css,html}"
                 ],
-                "dependencies": [
-                    "jquery",
-                    {
-                        "name": "bootstrap",
-                        "path": "../node_modules/bootstrap",
-                        "deps": [ "jquery", "popper.js" ],
-                        "exports": "$",
-                        "resources": [
-                            
-                        ]
-                    }
-                ] 
+                "dependencies": [] 
             },
             {
                 "name": "vendor-bundle.js",
@@ -154,6 +143,16 @@
                     {
                         "name": "aurelia-testing",
                         "env": "dev"
+                    },
+                    "jquery",
+                    {
+                        "name": "bootstrap",
+                        "path": "../node_modules/bootstrap",
+                        "deps": [ "jquery", "popper.js" ],
+                        "exports": "$",
+                        "resources": [
+
+                        ]
                     }
                 ]
             }
