@@ -1,6 +1,6 @@
 ﻿@page
 @{
-    ViewBag.Title = "SPA Two";
+    ViewBag.Title = "Pokemon";
     Layout = "_Layout";
 }
 
@@ -9,18 +9,11 @@
     <!--dont call from CDN because CSS is bundled-->
 }
 
-<section>
-    <h2>SPA Two</h2>
+<div id="loader"></div>
 
-    <div id="loader"></div>
+<section aurelia-app="main" start="routes/pokemon-spa/pokemon-spa">
+</section>
 
-    <div class="row">
-        <div class="col-md-3">...Left Side...</div>
-        <div class="col-md-9">
-            <section aurelia-app="main" start="spa-two">
-            </section>
-        </div>
-    </div></section>
 
 @section Scripts
 {

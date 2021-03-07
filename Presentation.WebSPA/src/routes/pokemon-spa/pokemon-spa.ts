@@ -1,6 +1,5 @@
-﻿export class SpaTwoApp {
-    public message = "Hello World from SPA Two!";
-    public items = [{
+﻿export class PokemonSPAViewModel {
+    public items:Array<any> = [{
         title: "Charmander",
         text: "Obviously prefers hot places. When it rains, steam is said to spout from the tip of its tail."
     }, {
