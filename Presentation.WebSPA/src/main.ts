@@ -8,7 +8,7 @@ export function configure(aurelia: Aurelia) {
         .standardConfiguration()
         .feature("resources");
 
-    aurelia.use.globalResources("bootstrap/css/bootstrap.css");
+    aurelia.use.globalResources("bootstrap.css");
 
     aurelia.use.developmentLogging(environment.debug ? "debug" : "warn");
 
