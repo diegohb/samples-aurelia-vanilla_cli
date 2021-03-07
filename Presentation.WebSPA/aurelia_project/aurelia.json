@@ -7,7 +7,7 @@
         "displayName": "ASP.NET Core",
         "port": 5100,
         "output": "wwwroot/js",
-        "index": "views/shared/_AureliaBundleInclude.cshtml",
+        "index": "pages/shared/_AureliaBundleInclude.cshtml",
         "baseDir": "./wwwroot",
         "baseUrl": "js"
     },
@@ -72,7 +72,7 @@
                 "displayName": "ASP.NET Core",
                 "port": 5100,
                 "output": "wwwroot/js",
-                "index": "views/shared/_AureliaBundleInclude.cshtml",
+                "index": "pages/shared/_AureliaBundleInclude.cshtml",
                 "baseDir": "./wwwroot",
                 "baseUrl": "/js"
             }
