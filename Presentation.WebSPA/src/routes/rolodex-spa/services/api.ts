@@ -14,7 +14,7 @@ let contacts: Array<Contact> = [
         firstName: "John",
         lastName: "Tolkien",
         email: "tolkien@inklings.com",
-        phoneNumber: '867-5309'
+        phoneNumber: "867-5309"
     },
     {
         id: getId(),
