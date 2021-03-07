@@ -1,0 +1,29 @@
+﻿@page
+@{
+    ViewBag.Title = "SPA One";
+    Layout = "_Layout";
+}
+
+@section Styles
+{
+    <!--dont call from CDN because CSS is bundled-->
+}
+
+<h2>SPA One</h2>
+
+<div id="loader"></div>
+
+<div class="row">
+    <div class="col-md-9">
+        <section aurelia-app="main" start="spa-one">
+        </section>
+    </div>
+    <div class="col-md-3">
+        ...Right side..
+    </div>
+</div>
+
+@section Scripts
+{
+    <partial name="_AureliaBundleInclude" />
+}

@@ -11,23 +11,22 @@
 
     public class Startup
     {
-        public Startup(IHostingEnvironment env)
+        public Startup(IHostingEnvironment env, IConfiguration config)
         {
-            var builder = new ConfigurationBuilder()
-                .SetBasePath(env.ContentRootPath)
-                .AddJsonFile("appsettings.json", false, true)
-                .AddJsonFile($"appsettings.{env.EnvironmentName}.json", true)
-                .AddEnvironmentVariables();
-            Configuration = builder.Build();
+            Configuration = config;
         }
 
-        public IConfigurationRoot Configuration { get; }
+        public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             // Add framework services.
-            services.AddControllersWithViews();
+            services.AddRazorPages(opts =>
+            {
+                opts.Conventions.AddPageRoute("/SPAOne", "One");
+                opts.Conventions.AddPageRoute("/SPATwo", "Two");
+            });
             services.AddLogging(pLoggingBuilder =>
             {
                 pLoggingBuilder.AddConfiguration(Configuration.GetSection("Logging"));
@@ -62,9 +61,7 @@
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllerRoute(
-                    name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                endpoints.MapRazorPages();
             });
         }
     }
