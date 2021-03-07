@@ -1,14 +1,27 @@
-import {build} from 'aurelia-cli';
+import { CLIOptions, build } from 'aurelia-cli';
 import * as gulp from 'gulp';
 import * as project from '../aurelia.json';
-import * as plumber from 'gulp-plumber';
-import * as notify from 'gulp-notify';
-import * as less from 'gulp-less';
+import * as sass from 'gulp-dart-sass';
+import * as sassPackageImporter from 'node-sass-package-importer';
+import * as postcss from 'gulp-postcss';
+import * as autoprefixer from 'autoprefixer';
+import * as cssnano from 'cssnano';
+import * as postcssUrl from 'postcss-url';
 
 export default function processCSS() {
-  return gulp.src(project.cssProcessor.source, {sourcemaps: true, since: gulp.lastRun(processCSS)})
-    .pipe(plumber({ errorHandler: notify.onError('Error: <%= error.message %>') }))
-    .pipe(less())
-    .pipe(build.bundle());
+    return gulp.src(project.cssProcessor.source, { sourcemaps: true })
+        .pipe(
+            // sassPackageImporter handles @import "~bootstrap"
+            // https://github.com/maoberlehner/node-sass-magic-importer/tree/master/packages/node-sass-package-importer
+            CLIOptions.hasFlag('watch') ?
+            sass.sync({ importer: sassPackageImporter() }).on('error', sass.logError) :
+            sass.sync({ importer: sassPackageImporter() })
+        )
+        .pipe(postcss([
+            autoprefixer(),
+            // Inline images and fonts
+            postcssUrl({ url: 'inline', encodeType: 'base64' }),
+            cssnano()
+        ]))
+        .pipe(build.bundle());
 }
-

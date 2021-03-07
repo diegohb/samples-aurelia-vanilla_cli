@@ -1,14 +1,14 @@
 import { Aurelia } from "aurelia-framework"
 import environment from "./environment";
 import * as $ from "jquery";
+import "bootstrap";
 
 export function configure(aurelia: Aurelia) {
     aurelia.use
         .standardConfiguration()
-        .plugin("aurelia-bootstrap")
         .feature("resources");
 
-    aurelia.use.globalResources("bootstrap/css/bootstrap.css");
+    aurelia.use.globalResources("bootstrap.css");
 
     aurelia.use.developmentLogging(environment.debug ? "debug" : "warn");
 
