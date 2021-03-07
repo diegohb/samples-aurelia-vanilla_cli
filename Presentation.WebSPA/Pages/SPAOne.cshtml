@@ -9,20 +9,21 @@
     <!--dont call from CDN because CSS is bundled-->
 }
 
-<h2>SPA One</h2>
+<section>
+    <h2>SPA One</h2>
 
-<div id="loader"></div>
+    <div id="loader"></div>
 
-<div class="row">
-    <div class="col-md-9">
-        <section aurelia-app="main" start="spa-one">
-        </section>
+    <div class="row">
+        <div class="col-md-9">
+            <section aurelia-app="main" start="spa-one">
+            </section>
+        </div>
+        <div class="col-md-3">
+            ...Right side..
+        </div>
     </div>
-    <div class="col-md-3">
-        ...Right side..
-    </div>
-</div>
-
+</section>
 @section Scripts
 {
     <partial name="_AureliaBundleInclude" />
