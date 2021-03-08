@@ -1,4 +1,4 @@
-﻿import { autoinject } from "aurelia-framework";
+﻿import { autoinject, observable } from "aurelia-framework";
 import { EventAggregator } from "aurelia-event-aggregator";
 import { Api } from "./services/api";
 import { areEqual } from "./services/utility";
@@ -7,18 +7,19 @@ import { ContactViewedEvent, ContactUpdatedEvent } from "./models/events";
 
 @autoinject()
 export class ContactDetailViewModel {
-    public routeConfig;
-    public contact: Contact;
+    private _routeConfig;
+
+    @observable public contact: Contact;
     public originalContact: Contact;
 
-    constructor(private _api: Api, private _eventBus:EventAggregator) { }
+    constructor(private _api: Api, private _eventBus: EventAggregator) {}
 
     public async activate(params, routeConfig) {
-        this.routeConfig = routeConfig;
+        this._routeConfig = routeConfig;
         const fetchedContact = await this._api.getContactDetails(params.id);
-        this.contact = fetchedContact;
-        this.routeConfig.navModel.setTitle(this.contact.firstName);
-        this.originalContact = this.contact;
+        this.contact = JSON.parse(JSON.stringify(fetchedContact));
+        this._routeConfig.navModel.setTitle(this.contact.firstName);
+        this.originalContact = JSON.parse(JSON.stringify(this.contact)); //deep copy hack
         this._eventBus.publish(new ContactViewedEvent(this.contact));
     }
 
@@ -29,22 +30,22 @@ export class ContactDetailViewModel {
     public async save() {
         const updatedContact = await this._api.saveContact(this.contact);
         this.contact = updatedContact;
-        this.routeConfig.navModel.setTitle(this.contact.firstName);
+        this._routeConfig.navModel.setTitle(this.contact.firstName);
         this.originalContact = this.contact;
-        this._eventBus.publish((new ContactUpdatedEvent(this.contact)));
+        this._eventBus.publish(new ContactUpdatedEvent(this.contact));
     }
 
-    public async canDeactivate() {
+    public async reset() {
         if (!areEqual(this.originalContact, this.contact)) {
-            const result = confirm("You have unsaved changes. Are you sure you wish to leave?");
+            const result = confirm("Click 'Ok' to loose all changes, otherwise click 'Cancel'.");
 
-            if (!result) {
-                this._eventBus.publish(new ContactViewedEvent(this.contact));
+            if (result) {
+                this.contact = JSON.parse(JSON.stringify(this.originalContact));
             }
-
-            return result;
         }
+    }
 
-        return true;
+    private contactChanged(newValue: Contact, oldValue: Contact) {
+        console.log("contact updated.", { new: newValue, old: oldValue });
     }
 }
