@@ -1,5 +1,5 @@
 ﻿import { PLATFORM } from "aurelia-pal";
-import { Router, RouterConfiguration, RouteConfig } from "aurelia-router";
+import { Router, RouterConfiguration, NavigationInstruction } from "aurelia-router";
 
 export class RolodexSPAViewModel {
     public router: Router;
@@ -7,10 +7,14 @@ export class RolodexSPAViewModel {
     public configureRouter(pConfig: RouterConfiguration, pRouter: Router) {
         pConfig.title = "Contacts";
         pConfig.options.pushState = true;
-        pConfig.options.root = "/Rolodex/";
+        pConfig.options.root = "/Rolodex";
+        const navStratRedirect = (instruction: NavigationInstruction) => {
+            window.location.href = "/pokemon"; //eeggh .. shouldn't know about the other spa routes. hack for pushstate and routing
+        }
         pConfig.map([
             { route: "", moduleId: PLATFORM.moduleName("./no-selection"), title: "Select" },
-            { route: "contacts/:id", moduleId: PLATFORM.moduleName("./contact-detail"), name: "contacts" }
+            { route: "contacts/:id", moduleId: PLATFORM.moduleName("./contact-detail"), name: "contacts" },
+            { route: "pokemon", name: "pokemon", navigationStrategy: navStratRedirect }
         ]);
 
         this.router = pRouter;
