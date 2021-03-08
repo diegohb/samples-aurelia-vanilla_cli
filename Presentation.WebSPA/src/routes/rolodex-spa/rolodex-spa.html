@@ -1,0 +1,13 @@
+﻿<template>
+    <require from="./rolodex-spa.css"></require>
+    <require from="./contact-list"></require>
+
+    <h2>Contact Manager</h2>
+    
+    <div class="container">
+        <div class="row">
+            <contact-list class="col-sm-5 col-md-4"></contact-list>
+            <router-view class="col-sm-7 col-md-8"></router-view>
+        </div>
+    </div>
+</template>

@@ -1,0 +1,20 @@
+﻿@page
+@{
+    ViewBag.Title = "Rolodex";
+    Layout = "_Layout";
+}
+
+@section Styles
+{
+    <!--dont call from CDN because CSS is bundled-->
+}
+
+<div id="loader"></div>
+
+<section aurelia-app="main" start="routes/rolodex-spa/rolodex-spa">
+</section>
+
+@section Scripts
+{
+    <partial name="_AureliaBundleInclude" />
+}

@@ -1,0 +1,42 @@
+﻿<template>
+    <div class="card">
+        <div class="card-header text-white bg-primary">
+            Profile
+        </div>
+        <div class="card-body">
+            <form role="form">
+                <div class="form-group row">
+                    <label class="col-md-3 col-form-label">First Name</label>
+                    <div class="col-md-9">
+                        <input type="text" placeholder="first name" class="form-control" value.two-way="contact.firstName">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-md-3 col-form-label">Last Name</label>
+                    <div class="col-md-9">
+                        <input type="text" placeholder="last name" class="form-control" value.two-way="contact.lastName">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-md-3 col-form-label">Email</label>
+                    <div class="col-md-9">
+                        <input type="text" placeholder="email" class="form-control" value.two-way="contact.email">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-md-3 col-form-label">Phone Number</label>
+                    <div class="col-md-9">
+                        <input type="text" placeholder="phone number" class="form-control" value.two-way="contact.phoneNumber">
+                    </div>
+                </div>
+            </form>
+            <div>
+                <button class="btn btn-danger float-left" click.delegate="reset()">Reset</button>
+                <button class="btn btn-success float-right" click.delegate="save()" disabled.bind="!canSave">Save</button>
+            </div>
+        </div>
+    </div>
+</template>
