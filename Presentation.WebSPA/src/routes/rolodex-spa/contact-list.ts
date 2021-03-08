@@ -1,11 +1,12 @@
-﻿import { autoinject } from "aurelia-framework";
+﻿import { autoinject, customElement } from "aurelia-framework";
 import { EventAggregator } from "aurelia-event-aggregator";
 import { Api } from "./services/api";
 import { Contact } from "./models/contact-model";
 import { ContactViewedEvent, ContactUpdatedEvent } from "./models/events";
 
 @autoinject()
-export class ContactListViewMmodel {
+@customElement("contact-list")
+export class ContactListViewModel {
     public contacts: Array<Contact>;
     public selectedId: number = 0;
 
