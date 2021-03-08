@@ -24,8 +24,8 @@
             // Add framework services.
             services.AddRazorPages(opts =>
             {
-                opts.Conventions.AddPageRoute("/SPAOne", "One");
-                opts.Conventions.AddPageRoute("/SPATwo", "Two");
+                opts.Conventions.AddPageRoute("/Rolodex", "Rolodex/{*route}");
+                opts.Conventions.AddPageRoute("/Pokemon", "Pokemon/{*route}");
             });
             services.AddLogging(pLoggingBuilder =>
             {
