@@ -5,11 +5,6 @@ import { IPeopleApi } from "./IPeopleApi";
 import { ContactsApi } from "./ContactsApi";
 
 let latency = 600;
-let id = 0;
-
-function getId() {
-    return ++id;
-}
 
 @inject(ContactsApi)
 export class DataContext {
@@ -37,7 +32,7 @@ export class DataContext {
     public async getContactDetails(id:string): Promise<Contact> {
         this.isRequesting = true;
         await delay(latency);
-        const found = this._contacts.filter(x => x.id === Number.parseInt(id))[0];
+        const found = this._contacts.filter(x => x.id === id)[0];
         this.isRequesting = false;
         return found;
     }
@@ -52,7 +47,8 @@ export class DataContext {
             const index = this._contacts.indexOf(found);
             this._contacts[index] = instance;
         } else {
-            instance.id = getId();
+            //TODO: fix.
+            //instance.id = Date.now().toString();
             this._contacts.push(instance);
         }
 
@@ -62,6 +58,6 @@ export class DataContext {
 
     private async _loadData() {
         let people = await this._api.fetchPeople();
-        this._contacts = people.map(dto => Contact.fromDTO(getId(), dto));
+        this._contacts = people.map(dto => Contact.fromDTO(dto));
     }
 }
