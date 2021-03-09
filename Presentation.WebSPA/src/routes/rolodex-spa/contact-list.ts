@@ -1,6 +1,6 @@
 ﻿import { autoinject, customElement } from "aurelia-framework";
 import { EventAggregator } from "aurelia-event-aggregator";
-import { Api } from "./services/api";
+import { DataContext as Api } from "./services/DataContext";
 import { Contact } from "./models/contact-model";
 import { ContactViewedEvent, ContactUpdatedEvent } from "./models/events";
 

@@ -1,6 +1,6 @@
 ﻿import { autoinject, observable } from "aurelia-framework";
 import { EventAggregator } from "aurelia-event-aggregator";
-import { Api } from "./services/api";
+import { DataContext as Api } from "./services/DataContext";
 import { areEqual } from "./services/utility";
 import { Contact } from "./models/contact-model";
 import { ContactViewedEvent, ContactUpdatedEvent } from "./models/events";
