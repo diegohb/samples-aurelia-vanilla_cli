@@ -1,6 +1,6 @@
 ﻿import { PersonDTO } from "./api-dto";
 
-export class Contact {
+export class ListContactModel {
     constructor(private readonly _id: string = Date.now().toString()) {
 
     }
@@ -12,11 +12,15 @@ export class Contact {
     public email: string;
     public phoneNumber?: string;
 
-    public static fromDTO(dto: PersonDTO): Contact {
-        const contact = new Contact(dto.id);
+    public static fromDTO(dto: PersonDTO): ListContactModel {
+        const contact = new ListContactModel(dto.id);
         contact.firstName = dto.firstName;
         contact.lastName = dto.lastName;
         contact.email = dto.email;
         return contact;
     }
+}
+
+export class ContactDetailModel {
+
 }

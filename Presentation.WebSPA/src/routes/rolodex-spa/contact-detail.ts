@@ -2,7 +2,7 @@
 import { EventAggregator } from "aurelia-event-aggregator";
 import { DataContext } from "./services/data-context";
 import { areEqual } from "./services/utility";
-import { Contact } from "./models/contact-model";
+import { ListContactModel as Contact } from "./models/contact-model";
 import { ContactViewedEvent, ContactUpdatedEvent } from "./models/events";
 
 @autoinject()

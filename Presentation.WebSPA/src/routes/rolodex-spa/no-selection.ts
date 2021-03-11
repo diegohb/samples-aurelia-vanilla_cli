@@ -2,6 +2,6 @@
     public message: string;
 
     constructor() {
-        this.message = "Please Select a Contact.";
+        this.message = "Please Select a ListContactModel.";
     }
 }

@@ -1,6 +1,6 @@
 ﻿import { inject } from "aurelia-framework";
 import { delay } from "./utility";
-import { Contact } from "../models/contact-model";
+import { ListContactModel as Contact } from "../models/contact-model";
 import { IPeopleApi } from "./i-people-api";
 import { ContactsApi } from "./contacts-api";
 
