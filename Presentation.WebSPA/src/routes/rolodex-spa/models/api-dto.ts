@@ -14,7 +14,7 @@ export type PersonDTO =
     lastName: string;
     email: string;
     picture: string; //uri
-    gender?: "male" | "female" | "other" | "";
+    gender?: string;
     dateOfBirth?: string;
     phone?: string;
     location?: LocationDTO;

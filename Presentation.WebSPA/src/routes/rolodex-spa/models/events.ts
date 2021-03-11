@@ -1,4 +1,4 @@
-﻿import { ListContactModel as Contact } from "./contact-model";
+﻿import { ListContactModel as Contact } from "./list-contact-model";
 
 export class ContactUpdatedEvent {
     constructor(public contact: Contact) { }

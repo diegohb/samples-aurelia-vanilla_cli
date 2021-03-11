@@ -20,7 +20,3 @@ export class ListContactModel {
         return contact;
     }
 }
-
-export class ContactDetailModel {
-
-}
