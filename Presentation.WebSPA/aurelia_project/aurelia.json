@@ -128,6 +128,7 @@
             {
                 "name": "vendor-bundle.js",
                 "prepend": [
+                    "node_modules/whatwg-fetch/dist/fetch.umd.js",
                     "node_modules/promise-polyfill/dist/polyfill.min.js",
                     "node_modules/systemjs/dist/system.js"
                 ],
