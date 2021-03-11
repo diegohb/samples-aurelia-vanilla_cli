@@ -1,4 +1,4 @@
-﻿import { PersonDTO } from "./ApiDTO";
+﻿import { PersonDTO } from "./api-dto";
 
 export class Contact {
     constructor(private readonly _id: string = Date.now().toString()) {

@@ -1,8 +1,8 @@
 ﻿import { inject } from "aurelia-framework";
 import { delay } from "./utility";
 import { Contact } from "../models/contact-model";
-import { IPeopleApi } from "./IPeopleApi";
-import { ContactsApi } from "./ContactsApi";
+import { IPeopleApi } from "./i-people-api";
+import { ContactsApi } from "./contacts-api";
 
 let latency = 600;
 

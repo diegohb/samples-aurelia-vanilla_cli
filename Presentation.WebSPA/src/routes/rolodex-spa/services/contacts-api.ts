@@ -1,8 +1,8 @@
 ﻿import { autoinject } from "aurelia-framework";
 import { HttpClient } from "aurelia-fetch-client";
-import { ApiLoggerInterceptor } from "./ApiLoggerInterceptor";
-import { ResponseDTO, PersonDTO } from "../models/ApiDTO";
-import { IPeopleApi } from "./IPeopleApi";
+import { ApiLoggerInterceptor } from "./api-logger-interceptor";
+import { ResponseDTO, PersonDTO } from "../models/api-dto";
+import { IPeopleApi } from "./i-people-api";
 
 
 @autoinject()

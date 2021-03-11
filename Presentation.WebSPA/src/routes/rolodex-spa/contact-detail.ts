@@ -1,6 +1,6 @@
 ﻿import { autoinject, observable } from "aurelia-framework";
 import { EventAggregator } from "aurelia-event-aggregator";
-import { DataContext as Api } from "./services/DataContext";
+import { DataContext } from "./services/data-context";
 import { areEqual } from "./services/utility";
 import { Contact } from "./models/contact-model";
 import { ContactViewedEvent, ContactUpdatedEvent } from "./models/events";
@@ -12,7 +12,7 @@ export class ContactDetailViewModel {
     @observable public contact: Contact;
     public originalContact: Contact;
 
-    constructor(private _api: Api, private _eventBus: EventAggregator) {}
+    constructor(private _api: DataContext, private _eventBus: EventAggregator) {}
 
     public async activate(params, routeConfig) {
         this._routeConfig = routeConfig;
