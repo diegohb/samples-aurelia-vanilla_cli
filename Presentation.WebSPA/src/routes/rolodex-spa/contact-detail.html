@@ -1,61 +1,59 @@
 ﻿<template>
     <div class="card">
-        <div class="card-header text-white bg-primary">
-            Profile
-        </div>
+        <h3 class="card-header">Details</h3>
         <div class="card-body">
             <form role="form">
                 <div class="form-group row">
-                    <label class="col-md-3 col-form-label">ID</label>
-                    <div class="col-md-9">
-                        <input type="text" placeholder="id" class="form-control" value.one-way="contact.id" readonly="readonly">
+                    <label class="col-3 col-form-label">ID</label>
+                    <div class="col-9">
+                        <input type="text" placeholder="id" class="form-control-plaintext w-100" value.one-way="contact.id" readonly="readonly">
                     </div>
                 </div>
 
                 <div class="form-group row">
-                    <label class="col-md-3 col-form-label">First Name</label>
-                    <div class="col-md-9">
-                        <input type="text" placeholder="first name" class="form-control" value.two-way="contact.firstName">
+                    <label class="col-3 col-form-label">First Name</label>
+                    <div class="col-9">
+                        <input type="text" placeholder="first name" class="form-control w-100" value.two-way="contact.firstName">
                     </div>
                 </div>
 
                 <div class="form-group row">
-                    <label class="col-md-3 col-form-label">Last Name</label>
-                    <div class="col-md-9">
-                        <input type="text" placeholder="last name" class="form-control" value.two-way="contact.lastName">
+                    <label class="col-3 col-form-label">Last Name</label>
+                    <div class="col-9">
+                        <input type="text" placeholder="last name" class="form-control w-100" value.two-way="contact.lastName">
                     </div>
                 </div>
 
                 <div class="form-group row">
-                    <label class="col-md-3 col-form-label">Email</label>
-                    <div class="col-md-9">
-                        <input type="text" placeholder="email" class="form-control" value.two-way="contact.email">
+                    <label class="col-3 col-form-label">Email</label>
+                    <div class="col-9">
+                        <input type="text" placeholder="email" class="form-control w-100" value.two-way="contact.email">
                     </div>
                 </div>
 
                 <div class="form-group row">
-                    <label class="col-md-3 col-form-label">Phone Number</label>
-                    <div class="col-md-9">
-                        <input type="text" placeholder="phone number" class="form-control" value.two-way="contact.phoneNumber">
+                    <label class="col-3 col-form-label">Phone Number</label>
+                    <div class="col-9">
+                        <input type="text" placeholder="phone number" class="form-control w-100" value.two-way="contact.phoneNumber">
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label class="col-md-3 col-form-label">Date of Birth</label>
-                    <div class="col-md-9">
-                        <input type="text" placeholder="birthdate" class="form-control" value.two-way="contact.dateOfBirth">
+                    <label class="col-3 col-form-label">Date of Birth</label>
+                    <div class="col-9">
+                        <input type="text" placeholder="birthdate" class="form-control w-100" value.two-way="contact.dateOfBirth">
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label class="col-md-3 col-form-label">Gender</label>
-                    <div class="col-md-9">
+                    <label class="col-3 col-form-label">Gender</label>
+                    <div class="col-9">
                         --
                         <!--<input type="text" placeholder="birthdate" class="form-control" value.two-way="contact.gender">-->
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label class="col-md-3 col-form-label">Location</label>
-                    <div class="col-md-9">
-                        <input type="text" placeholder="birthdate" class="form-control" value.one-way="contact.location">
+                    <label class="col-3 col-form-label">Location</label>
+                    <div class="col-9">
+                        <input type="text" placeholder="birthdate" class="form-control w-100" value.one-way="contact.location">
                     </div>
                 </div>
             </form>
