@@ -1,66 +1,83 @@
 ﻿<template>
-    <div class="card">
-        <h3 class="card-header">Details</h3>
-        <div class="card-body">
-            <form role="form">
-                <div class="form-group row">
-                    <label class="col-3 col-form-label">ID</label>
-                    <div class="col-9">
-                        <input type="text" placeholder="id" class="form-control-plaintext w-100" value.one-way="contact.id" readonly="readonly">
-                    </div>
-                </div>
+    <div class="row">
+        <div class="col-8">
 
-                <div class="form-group row">
-                    <label class="col-3 col-form-label">First Name</label>
-                    <div class="col-9">
-                        <input type="text" placeholder="first name" class="form-control w-100" value.two-way="contact.firstName">
-                    </div>
-                </div>
+            <div class="card">
+                <h3 class="card-header text-center">Details</h3>
+                <div class="card-body">
+                    <form role="form">
+                        <div class="form-group row">
+                            <label class="col-3 col-form-label">ID</label>
+                            <div class="col-9">
+                                <input type="text" placeholder="id" class="form-control-plaintext w-100" value.one-way="contact.id" readonly="readonly">
+                            </div>
+                        </div>
 
-                <div class="form-group row">
-                    <label class="col-3 col-form-label">Last Name</label>
-                    <div class="col-9">
-                        <input type="text" placeholder="last name" class="form-control w-100" value.two-way="contact.lastName">
-                    </div>
-                </div>
+                        <div class="form-group row">
+                            <label class="col-3 col-form-label">First Name</label>
+                            <div class="col-9">
+                                <input type="text" placeholder="first name" class="form-control w-100" value.two-way="contact.firstName">
+                            </div>
+                        </div>
 
-                <div class="form-group row">
-                    <label class="col-3 col-form-label">Email</label>
-                    <div class="col-9">
-                        <input type="text" placeholder="email" class="form-control w-100" value.two-way="contact.email">
-                    </div>
-                </div>
+                        <div class="form-group row">
+                            <label class="col-3 col-form-label">Last Name</label>
+                            <div class="col-9">
+                                <input type="text" placeholder="last name" class="form-control w-100" value.two-way="contact.lastName">
+                            </div>
+                        </div>
 
-                <div class="form-group row">
-                    <label class="col-3 col-form-label">Phone Number</label>
-                    <div class="col-9">
-                        <input type="text" placeholder="phone number" class="form-control w-100" value.two-way="contact.phoneNumber">
+                        <div class="form-group row">
+                            <label class="col-3 col-form-label">Email</label>
+                            <div class="col-9">
+                                <input type="text" placeholder="email" class="form-control w-100" value.two-way="contact.email">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-3 col-form-label">Phone Number</label>
+                            <div class="col-9">
+                                <input type="text" placeholder="phone number" class="form-control w-100" value.two-way="contact.phoneNumber">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-3 col-form-label">Date of Birth</label>
+                            <div class="col-9">
+                                <input type="text" placeholder="birthdate" class="form-control w-100" value.two-way="contact.dateOfBirth">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-3 col-form-label">Gender</label>
+                            <div class="col-9">
+                                --
+                                <!--<input type="text" placeholder="birthdate" class="form-control" value.two-way="contact.gender">-->
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-3 col-form-label">Location</label>
+                            <div class="col-9">
+                                <input type="text" placeholder="birthdate" class="form-control w-100" value.one-way="contact.location">
+                            </div>
+                        </div>
+                    </form>
+                    <div>
+                        <button class="btn btn-danger float-left" click.delegate="reset()">Reset</button>
+                        <button class="btn btn-success float-right" click.delegate="save()" disabled.bind="!canSave">Save</button>
                     </div>
                 </div>
-                <div class="form-group row">
-                    <label class="col-3 col-form-label">Date of Birth</label>
-                    <div class="col-9">
-                        <input type="text" placeholder="birthdate" class="form-control w-100" value.two-way="contact.dateOfBirth">
+            </div>
+
+        </div>
+
+        <div class="col-4">
+            <div class="container h-100">
+                <div class="row align-items-center h-100">
+                    <div class="col-12 mx-auto">
+                        <img src.one-way="contact.pictureUrl" width="180px" class="img-fluid card-img rounded" alt="profile photo" />
                     </div>
                 </div>
-                <div class="form-group row">
-                    <label class="col-3 col-form-label">Gender</label>
-                    <div class="col-9">
-                        --
-                        <!--<input type="text" placeholder="birthdate" class="form-control" value.two-way="contact.gender">-->
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label class="col-3 col-form-label">Location</label>
-                    <div class="col-9">
-                        <input type="text" placeholder="birthdate" class="form-control w-100" value.one-way="contact.location">
-                    </div>
-                </div>
-            </form>
-            <div>
-                <button class="btn btn-danger float-left" click.delegate="reset()">Reset</button>
-                <button class="btn btn-success float-right" click.delegate="save()" disabled.bind="!canSave">Save</button>
             </div>
         </div>
     </div>
+
 </template>
