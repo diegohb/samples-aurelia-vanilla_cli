@@ -28,4 +28,15 @@ export class ContactsApi implements IPeopleApi
         const response: ResponseDTO<PersonDTO> = await rawResponse.json();
         return response.data;
     }
+
+    public async fetchPerson(id: string): Promise<PersonDTO> {
+        if (!id || id === "") {
+            throw new Error("Must provide an id.");
+        }
+
+        const rawResponse = await this._http.fetch(`user/${id}`);
+        const dto: PersonDTO = await rawResponse.json() as PersonDTO;
+
+        return dto;
+    }
 }

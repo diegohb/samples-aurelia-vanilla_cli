@@ -1,34 +1,33 @@
 ﻿import { autoinject, observable } from "aurelia-framework";
 import { EventAggregator } from "aurelia-event-aggregator";
 import { DataContext } from "./services/data-context";
-import { areEqual } from "./services/utility";
-import { ListContactModel as Contact } from "./models/list-contact-model";
+import { areEqual, deepExtend } from "./services/utility";
+import { ContactDetailModel } from "./models/contact-detail-model";
 import { ContactViewedEvent, ContactUpdatedEvent } from "./models/events";
 
 @autoinject()
 export class ContactDetailViewModel {
     private _routeConfig;
 
-    @observable public contact: Contact;
-    public originalContact: Contact;
+    @observable public contact: ContactDetailModel;
+    public originalContact: ContactDetailModel;
 
-    constructor(private _api: DataContext, private _eventBus: EventAggregator) {}
+    constructor(private _dataContext: DataContext, private _eventBus: EventAggregator) {}
 
     public async activate(params, routeConfig) {
         this._routeConfig = routeConfig;
-        const fetchedContact = await this._api.getContactDetails(params.id);
-        this.contact = JSON.parse(JSON.stringify(fetchedContact));
+        this.contact = await this._dataContext.getContactDetails(params.id);
         this._routeConfig.navModel.setTitle(this.contact.firstName);
-        this.originalContact = JSON.parse(JSON.stringify(this.contact)); //deep copy hack
+        this.originalContact = deepExtend({}, this.contact); //NOTE: deep copy hack not working to set id, affects reset.
         this._eventBus.publish(new ContactViewedEvent(this.contact));
     }
 
     public get canSave() {
-        return this.contact.firstName && this.contact.lastName && !this._api.isRequesting;
+        return this.contact.firstName && this.contact.lastName && !this._dataContext.isRequesting;
     }
 
     public async save() {
-        const updatedContact = await this._api.saveContact(this.contact);
+        const updatedContact = await this._dataContext.saveContact(this.contact);
         this.contact = updatedContact;
         this._routeConfig.navModel.setTitle(this.contact.firstName);
         this.originalContact = this.contact;
@@ -45,7 +44,7 @@ export class ContactDetailViewModel {
         }
     }
 
-    private contactChanged(newValue: Contact, oldValue: Contact) {
+    private contactChanged(newValue: ContactDetailModel, oldValue: ContactDetailModel) {
         console.log("contact updated.", { new: newValue, old: oldValue });
     }
 }

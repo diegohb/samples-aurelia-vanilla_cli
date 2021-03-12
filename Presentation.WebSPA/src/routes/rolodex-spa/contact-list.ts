@@ -1,28 +1,29 @@
 ﻿import { autoinject, customElement } from "aurelia-framework";
 import { EventAggregator } from "aurelia-event-aggregator";
-import { DataContext as Api } from "./services/data-context";
-import { ListContactModel as Contact } from "./models/list-contact-model";
+import { DataContext } from "./services/data-context";
+import { ListContactModel } from "./models/list-contact-model";
 import { ContactViewedEvent, ContactUpdatedEvent } from "./models/events";
 
 @autoinject()
 @customElement("contact-list")
 export class ContactListViewModel {
-    public contacts: Array<Contact>;
+    public contacts: Array<ListContactModel>;
     public selectedId: number = 0;
 
-    constructor(private _api: Api, private _eventBus: EventAggregator) {
+    constructor(private _dataContext: DataContext, private _eventBus: EventAggregator) {
         this._eventBus.subscribe(ContactViewedEvent, (eventData: ContactViewedEvent) => this.select(eventData.contact));
         this._eventBus.subscribe(ContactUpdatedEvent, (eventData: ContactUpdatedEvent) => {
 
             //update list's instance of contact
             const id = eventData.contact.id;
             const found = this.contacts.find(foundContact => foundContact.id === id);
-            Object.assign(found, eventData.contact);
+            var model = ListContactModel.fromDetail(eventData.contact);
+            Object.assign(found, model);
         });
     }
 
     public async created() {
-        this.contacts = await this._api.getContactList();
+        this.contacts = await this._dataContext.getContactList();
     }
 
     public async select(contact): Promise<boolean> {
