@@ -1,4 +1,4 @@
-﻿import { autoinject, observable } from "aurelia-framework";
+﻿import { autoinject, observable, LogManager } from "aurelia-framework";
 import { EventAggregator } from "aurelia-event-aggregator";
 import { DataContext } from "./services/data-context";
 import { areEqual, deepExtend } from "./services/utility";
@@ -7,6 +7,7 @@ import { ContactViewedEvent, ContactUpdatedEvent } from "./models/events";
 
 @autoinject()
 export class ContactDetailViewModel {
+    private readonly _logger = LogManager.getLogger(this.constructor.name);
     private _routeConfig;
 
     @observable public contact: ContactDetailModel;

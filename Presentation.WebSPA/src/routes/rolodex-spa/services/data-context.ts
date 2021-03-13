@@ -1,4 +1,4 @@
-﻿import { inject } from "aurelia-framework";
+﻿import { inject, LogManager } from "aurelia-framework";
 import { delay } from "./utility";
 import { ListContactModel } from "../models/list-contact-model";
 import { IPeopleApi } from "./i-people-api";
@@ -9,6 +9,8 @@ let latency = 600;
 
 @inject(ContactsApi)
 export class DataContext {
+    private readonly _logger = LogManager.getLogger(this.constructor.name);
+
     private _listing: Array<ListContactModel>;
     private _contactDetails: Array<ContactDetailModel> = [];
 

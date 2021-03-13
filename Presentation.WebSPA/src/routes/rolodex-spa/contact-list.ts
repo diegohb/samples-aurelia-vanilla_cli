@@ -1,4 +1,4 @@
-﻿import { autoinject, customElement } from "aurelia-framework";
+﻿import { autoinject, customElement, LogManager } from "aurelia-framework";
 import { EventAggregator } from "aurelia-event-aggregator";
 import { DataContext } from "./services/data-context";
 import { ListContactModel } from "./models/list-contact-model";
@@ -7,6 +7,7 @@ import { ContactViewedEvent, ContactUpdatedEvent } from "./models/events";
 @autoinject()
 @customElement("contact-list")
 export class ContactListViewModel {
+    private readonly _logger = LogManager.getLogger(this.constructor.name);
     public contacts: Array<ListContactModel>;
     public selectedId: number = 0;
 
