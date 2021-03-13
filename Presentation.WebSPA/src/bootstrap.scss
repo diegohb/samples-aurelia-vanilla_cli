@@ -44,11 +44,11 @@ $border-radius: .4rem;
 @import "../node_modules/bootstrap/scss/_root";
 @import "../node_modules/bootstrap/scss/_reboot"; // Required
 @import "../node_modules/bootstrap/scss/_type";
-// @import "bootstrap/scss/images";
+@import "bootstrap/scss/images";
 // @import "bootstrap/scss/code";
 @import "../node_modules/bootstrap/scss/_grid";
 // @import "bootstrap/scss/tables";
-// @import "bootstrap/scss/forms";
+@import "../node_modules/bootstrap/scss/forms";
 @import "../node_modules/bootstrap/scss/_buttons";
 @import "../node_modules/bootstrap/scss/_transitions";
 // @import "bootstrap/scss/dropdown";
@@ -57,7 +57,7 @@ $border-radius: .4rem;
 // @import "bootstrap/scss/custom-forms";
 @import "../node_modules/bootstrap/scss/_nav";
 @import "../node_modules/bootstrap/scss/_navbar"; // Requires nav
-// @import "bootstrap/scss/card";
+@import "../node_modules/bootstrap/scss/card";
 // @import "bootstrap/scss/breadcrumb";
 // @import "bootstrap/scss/pagination";
 // @import "bootstrap/scss/badge";
