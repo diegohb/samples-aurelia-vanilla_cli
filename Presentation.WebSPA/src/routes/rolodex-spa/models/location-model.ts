@@ -7,7 +7,7 @@ export class LocationModel {
     public country: string;
     public timezone: string;
 
-    public toDisplay(): string {
+    public get displayName(): string {
         return `${this.street}, ${this.city}, ${this.state}, ${this.country}`;
     }
 
