@@ -1,4 +1,5 @@
 ﻿import { PersonDTO } from "./api-dto";
+import { LocationModel } from "./location-model";
 
 export class ContactDetailModel {
     constructor(private readonly _id: string = Date.now().toString()) {
@@ -14,7 +15,7 @@ export class ContactDetailModel {
     public pictureUrl: URL;
     public gender?: GenderType;
     public dateOfBirth?: string;
-    public location: string;
+    public location: LocationModel;
 
     public static fromDTO(dto: PersonDTO): ContactDetailModel {
         const contact = new ContactDetailModel(dto.id);
@@ -25,7 +26,7 @@ export class ContactDetailModel {
         contact.dateOfBirth = dto.dateOfBirth;
         contact.pictureUrl = new URL(dto.picture);
         contact.gender = dto.gender as GenderType;
-        contact.location = dto.location.toString();
+        contact.location = LocationModel.fromDTO(dto.location);
         return contact;
     }
 }

@@ -49,9 +49,9 @@
                         <div class="form-group row">
                             <label class="col-4 col-form-label">Gender</label>
                             <div class="col-8">
-                                <div class="form-check-inline" 
+                                <div class="form-check-inline"
                                      repeat.for="gender of ['male','female','other']">
-                                    <input type="radio" name="gender" class="form-check-input" value.bind="gender" 
+                                    <input type="radio" name="gender" class="form-check-input" value.bind="gender"
                                            checked.bind="contact.gender">
                                     <label class="form-check-label">${gender}</label>
                                 </div>
@@ -60,7 +60,8 @@
                         <div class="form-group row">
                             <label class="col-4 col-form-label">Location</label>
                             <div class="col-8">
-                                <input type="text" placeholder="birthdate" class="form-control w-100" value.one-way="contact.location">
+                                <textarea rows="3" placeholder="address" class="form-control w-100" 
+                                          value.one-way="contact.location.toDisplay()"></textarea>
                             </div>
                         </div>
                     </form>
@@ -77,7 +78,7 @@
             <div class="container h-100">
                 <div class="row align-items-center h-100">
                     <div class="col-12 mx-auto">
-                        <img src.one-way="contact.pictureUrl" width="180px" class="img-fluid card-img rounded" alt="profile photo" />
+                        <img src.one-way="contact.pictureUrl" width="180px" class="img-fluid card-img rounded" alt="profile photo"/>
                     </div>
                 </div>
             </div>
