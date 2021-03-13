@@ -18,7 +18,7 @@ export class ContactDetailViewModel {
         this._routeConfig = routeConfig;
         this.contact = await this._dataContext.getContactDetails(params.id);
         this._routeConfig.navModel.setTitle(this.contact.firstName);
-        this.originalContact = deepExtend({}, this.contact); //NOTE: deep copy hack not working to set id, affects reset.
+        this.originalContact = this.contact.clone();
         this._eventBus.publish(new ContactViewedEvent(this.contact));
     }
 
@@ -39,7 +39,7 @@ export class ContactDetailViewModel {
             const result = confirm("Click 'Ok' to loose all changes, otherwise click 'Cancel'.");
 
             if (result) {
-                this.contact = JSON.parse(JSON.stringify(this.originalContact));
+                this.contact = this.originalContact.clone();
             }
         }
     }

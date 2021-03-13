@@ -17,6 +17,19 @@ export class ContactDetailModel {
     public dateOfBirth?: string;
     public location: LocationModel;
 
+    public clone() {
+        const contact = new ContactDetailModel(this.id);
+        contact.firstName = this.firstName;
+        contact.lastName = this.lastName;
+        contact.email = this.email;
+        contact.phoneNumber = this.phoneNumber;
+        contact.dateOfBirth = this.dateOfBirth;
+        contact.pictureUrl = this.pictureUrl;
+        contact.gender = this.gender;
+        contact.location = this.location;
+        return contact;
+    }
+
     public static fromDTO(dto: PersonDTO): ContactDetailModel {
         const contact = new ContactDetailModel(dto.id);
         contact.firstName = dto.firstName;
@@ -29,6 +42,7 @@ export class ContactDetailModel {
         contact.location = LocationModel.fromDTO(dto.location);
         return contact;
     }
+
 }
 
 export type GenderType = "male" | "female" | "other" | "";
