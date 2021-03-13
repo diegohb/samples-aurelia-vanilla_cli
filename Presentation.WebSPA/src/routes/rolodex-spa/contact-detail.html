@@ -43,7 +43,8 @@
                         <div class="form-group row">
                             <label class="col-4 col-form-label">Date of Birth</label>
                             <div class="col-8">
-                                <input type="text" placeholder="birthdate" class="form-control w-100" value.two-way="contact.dateOfBirth">
+                                <input type="date" placeholder="birthdate" class="form-control w-100" 
+                                       value.two-way="contact.dateOfBirth | dateFormat: 'yyyy-MM-DD'">
                             </div>
                         </div>
                         <div class="form-group row">

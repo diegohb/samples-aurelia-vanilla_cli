@@ -1,6 +1,6 @@
 import { Aurelia } from "aurelia-framework"
 import environment from "./environment";
-import * as $ from "jquery";
+import $ from "jquery";
 import "bootstrap";
 
 export function configure(aurelia: Aurelia) {
