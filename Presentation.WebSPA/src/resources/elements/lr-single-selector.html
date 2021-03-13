@@ -1,0 +1,16 @@
+﻿<template class="lr-single-selector ${cssClass}">
+    <require from="./lr-single-selector.css"></require>
+
+    <div>
+        <label>${labelText}</label>
+        <div class="input-control ${disabled ? 'disabled' : ''}">
+            <span click.delegate="selectPrevious()" aria-label="Select previous" title="Select previous">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            </span>
+            <span aria-label="Current selection">${getDisplayValue(selectedItem)}</span>
+            <span click.delegate="selectNext()" aria-label="Select next" title="Select next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            </span>
+        </div>
+    </div>
+</template>

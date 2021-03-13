@@ -1,0 +1,33 @@
+﻿//@import "../../../node_modules/bootstrap-less/bootstrap/mixins/hide-text";
+//@import "../../../node_modules/bootstrap-less/bootstrap/mixins/center-block";
+//@import "../../../node_modules/bootstrap-less/bootstrap/mixins/clearfix";
+//@import "../../../node_modules/bootstrap-less/bootstrap/utilities";
+//@import "../../../less/pivotal-variables.less";
+
+@import "../../../node_modules/bootstrap/scss/_functions"; // Required
+@import "../../../node_modules/bootstrap/scss/_variables"; // Required
+@import "../../../node_modules/bootstrap/scss/_mixins"; // Required
+
+
+lr-single-selector {
+    
+    label {
+        float: left;
+    }
+
+    div.input-control {
+        float: right;
+
+        display: inline-block;
+
+        span:nth-child(2) {
+            display: inline-block;
+            width: 3em;
+            text-align: center;
+        }
+
+        span.glyphicon {
+            cursor: pointer;
+        }
+    }
+}
