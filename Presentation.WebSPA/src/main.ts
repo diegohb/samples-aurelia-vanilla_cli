@@ -1,4 +1,6 @@
 import { Aurelia } from "aurelia-framework"
+import fs from "fs"
+import * as auPathUtil from "aurelia-path";
 import environment from "./environment";
 import $ from "jquery";
 import "bootstrap";
@@ -23,10 +25,13 @@ export function configure(aurelia: Aurelia) {
     //Anyone wanting to use HTMLImports to load views, will need to install the following plugin.
     // aurelia.use.plugin('aurelia-html-import-template-loader');
 
+    //Following enables multi-spa support with each container 
+    //specifying via html-attribute what spa module to load
+    const startModuleName = (<any>aurelia.host.attributes).start.value;
+    const spaRootedResourcesPath: string = auPathUtil.relativeToFile("./resources", startModuleName);
+    aurelia.use.feature(spaRootedResourcesPath); //TODO: if folder exists so we dont need blank default file.
+    
     aurelia.start().then((pAurelia: Aurelia) => {
-        //Following enables multi-spa support with each container 
-        //specifying via html-attribute what spa module to load
-        let startModuleName = (<any>pAurelia.host.attributes).start.value;
         pAurelia.setRoot(startModuleName);
         $("#loader").fadeOut("slow");
     });

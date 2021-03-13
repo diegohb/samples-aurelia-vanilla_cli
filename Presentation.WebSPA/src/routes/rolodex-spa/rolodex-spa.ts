@@ -1,5 +1,6 @@
 ﻿import { PLATFORM } from "aurelia-pal";
 import { Router, RouterConfiguration, NavigationInstruction } from "aurelia-router";
+import { Aurelia } from "aurelia-framework"
 
 export class RolodexSPAViewModel {
     public router: Router;
