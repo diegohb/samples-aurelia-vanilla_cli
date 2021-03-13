@@ -1,42 +1,147 @@
 ﻿<template>
-    <div class="card">
-        <div class="card-header text-white bg-primary">
-            Profile
+    <div class="row">
+        <div class="col-md-8 col-sm-12">
+
+            <div class="card">
+                <h3 class="card-header text-center">Details</h3>
+                <div class="card-body">
+                    <form role="form">
+                        <div class="form-group row">
+                            <label class="col-4 col-form-label">ID</label>
+                            <div class="col-8">
+                                <input type="text" placeholder="id" class="form-control-plaintext w-100" value.one-way="contact.id"
+                                       readonly="readonly">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-4 col-form-label">First Name</label>
+                            <div class="col-8">
+                                <input type="text" placeholder="first name" class="form-control w-100" value.two-way="contact.firstName">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-4 col-form-label">Last Name</label>
+                            <div class="col-8">
+                                <input type="text" placeholder="last name" class="form-control w-100" value.two-way="contact.lastName">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-4 col-form-label">Email</label>
+                            <div class="col-8">
+                                <input type="text" placeholder="email" class="form-control w-100" value.two-way="contact.email">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-4 col-form-label">Phone Number</label>
+                            <div class="col-8">
+                                <input type="text" placeholder="phone number" class="form-control w-100" value.two-way="contact.phoneNumber">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-4 col-form-label">Date of Birth</label>
+                            <div class="col-8">
+                                <input type="date" placeholder="birthdate" class="form-control w-100"
+                                       value.two-way="contact.dateOfBirth | dateFormat: 'yyyy-MM-DD'">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-4 col-form-label">Gender</label>
+                            <div class="col-8">
+                                <!--<div class="form-check-inline"
+                                     repeat.for="gender of ['male','female','other']">
+                                    <input type="radio" name="gender" class="form-check-input" value.bind="gender"
+                                           checked.bind="contact.gender">
+                                    <label class="form-check-label">${gender}</label>
+                                </div>-->
+
+                                <lr-single-selector items.bind="['male','female','other']" selected-item.bind="contact.gender"
+                                                    disabled.bind="false" allow-cycle="true" 
+                                                    class="gender-selector">
+                                </lr-single-selector>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-4 col-form-label">Location</label>
+                            <div class="col-8">
+                                <textarea data-toggle="modal" data-target="#addressModal" rows="3" placeholder="address" 
+                                          class="form-control w-100" value.one-way="contact.location.displayName" 
+                                          readonly="readonly" style="cursor: pointer"></textarea>
+                            </div>
+                        </div>
+                    </form>
+                    <div>
+                        <button class="btn btn-danger float-left" click.delegate="reset()">Reset</button>
+                        <button class="btn btn-success float-right" click.delegate="save()" disabled.bind="!canSave">Save</button>
+                    </div>
+                </div>
+            </div>
+
         </div>
-        <div class="card-body">
-            <form role="form">
-                <div class="form-group row">
-                    <label class="col-md-3 col-form-label">First Name</label>
-                    <div class="col-md-9">
-                        <input type="text" placeholder="first name" class="form-control" value.two-way="contact.firstName">
-                    </div>
-                </div>
 
-                <div class="form-group row">
-                    <label class="col-md-3 col-form-label">Last Name</label>
-                    <div class="col-md-9">
-                        <input type="text" placeholder="last name" class="form-control" value.two-way="contact.lastName">
+        <div class="col-md-4 col-sm-12">
+            <div class="container h-100">
+                <div class="row align-items-center h-100">
+                    <div class="col-12 mx-auto">
+                        <img src.one-way="contact.pictureUrl" width="180" class="img-fluid card-img rounded" alt="profile photo"/>
                     </div>
                 </div>
-
-                <div class="form-group row">
-                    <label class="col-md-3 col-form-label">Email</label>
-                    <div class="col-md-9">
-                        <input type="text" placeholder="email" class="form-control" value.two-way="contact.email">
-                    </div>
-                </div>
-
-                <div class="form-group row">
-                    <label class="col-md-3 col-form-label">Phone Number</label>
-                    <div class="col-md-9">
-                        <input type="text" placeholder="phone number" class="form-control" value.two-way="contact.phoneNumber">
-                    </div>
-                </div>
-            </form>
-            <div>
-                <button class="btn btn-danger float-left" click.delegate="reset()">Reset</button>
-                <button class="btn btn-success float-right" click.delegate="save()" disabled.bind="!canSave">Save</button>
             </div>
         </div>
     </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="addressModal" tabindex="-1" aria-labelledby="addressModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addressModalLabel">Location Details</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form role="form" with.bind="contact.location">
+                        <div class="form-group row">
+                            <label class="col-4 col-form-label">Street</label>
+                            <div class="col-8">
+                                <input type="text" placeholder="Street" class="form-control w-100" value.two-way="street" />
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-4 col-form-label">City</label>
+                            <div class="col-8">
+                                <input type="text" placeholder="City" class="form-control w-100" value.two-way="city">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-4 col-form-label">State</label>
+                            <div class="col-8">
+                                <input type="text" placeholder="State" class="form-control w-100" value.two-way="state">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-4 col-form-label">Country</label>
+                            <div class="col-8">
+                                <input type="text" placeholder="Country" class="form-control w-100" value.two-way="country">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-4 col-form-label">Timezone</label>
+                            <div class="col-8">
+                                <input type="text" placeholder="Timezone" class="form-control w-100" value.two-way="timezone">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary btn-lg" data-dismiss="modal">Update</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </template>

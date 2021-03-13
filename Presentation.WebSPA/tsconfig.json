@@ -12,7 +12,8 @@
         "moduleResolution": "node",
         "lib": [ "es2017", "dom" ],
         "baseUrl": "src",
-        "resolveJsonModule": true
+        "resolveJsonModule": true,
+        "esModuleInterop": true
     },
     "include": [
         "./src/**/*.ts",

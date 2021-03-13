@@ -119,11 +119,44 @@
         "bundles": [
             {
                 "name": "app-bundle.js",
+                "source": {
+                    "include": [
+                        "[**/*.js]",
+                        "**/*.{json,css,html}"
+                    ],
+                    "exclude": [
+                        "**/rolodex-spa/**/*",
+                        "**/pokemon-spa/**/*"
+                    ]
+                },
+                "dependencies": [
+                    "jquery",
+                    {
+                        "name": "bootstrap",
+                        "path": "../node_modules/bootstrap",
+                        "deps": [ "jquery", "popper.js" ],
+                        "exports": "$",
+                        "resources": [
+
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "rolodex-spa-bundle.js",
                 "source": [
-                    "[**/*.js]",
-                    "**/*.{json,css,html}"
+                    "[**/rolodex-spa/**/*.js]",
+                    "**/rolodex-spa/**/*.{json,css,html}"
                 ],
-                "dependencies": [] 
+                "dependencies": []
+            },
+            {
+                "name": "pokemon-spa-bundle.js",
+                "source": [
+                    "[**/pokemon-spa/**/*.js]",
+                    "**/pokemon-spa/**/*.{json,css,html}"
+                ],
+                "dependencies": []
             },
             {
                 "name": "vendor-bundle.js",
@@ -144,16 +177,6 @@
                     {
                         "name": "aurelia-testing",
                         "env": "dev"
-                    },
-                    "jquery",
-                    {
-                        "name": "bootstrap",
-                        "path": "../node_modules/bootstrap",
-                        "deps": [ "jquery", "popper.js" ],
-                        "exports": "$",
-                        "resources": [
-
-                        ]
                     }
                 ]
             }

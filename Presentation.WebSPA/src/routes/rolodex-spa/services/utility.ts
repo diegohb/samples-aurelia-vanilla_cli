@@ -57,7 +57,7 @@ function deepCloneArray(arr: any) {
  * object as first argument, like this:
  *   deepExtend({}, yourObj_1, [yourObj_N]);
  */
-let deepExtend: any;
+export let deepExtend: any;
 
 export default deepExtend = function () {
     if (arguments.length < 1 || typeof arguments[0] !== 'object') {

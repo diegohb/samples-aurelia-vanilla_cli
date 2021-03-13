@@ -1,9 +1,9 @@
-﻿import { Contact } from "./contact-model";
+﻿import { ContactDetailModel } from "./contact-detail-model";
 
 export class ContactUpdatedEvent {
-    constructor(public contact: Contact) { }
+    constructor(public contact: ContactDetailModel) { }
 }
 
 export class ContactViewedEvent {
-    constructor(public contact: Contact) { }
+    constructor(public contact: ContactDetailModel) { }
 }

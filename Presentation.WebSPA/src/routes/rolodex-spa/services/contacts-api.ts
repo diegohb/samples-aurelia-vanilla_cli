@@ -1,8 +1,8 @@
 ﻿import { autoinject } from "aurelia-framework";
 import { HttpClient } from "aurelia-fetch-client";
-import { ApiLoggerInterceptor } from "./ApiLoggerInterceptor";
-import { ResponseDTO, PersonDTO } from "../models/ApiDTO";
-import { IPeopleApi } from "./IPeopleApi";
+import { ApiLoggerInterceptor } from "./api-logger-interceptor";
+import { ResponseDTO, PersonDTO } from "../models/api-dto";
+import { IPeopleApi } from "./i-people-api";
 
 
 @autoinject()
@@ -27,5 +27,16 @@ export class ContactsApi implements IPeopleApi
         const rawResponse = await this._http.fetch(`user?limit=${limit}`);
         const response: ResponseDTO<PersonDTO> = await rawResponse.json();
         return response.data;
+    }
+
+    public async fetchPerson(id: string): Promise<PersonDTO> {
+        if (!id || id === "") {
+            throw new Error("Must provide an id.");
+        }
+
+        const rawResponse = await this._http.fetch(`user/${id}`);
+        const dto: PersonDTO = await rawResponse.json() as PersonDTO;
+
+        return dto;
     }
 }
