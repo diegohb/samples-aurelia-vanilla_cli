@@ -3,6 +3,8 @@ import { HttpClient } from "aurelia-fetch-client";
 import { ApiLoggerInterceptor } from "./api-logger-interceptor";
 import { ResponseDTO, PersonDTO } from "../models/api-dto";
 import { IPeopleApi } from "./i-people-api";
+// ReSharper disable once UnusedLocalImport
+import Config from "../config.json";
 
 
 @autoinject()
@@ -11,18 +13,23 @@ export class ContactsApi implements IPeopleApi
     private readonly _logger = LogManager.getLogger(this.constructor.name);
 
     constructor(private _http: HttpClient) {
+        // ReSharper disable TsResolvedFromInaccessibleModule
+        const dataApiUrl:string = Config.api.host;
+        const appId: string = Config.api["app-id"];
+        // ReSharper restore TsResolvedFromInaccessibleModule
         _http.configure(config => {
             config
                 .useStandardConfiguration()
-                .withBaseUrl("https://dummyapi.io/data/api/")
+                .withBaseUrl(dataApiUrl)
                 .withDefaults({
                     credentials: "same-origin",
                     headers: {
-                        "app-id": "6046baa083c2165d2b23ff80"
+                        "app-id": appId
                     }
                 })
                 .withInterceptor(new ApiLoggerInterceptor());
         });
+        this._logger.info("Configured dummyapi.io.", { "app-id": appId, baseUrl: dataApiUrl });
     }
 
     public async fetchPeople(limit:number=5): Promise<PersonDTO[]> {
