@@ -44,3 +44,29 @@ li.list-group-item > a {
 li.list-group-item.active > a {
     color: white;
 }
+
+lr-single-selector {
+    .gender-selector {
+        div.input-control {
+            font-size: 1.4em;
+
+            span:nth-child(2) {
+                font-weight: bold;
+            }
+
+            span.glyphicon {
+                cursor: pointer;
+
+                &:hover {
+                    color: blue;
+                }
+            }
+
+            &.disabled {
+                span .glyphicon {
+                    visibility: hidden;
+                }
+            }
+        }
+    }
+}

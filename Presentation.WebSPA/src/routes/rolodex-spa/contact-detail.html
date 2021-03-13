@@ -51,12 +51,17 @@
                         <div class="form-group row">
                             <label class="col-4 col-form-label">Gender</label>
                             <div class="col-8">
-                                <div class="form-check-inline"
+                                <!--<div class="form-check-inline"
                                      repeat.for="gender of ['male','female','other']">
                                     <input type="radio" name="gender" class="form-check-input" value.bind="gender"
                                            checked.bind="contact.gender">
                                     <label class="form-check-label">${gender}</label>
-                                </div>
+                                </div>-->
+
+                                <lr-single-selector items.bind="['male','female','other']" selected-item.bind="contact.gender"
+                                                    disabled.bind="false" allow-cycle="true" 
+                                                    class="gender-selector">
+                                </lr-single-selector>
                             </div>
                         </div>
                         <div class="form-group row">
