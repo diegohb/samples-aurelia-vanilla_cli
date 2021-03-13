@@ -61,7 +61,7 @@ export class DataContext {
     }
 
     private async _loadListing() {
-        let people = await this._api.fetchPeople();
+        let people = await this._api.fetchPeople(7);
         this._listing = people.map(dto => ListContactModel.fromDTO(dto));
     }
 
