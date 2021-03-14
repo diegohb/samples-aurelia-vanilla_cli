@@ -21,6 +21,12 @@ export class PokemonService {
         return models;
     }
 
+    public async fetchTypes(): Promise<string[]> {
+        const dtos = await this.getFromCacheOrFetch();
+        const data = new Set(dtos.reduce((arr: string[], item: PokemonDTO) => arr.concat(item.type), []));
+        return Array.from(data);
+    }
+
     private async getFromCacheOrFetch(): Promise<PokemonDTO[]> {
         let data: PokemonDTO[];
         let raw: string = window.localStorage.getItem("pokedex.pokemons");

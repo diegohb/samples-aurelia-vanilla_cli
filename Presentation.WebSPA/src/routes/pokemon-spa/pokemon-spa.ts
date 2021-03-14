@@ -11,8 +11,16 @@ export class PokemonSPAViewModel {
     }
 
     public items: PokemonSummaryModel[];
+    public types: string[];
 
     public async attached() {
         this.items = await this._service.fetchPokemonSummaries();
+        this.types = await this._service.fetchTypes();
+    }
+
+    public getImageUrlForPokemon(id: number): string {
+        let imageFileName = id.toString().padStart(3, "0");
+        const url = `https://github.com/fanzeyi/pokemon.json/raw/master/images/${imageFileName}.png`;
+        return url;
     }
 }

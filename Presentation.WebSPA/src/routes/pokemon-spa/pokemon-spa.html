@@ -1,7 +1,12 @@
 ﻿<template>
-    <h2>Pokemon</h2>
+    
     <div class="row">
-        <div class="col-md-3">...Left Side...</div>
+        <div class="col-md-3">
+            <h3>Types</h3>
+            <ul class="list-group">
+                <li class="list-group-item" repeat.for="type of types">${type}</li>
+            </ul>
+        </div>
         <div class="col-md-9">
             <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                 <div class="panel panel-default" repeat.for="item of items">
@@ -14,7 +19,8 @@
                     </div>
                     <div id="collapse-${$index}" class="panel-collapse collapse ${$first && 'in'}" role="tabpanel" aria-labelledby="heading-${index}">
                         <div class="panel-body">
-                            ${item.type}
+                            Types: ${item.type}<br />
+                            <img loading="lazy" src.bind="getImageUrlForPokemon(item.id)" />
                         </div>
                     </div>
                 </div>
