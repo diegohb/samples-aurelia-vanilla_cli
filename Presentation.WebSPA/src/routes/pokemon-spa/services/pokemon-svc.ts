@@ -1,4 +1,5 @@
 ﻿import { autoinject, LogManager } from "aurelia-framework";
+import { ApiLoggerInterceptor } from "common/api-logger-interceptor";
 import { HttpClient } from "aurelia-fetch-client";
 import { PokemonSummaryModel } from "../models/pokemon-summary-model";
 import { PokemonDTO } from "../models/api-dto";
@@ -11,7 +12,8 @@ export class PokemonService {
         _http.configure(config => {
             config
                 .useStandardConfiguration()
-                .withBaseUrl("/api/");
+                .withBaseUrl("/api/")
+                .withInterceptor(new ApiLoggerInterceptor());
         });
     }
 
