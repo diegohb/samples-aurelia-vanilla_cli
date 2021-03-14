@@ -1,4 +1,8 @@
-﻿export class PokemonSPAViewModel {
+﻿import { LogManager } from "aurelia-framework";
+
+export class PokemonSPAViewModel {
+    private readonly _logger = LogManager.getLogger(this.constructor.name);
+
     public items:Array<any> = [{
         title: "Charmander",
         text: "Obviously prefers hot places. When it rains, steam is said to spout from the tip of its tail."

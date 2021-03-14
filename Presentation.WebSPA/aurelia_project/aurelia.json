@@ -148,7 +148,9 @@
                     "[**/rolodex-spa/**/*.js]",
                     "**/rolodex-spa/**/*.{json,css,html}"
                 ],
-                "dependencies": []
+                "dependencies": [
+                    "moment"
+                ]
             },
             {
                 "name": "pokemon-spa-bundle.js",
