@@ -12,10 +12,17 @@ export class PokemonSPAViewModel {
 
     public items: PokemonSummaryModel[];
     public types: string[];
+    public selectedType: string = "";
 
     public async attached() {
         this.items = await this._service.fetchPokemonSummaries();
         this.types = await this._service.fetchTypes();
+    }
+
+    public async filterByType(type: string) {
+        const data = await this._service.fetchPokemonSummaries();
+        this.items = data.filter(pokemon => pokemon.type.indexOf(type) !== -1);
+        this.selectedType = type;
     }
 
     public getImageUrlForPokemon(id: number): string {
