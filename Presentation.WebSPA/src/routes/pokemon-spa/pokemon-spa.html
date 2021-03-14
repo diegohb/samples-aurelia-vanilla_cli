@@ -8,20 +8,16 @@
             </ul>
         </div>
         <div class="col-md-9">
-            <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-                <div class="panel panel-default" repeat.for="item of items">
-                    <div class="panel-heading" role="tab" id="heading-${$index}">
-                        <h4 class="panel-title">
-                            <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse-${$index}" aria-expanded="true" aria-controls="collapse-${$index}">
-                                ${item.displayName}
-                            </a>
-                        </h4>
+            <div class="card-columns">
+                <div class="card bg-secondary text-center" repeat.for="item of items">
+                    <div class="card-header">
+                        <h5 class="card-title">${item.displayName}</h5>
                     </div>
-                    <div id="collapse-${$index}" class="panel-collapse collapse ${$first && 'in'}" role="tabpanel" aria-labelledby="heading-${index}">
-                        <div class="panel-body">
-                            Types: ${item.type}<br />
-                            <img loading="lazy" src.bind="getImageUrlForPokemon(item.id)" />
-                        </div>
+                    <img loading="lazy" length="180" src.bind="getImageUrlForPokemon(item.id)" class="card-img-top rounded" alt="pokemon image" />
+                    <div class="card-body">
+                        <p class="card-text">
+                            ${item.type}
+                        </p>
                     </div>
                 </div>
             </div>
