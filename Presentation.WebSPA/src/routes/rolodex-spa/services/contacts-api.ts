@@ -1,6 +1,6 @@
 ﻿import { autoinject, LogManager } from "aurelia-framework";
 import { HttpClient } from "aurelia-fetch-client";
-import { ApiLoggerInterceptor } from "./api-logger-interceptor";
+import { ApiLoggerInterceptor } from "common/api-logger-interceptor";
 import { ResponseDTO, PersonDTO } from "../models/api-dto";
 import { IPeopleApi } from "./i-people-api";
 // ReSharper disable once UnusedLocalImport

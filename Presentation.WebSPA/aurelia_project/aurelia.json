@@ -57,6 +57,7 @@
     "paths": {
         "root": "src",
         "resources": "resources",
+        "common":  "common",
         "elements": "resources/elements",
         "attributes": "resources/attributes",
         "valueConverters": "resources/value-converters",
