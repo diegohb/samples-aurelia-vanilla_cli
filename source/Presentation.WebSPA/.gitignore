@@ -27,7 +27,6 @@ package-lock.json
 # Compiled files
 bin
 obj
-package-lock.json
 /**/wwwroot/**
 !/**/wwwroot/images/**
 !/**/wwwroot/css/site.css
