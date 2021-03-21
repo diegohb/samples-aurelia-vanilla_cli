@@ -1,0 +1,18 @@
+{
+    "terminal.integrated.cwd": "./Presentation.WebSPA/",
+    "typescript.tsdk": "node_modules/typescript/lib",
+    "html.suggest.angular1": false,
+    "html.suggest.ionic": false,
+    "tslint.configFile": "./Presentation.WebSPA/tsconfig.json",
+    "tslint.jsEnable": true,
+    "npm.packageManager": "yarn",
+    "autoimport.doubleQuotes": true,
+    "autoimport.spaceBetweenBraces": true,
+    "autoimport.useSemiColon": true,
+    "aurelia.autocomplete.quotes": "double",
+    "files.eol": "\r\n",
+    "editor.formatOnSave": true,
+    "editor.formatOnSaveTimeout": 750,
+    "app.spa-name": "Presentation.WebSPA",
+    "app.target-runtime": "net5.0"
+}

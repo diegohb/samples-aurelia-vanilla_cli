@@ -1,8 +1,1 @@
-_ReSharper.Caches
-*.user
-.vs
-**/obj/
-**/bin/
-dist/**
-codealike.json
-coverage-jest
+build
