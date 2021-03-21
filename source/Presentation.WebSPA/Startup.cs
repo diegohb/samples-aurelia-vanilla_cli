@@ -7,43 +7,29 @@
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Extensions.FileProviders;
+    using Microsoft.Extensions.Hosting;
     using Microsoft.Extensions.Logging;
+    using Microsoft.Extensions.Logging.Console;
 
     public class Startup
     {
-        public Startup(IHostingEnvironment env, IConfiguration config)
+        public Startup(IConfiguration configParam)
         {
-            Configuration = config;
+            Configuration = configParam;
         }
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
-        public void ConfigureServices(IServiceCollection services)
-        {
-            // Add framework services.
-            services.AddRazorPages(opts =>
-            {
-                opts.Conventions.AddPageRoute("/Rolodex", "Rolodex/{*route}");
-                opts.Conventions.AddPageRoute("/Pokemon", "Pokemon/{*route}");
-            });
-            services.AddLogging(pLoggingBuilder =>
-            {
-                pLoggingBuilder.AddConfiguration(Configuration.GetSection("Logging"));
-                pLoggingBuilder.AddConsole(pOpts => pOpts.IncludeScopes = true);
-            });
-        }
-
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder appParam, IWebHostEnvironment envParam)
         {
-            if (env.IsDevelopment())
+            if (envParam.IsDevelopment())
             {
-                app.UseDeveloperExceptionPage();
-                app.UseBrowserLink();
+                appParam.UseDeveloperExceptionPage();
+                appParam.UseBrowserLink();
 
                 //This allows you to debug your ts files in browser using the mappings provided by gulp-typescript
-                app.UseStaticFiles
+                appParam.UseStaticFiles
                 (new StaticFileOptions
                 {
                     FileProvider = new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(), @"src")),
@@ -52,17 +38,43 @@
             }
             else
             {
-                app.UseExceptionHandler("/Home/Error");
+                appParam.UseExceptionHandler("/Home/Error");
             }
 
-            app.UseStaticFiles();
+            appParam.UseStaticFiles();
 
-            app.UseRouting();
+            appParam.UseRouting();
 
-            app.UseEndpoints(endpoints =>
+            appParam.UseEndpoints
+            (endpoints =>
             {
                 endpoints.MapRazorPages();
                 endpoints.MapControllers();
+            });
+        }
+
+        // This method gets called by the runtime. Use this method to add services to the container.
+        public void ConfigureServices(IServiceCollection servicesParam)
+        {
+            // Add framework services.
+            servicesParam.AddRazorPages
+            (opts =>
+            {
+                opts.Conventions.AddPageRoute("/Rolodex", "Rolodex/{*route}");
+                opts.Conventions.AddPageRoute("/Pokemon", "Pokemon/{*route}");
+            });
+            servicesParam.AddLogging
+            (pLoggingBuilder =>
+            {
+                pLoggingBuilder.AddSimpleConsole
+                (opts =>
+                {
+                    opts.IncludeScopes = true;
+                    opts.SingleLine = false;
+                    opts.ColorBehavior = LoggerColorBehavior.Enabled;
+                    opts.TimestampFormat = "hh:mm:ss";
+                });
+                pLoggingBuilder.AddConfiguration(Configuration.GetSection("Logging"));
             });
         }
     }
