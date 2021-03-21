@@ -1,10 +1,10 @@
-﻿using System.IO;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc;
-
-namespace Presentation.WebSPA.ApiControllers
+﻿namespace Presentation.WebSPA.ApiControllers
 {
+    using System.IO;
+    using System.Threading.Tasks;
+    using Microsoft.AspNetCore.Hosting;
+    using Microsoft.AspNetCore.Mvc;
+
     [ApiController]
     [Route("api/pokemon")]
     public class PokemonController : ControllerBase

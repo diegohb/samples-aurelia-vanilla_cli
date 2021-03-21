@@ -9,19 +9,15 @@
 
     public class Program
     {
-        public static void Main(string[] args)
+        public static IWebHostBuilder CreateWebHostBuilder(string[] argsParam)
         {
-            var host = CreateWebHostBuilder(args).Build();
-            host.Run();
+            return new WebHostBuilder().UseKestrel().UseContentRoot(Directory.GetCurrentDirectory()).UseIISIntegration().UseStartup<Startup>();
         }
 
-        public static IWebHostBuilder CreateWebHostBuilder(string[] args)
+        public static void Main(string[] argsParam)
         {
-            return new WebHostBuilder()
-                .UseKestrel()
-                .UseContentRoot(Directory.GetCurrentDirectory())
-                .UseIISIntegration()
-                .UseStartup<Startup>();
+            var host = CreateWebHostBuilder(argsParam).Build();
+            host.Run();
         }
     }
 }
