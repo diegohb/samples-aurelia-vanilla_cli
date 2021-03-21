@@ -13,10 +13,10 @@
         "yarn": "^1.22.0"
     },
     "scripts": {
-        "build": "dotnet build && au build",
-        "start": "au build && dotnet run",
-        "test": "au test",
-        "dotnet-pack": "set ASPNETCORE_ENVIRONMENT=Production && dotnet publish -c Release -o ..\\build",
+        "build": "dotnet build && yarn au build",
+        "start": "yarn au build && dotnet run",
+        "test": "yarn au test",
+        "dotnet-pack": "set ASPNETCORE_ENVIRONMENT=Production && dotnet publish -c Release -o ..\\..\\build",
         "au-update": "yarn upgrade aurelia-binding@latest aurelia-bootstrapper@latest aurelia-dependency-injection@latest aurelia-event-aggregator@latest aurelia-framework@latest aurelia-history@latest aurelia-history-browser@latest aurelia-loader@latest aurelia-loader-default@latest aurelia-logging@latest aurelia-logging-console@latest aurelia-metadata@latest aurelia-pal@latest aurelia-pal-browser@latest aurelia-path@latest aurelia-polyfills@latest aurelia-route-recognizer@latest aurelia-router@latest aurelia-task-queue@latest aurelia-templating@latest aurelia-templating-binding@latest aurelia-templating-resources@latest aurelia-templating-router@latest aurelia-animator-css@latest",
         "devtooling-versions": "node -v && npm -v && yarn -v && au -v"
     },

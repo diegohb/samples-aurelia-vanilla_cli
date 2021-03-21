@@ -21,8 +21,9 @@
         },
         {
             "label": "au-build",
-            "command": "au",
+            "command": "yarn",
             "args": [
+                "au",
                 "build"
             ],
             "type": "shell",
@@ -49,8 +50,9 @@
         },
         {
             "label": "au-build-watch",
-            "command": "au",
+            "command": "yarn",
             "args": [
+                "au",
                 "build",
                 "--watch"
             ],
@@ -75,8 +77,9 @@
         },
         {
             "label": "au-test",
-            "command": "au",
+            "command": "yarn",
             "args": [
+                "au",
                 "test"
             ],
             "options": {
