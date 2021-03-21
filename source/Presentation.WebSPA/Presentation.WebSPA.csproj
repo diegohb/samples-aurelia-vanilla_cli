@@ -46,14 +46,21 @@
         <PackageReference Include="Microsoft.VisualStudio.Web.BrowserLink" Version="2.2.0" />
     </ItemGroup>
 
-    <Target Name="SPAPublishPrepare" AfterTargets="ComputeFilesToPublish">
-        <Message Text="Starting SPA package preparation for publish. Running with environment '$(ASPNETCORE_ENVIRONMENT)' and compilation config '$(Configuration)'." />
+    <Target Name="SpaPublishPrepare" BeforeTargets="BeforePublish" DependsOnTargets="DeleteGeneratedFiles">
+        <!--Execute before razor views get compiled in order to pickup the _AureliaBundleInclude.cshtml file change, otherwise gets locked into compiled dll-->
+        <!--Note: Alternative was considered to enable runtime razor compilation and quick discarded as it's not worth the filewatch and overhead associated to that on production.-->
+        <Message Text="Starting SPA preparation for publish. Running with environment '$(ASPNETCORE_ENVIRONMENT)' and compilation config '$(Configuration)'." />
+
         <Exec Command="yarn install" />
         <Exec Command="yarn au build --env dev" Condition="'$(ASPNETCORE_ENVIRONMENT)' == 'Development'" />
         <Exec Command="yarn au build --env stage" Condition="'$(ASPNETCORE_ENVIRONMENT)' == 'Staging'" />
         <Exec Command="yarn au build --env prod" Condition="'$(ASPNETCORE_ENVIRONMENT)' == 'Production'" />
+        
+        <Message Text="Finished SPA build for publish." />
+    </Target>
 
-        <!-- Include the newly-built files in the publish output -->
+    <Target Name="IncludeSpaDistFiles" AfterTargets="ComputeFilesToPublish">
+        <!-- Include the nodejs generated files frin spa build in the publish output -->
         <ItemGroup>
             <DistFiles Include="wwwroot\**" />
             <ResolvedFileToPublish Include="@(DistFiles->'%(FullPath)')" Exclude="@(ResolvedFileToPublish)">
@@ -61,8 +68,6 @@
                 <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
             </ResolvedFileToPublish>
         </ItemGroup>
-
-        <Message Text="Finished packaging SPA for publish." />
     </Target>
 
     <Target Name="EchoEnvInfo">
