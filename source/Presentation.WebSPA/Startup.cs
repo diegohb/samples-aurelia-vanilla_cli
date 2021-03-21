@@ -7,11 +7,13 @@
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Extensions.FileProviders;
+    using Microsoft.Extensions.Hosting;
     using Microsoft.Extensions.Logging;
+    using Microsoft.Extensions.Logging.Console;
 
     public class Startup
     {
-        public Startup(IHostingEnvironment envParam, IConfiguration configParam)
+        public Startup(IConfiguration configParam)
         {
             Configuration = configParam;
         }
@@ -19,7 +21,7 @@
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder appParam, IHostingEnvironment envParam)
+        public void Configure(IApplicationBuilder appParam, IWebHostEnvironment envParam)
         {
             if (envParam.IsDevelopment())
             {
@@ -64,8 +66,15 @@
             servicesParam.AddLogging
             (pLoggingBuilder =>
             {
+                pLoggingBuilder.AddSimpleConsole
+                (opts =>
+                {
+                    opts.IncludeScopes = true;
+                    opts.SingleLine = false;
+                    opts.ColorBehavior = LoggerColorBehavior.Enabled;
+                    opts.TimestampFormat = "hh:mm:ss";
+                });
                 pLoggingBuilder.AddConfiguration(Configuration.GetSection("Logging"));
-                pLoggingBuilder.AddConsole(pOpts => pOpts.IncludeScopes = true);
             });
         }
     }
