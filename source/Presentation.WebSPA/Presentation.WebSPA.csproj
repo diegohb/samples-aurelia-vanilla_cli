@@ -1,81 +1,86 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
-  <PropertyGroup Label="Globals">
-    <SccProjectName>Plastic SCM</SccProjectName>
-    <SccProvider>Plastic SCM Source Control Service:{774e58ba-f1b9-40a7-b676-834fa2c220fe}</SccProvider>
-    <SccAuxPath>Plastic SCM</SccAuxPath>
-    <SccLocalPath>Plastic SCM</SccLocalPath>
-  </PropertyGroup>
+    <PropertyGroup Label="Globals">
+        <SccProjectName>Plastic SCM</SccProjectName>
+        <SccProvider>Plastic SCM Source Control Service:{774e58ba-f1b9-40a7-b676-834fa2c220fe}</SccProvider>
+        <SccAuxPath>Plastic SCM</SccAuxPath>
+        <SccLocalPath>Plastic SCM</SccLocalPath>
+    </PropertyGroup>
 
-  <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
-    <TypeScriptToolsVersion>latest</TypeScriptToolsVersion>
-    <TypeScriptCompileBlocked>True</TypeScriptCompileBlocked>
-  </PropertyGroup>
+    <PropertyGroup>
+        <TargetFramework>net5.0</TargetFramework>
+        <TypeScriptToolsVersion>latest</TypeScriptToolsVersion>
+        <TypeScriptCompileBlocked>True</TypeScriptCompileBlocked>
+    </PropertyGroup>
 
-  <PropertyGroup Condition="'$(ASPNETCORE_ENVIRONMENT)'==''">
-    <!-- When aspnetcore environment is not specified, defaults based on compile configuration setting. -->
-    <ASPNETCORE_ENVIRONMENT Condition="'$(Configuration)' == 'Debug'">Development</ASPNETCORE_ENVIRONMENT>
-    <ASPNETCORE_ENVIRONMENT Condition="'$(Configuration)' == 'Release'">Production</ASPNETCORE_ENVIRONMENT>
-  </PropertyGroup>
+    <PropertyGroup Condition="'$(ASPNETCORE_ENVIRONMENT)'==''">
+        <!-- When aspnetcore environment is not specified, defaults based on compile configuration setting. -->
+        <ASPNETCORE_ENVIRONMENT Condition="'$(Configuration)' == 'Debug'">Development</ASPNETCORE_ENVIRONMENT>
+        <ASPNETCORE_ENVIRONMENT Condition="'$(Configuration)' == 'Release'">Production</ASPNETCORE_ENVIRONMENT>
+    </PropertyGroup>
 
-  <ItemGroup>
-    <Content Remove="package-lock.json" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Remove=".yarnclean" />
-    <None Remove="yarn.lock" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="3.1.2" />
-    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="3.1.2" />
-    <PackageReference Include="Microsoft.VisualStudio.Web.BrowserLink" Version="2.2.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="custom_typings\" />
-    <Folder Include="wwwroot\js\" />
-	  <Folder Include="wwwroot\css\" />
-  </ItemGroup>
-
-  <Target Name="SPAPublishPrepare" AfterTargets="ComputeFilesToPublish">   
-    <Message Text="Starting SPA package preparation for publish. Running with environment '$(ASPNETCORE_ENVIRONMENT)' and compilation config '$(Configuration)'." />
-    <Exec Command="yarn install" />
-    <Exec Command="au build --env dev" Condition="'$(ASPNETCORE_ENVIRONMENT)' == 'Development'" />
-    <Exec Command="au build --env stage" Condition="'$(ASPNETCORE_ENVIRONMENT)' == 'Staging'" />
-    <Exec Command="au build --env prod" Condition="'$(ASPNETCORE_ENVIRONMENT)' == 'Production'" />
-
-    <!-- Include the newly-built files in the publish output -->
     <ItemGroup>
-      <DistFiles Include="wwwroot\**" />
-      <ResolvedFileToPublish Include="@(DistFiles->'%(FullPath)')" Exclude="@(ResolvedFileToPublish)">
-        <RelativePath>%(DistFiles.Identity)</RelativePath>
-        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      </ResolvedFileToPublish>
+        <None Remove=".yarnclean" />
+        <None Remove="yarn.lock" />
     </ItemGroup>
 
-    <Message Text="Finished packaging SPA for publish." />
-  </Target>
-
-  <Target Name="EchoEnvInfo">
-    <Message Text="The ASPNETCore Env is '$(ASPNETCORE_ENVIRONMENT)'." />
-    <Message Text="The config is '$(Configuration)'." />
-    <Message Text="The config is '$(Config)'." />
-
-    <Message Text="au build --env dev" Condition="'$(ASPNETCORE_ENVIRONMENT)' == 'Development'" />
-    <Message Text="au build --env stage" Condition="'$(ASPNETCORE_ENVIRONMENT)' == 'Staging'" />
-    <Message Text="au build --env prod" Condition="'$(ASPNETCORE_ENVIRONMENT)' == 'Production'" />
-  </Target>
-
-  <Target Name="DeleteGeneratedFiles" AfterTargets="Clean">
     <ItemGroup>
-      <JSFiles Include="wwwroot\js\**"></JSFiles>
-      <!--<CSSFiles Include="wwwroot\css\**"></CSSFiles>-->
+        <Folder Include="custom_typings\" />
+        <Folder Include="wwwroot\js\" />
+        <Folder Include="wwwroot\css\" />
     </ItemGroup>
-    <Delete Files="@(JSFiles)" ContinueOnError="True" />
-    <!--<Delete Files="@(CSSFiles)" ContinueOnError="True" />-->
-    <Message Text="Deleted generated files in JS directory." />
-  </Target>
+
+    <ItemGroup>
+        <!--This removes directories from the publish directory as they aren't necessary for runtime. -->
+        <Content Update="aurelia_project\**\*.*" CopyToPublishDirectory="Never" />
+        <Content Update="test\**\*.*" CopyToPublishDirectory="Never" />
+        <Content Update="src\**\*.*" CopyToPublishDirectory="Never" />
+        <Content Update="node_modules\**\*.*" CopyToPublishDirectory="Never" />
+        <Content Update="bundleconfig.json;package.json;tsconfig.json;tslint.json" CopyToPublishDirectory="Never" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="3.1.2" />
+        <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="3.1.2" />
+        <PackageReference Include="Microsoft.VisualStudio.Web.BrowserLink" Version="2.2.0" />
+    </ItemGroup>
+
+    <Target Name="SPAPublishPrepare" AfterTargets="ComputeFilesToPublish">
+        <Message Text="Starting SPA package preparation for publish. Running with environment '$(ASPNETCORE_ENVIRONMENT)' and compilation config '$(Configuration)'." />
+        <Exec Command="yarn install" />
+        <Exec Command="yarn au build --env dev" Condition="'$(ASPNETCORE_ENVIRONMENT)' == 'Development'" />
+        <Exec Command="yarn au build --env stage" Condition="'$(ASPNETCORE_ENVIRONMENT)' == 'Staging'" />
+        <Exec Command="yarn au build --env prod" Condition="'$(ASPNETCORE_ENVIRONMENT)' == 'Production'" />
+
+        <!-- Include the newly-built files in the publish output -->
+        <ItemGroup>
+            <DistFiles Include="wwwroot\**" />
+            <ResolvedFileToPublish Include="@(DistFiles->'%(FullPath)')" Exclude="@(ResolvedFileToPublish)">
+                <RelativePath>%(DistFiles.Identity)</RelativePath>
+                <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+            </ResolvedFileToPublish>
+        </ItemGroup>
+
+        <Message Text="Finished packaging SPA for publish." />
+    </Target>
+
+    <Target Name="EchoEnvInfo">
+        <Message Text="The ASPNETCore Env is '$(ASPNETCORE_ENVIRONMENT)'." />
+        <Message Text="The config is '$(Configuration)'." />
+        <Message Text="The config is '$(Config)'." />
+
+        <Message Text="yarn au build --env dev" Condition="'$(ASPNETCORE_ENVIRONMENT)' == 'Development'" />
+        <Message Text="yarn au build --env stage" Condition="'$(ASPNETCORE_ENVIRONMENT)' == 'Staging'" />
+        <Message Text="yarn au build --env prod" Condition="'$(ASPNETCORE_ENVIRONMENT)' == 'Production'" />
+    </Target>
+
+    <Target Name="DeleteGeneratedFiles" AfterTargets="Clean">
+        <ItemGroup>
+            <JSFiles Include="wwwroot\js\**"></JSFiles>
+            <!--<CSSFiles Include="wwwroot\css\**"></CSSFiles>-->
+        </ItemGroup>
+        <Delete Files="@(JSFiles)" ContinueOnError="True" />
+        <!--<Delete Files="@(CSSFiles)" ContinueOnError="True" />-->
+        <Message Text="Deleted generated files in JS directory." />
+    </Target>
 </Project>
