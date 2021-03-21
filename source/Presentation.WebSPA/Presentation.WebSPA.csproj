@@ -1,4 +1,5 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+    <Import Project="./spa-build.targets" />
 
     <PropertyGroup Label="Globals">
         <SccProjectName>Plastic SCM</SccProjectName>
@@ -14,12 +15,6 @@
         <TypeScriptCompileBlocked>True</TypeScriptCompileBlocked>
     </PropertyGroup>
 
-    <PropertyGroup Condition="'$(ASPNETCORE_ENVIRONMENT)'==''">
-        <!-- When aspnetcore environment is not specified, defaults based on compile configuration setting. -->
-        <ASPNETCORE_ENVIRONMENT Condition="'$(Configuration)' == 'Debug'">Development</ASPNETCORE_ENVIRONMENT>
-        <ASPNETCORE_ENVIRONMENT Condition="'$(Configuration)' == 'Release'">Production</ASPNETCORE_ENVIRONMENT>
-    </PropertyGroup>
-
     <ItemGroup>
         <None Remove=".yarnclean" />
         <None Remove="yarn.lock" />
@@ -32,61 +27,9 @@
     </ItemGroup>
 
     <ItemGroup>
-        <!--This removes directories from the publish directory as they aren't necessary for runtime. -->
-        <Content Update="aurelia_project\**\*.*" CopyToPublishDirectory="Never" />
-        <Content Update="test\**\*.*" CopyToPublishDirectory="Never" />
-        <Content Update="src\**\*.*" CopyToPublishDirectory="Never" />
-        <Content Update="node_modules\**\*.*" CopyToPublishDirectory="Never" />
-        <Content Update="bundleconfig.json;package.json;tsconfig.json;tslint.json" CopyToPublishDirectory="Never" />
-    </ItemGroup>
-
-    <ItemGroup>
         <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="3.1.2" />
         <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="3.1.2" />
         <PackageReference Include="Microsoft.VisualStudio.Web.BrowserLink" Version="2.2.0" />
     </ItemGroup>
 
-    <Target Name="SpaPublishPrepare" BeforeTargets="BeforePublish" DependsOnTargets="DeleteGeneratedFiles">
-        <!--Execute before razor views get compiled in order to pickup the _AureliaBundleInclude.cshtml file change, otherwise gets locked into compiled dll-->
-        <!--Note: Alternative was considered to enable runtime razor compilation and quick discarded as it's not worth the filewatch and overhead associated to that on production.-->
-        <Message Text="Starting SPA preparation for publish. Running with environment '$(ASPNETCORE_ENVIRONMENT)' and compilation config '$(Configuration)'." />
-
-        <Exec Command="yarn install" />
-        <Exec Command="yarn au build --env dev" Condition="'$(ASPNETCORE_ENVIRONMENT)' == 'Development'" />
-        <Exec Command="yarn au build --env stage" Condition="'$(ASPNETCORE_ENVIRONMENT)' == 'Staging'" />
-        <Exec Command="yarn au build --env prod" Condition="'$(ASPNETCORE_ENVIRONMENT)' == 'Production'" />
-        
-        <Message Text="Finished SPA build for publish." />
-    </Target>
-
-    <Target Name="IncludeSpaDistFiles" AfterTargets="ComputeFilesToPublish">
-        <!-- Include the nodejs generated files frin spa build in the publish output -->
-        <ItemGroup>
-            <DistFiles Include="wwwroot\**" />
-            <ResolvedFileToPublish Include="@(DistFiles->'%(FullPath)')" Exclude="@(ResolvedFileToPublish)">
-                <RelativePath>%(DistFiles.Identity)</RelativePath>
-                <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-            </ResolvedFileToPublish>
-        </ItemGroup>
-    </Target>
-
-    <Target Name="EchoEnvInfo">
-        <Message Text="The ASPNETCore Env is '$(ASPNETCORE_ENVIRONMENT)'." />
-        <Message Text="The config is '$(Configuration)'." />
-        <Message Text="The config is '$(Config)'." />
-
-        <Message Text="yarn au build --env dev" Condition="'$(ASPNETCORE_ENVIRONMENT)' == 'Development'" />
-        <Message Text="yarn au build --env stage" Condition="'$(ASPNETCORE_ENVIRONMENT)' == 'Staging'" />
-        <Message Text="yarn au build --env prod" Condition="'$(ASPNETCORE_ENVIRONMENT)' == 'Production'" />
-    </Target>
-
-    <Target Name="DeleteGeneratedFiles" AfterTargets="Clean">
-        <ItemGroup>
-            <JSFiles Include="wwwroot\js\**"></JSFiles>
-            <!--<CSSFiles Include="wwwroot\css\**"></CSSFiles>-->
-        </ItemGroup>
-        <Delete Files="@(JSFiles)" ContinueOnError="True" />
-        <!--<Delete Files="@(CSSFiles)" ContinueOnError="True" />-->
-        <Message Text="Deleted generated files in JS directory." />
-    </Target>
 </Project>
