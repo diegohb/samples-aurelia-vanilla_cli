@@ -8,7 +8,7 @@
     },
     "license": "MIT",
     "engines": {
-        "node": "^15.0.0",
+        "node": "^16.0.0",
         "npm": "please-use-yarn",
         "yarn": "^1.22.0"
     },
@@ -70,6 +70,7 @@
         "connect-history-api-fallback": "^1.6.0",
         "cssnano": "^4.1.10",
         "debounce": "^1.2.0",
+        "esprima": "^4.0.1",
         "event-stream": "4.0.1",
         "gulp": "^4.0.2",
         "gulp-changed-in-place": "^2.3.0",
