@@ -1,6 +1,5 @@
 {
     "api": {
-        "host": "https://dummyapi.io/data/api/",
-        "app-id": "6046baa083c2165d2b23ff80"
+        "host": "https://fakestoreapi.com/"
     }
 }
