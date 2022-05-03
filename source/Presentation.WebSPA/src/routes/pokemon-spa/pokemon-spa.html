@@ -1,5 +1,5 @@
 ﻿<template>
-    
+
     <div class="row">
         <div class="col-md-3">
             <h3>Types</h3>
@@ -10,16 +10,18 @@
             </div>
         </div>
         <div class="col-md-9">
-            <div class="card-columns">
-                <div class="card bg-secondary text-center" repeat.for="item of items">
-                    <div class="card-header">
-                        <h5 class="card-title">${item.displayName}</h5>
-                    </div>
-                    <img loading="lazy" length="180" src.bind="getImageUrlForPokemon(item.id)" class="card-img-top rounded" alt="pokemon image" />
-                    <div class="card-body">
-                        <p class="card-text">
-                            ${item.type}
-                        </p>
+            <div class="row row-cols-3">
+                <div class="col" repeat.for="item of items">
+                    <div class="card bg-secondary">
+                        <div class="card-header">
+                            <h5 class="card-title">${item.displayName}</h5>
+                        </div>
+                        <img loading="lazy" length="180" src.bind="getImageUrlForPokemon(item.id)" class="card-img-top rounded" alt="pokemon image"/>
+                        <div class="card-body">
+                            <p class="card-text">
+                                ${item.type}
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
