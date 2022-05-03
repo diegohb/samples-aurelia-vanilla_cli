@@ -24,9 +24,9 @@
 //
 // Import just the styles you need. Note that some stylesheets are required no matter what.
 
-@import "../node_modules/bootstrap/scss/_functions"; // Required
-@import "../node_modules/bootstrap/scss/_variables"; // Required
-@import "../node_modules/bootstrap/scss/_mixins"; // Required
+@import "~bootstrap/scss/_functions"; // Required
+@import "~bootstrap/scss/_variables"; // Required
+@import "~bootstrap/scss/_mixins"; // Required
 
 
 //
@@ -38,11 +38,13 @@ $enable-gradients: true;
 $enable-shadows: true;
 
 // Customize some defaults
-$body-color: $black;
-$body-bg: $gray-100;
+$body-bg: $gray-200;
 $border-radius: .4rem;
 
-@import "../node_modules/bootstrap/scss/bootstrap";
+@import "./common/sketchy_themevars.scss";
+@import "~bootstrap/scss/bootstrap";
+@import "./common/sketchy_theme.scss";
+
 
 /*
 @import "../node_modules/bootstrap/scss/_root";

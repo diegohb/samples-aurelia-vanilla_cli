@@ -9,7 +9,8 @@ export function configure(aurelia: Aurelia) {
         .feature("resources");
 
     aurelia.use.globalResources("bootstrap.css");
-
+    aurelia.use.globalResources("./common/sketchy_theme.css");
+    
     aurelia.use.developmentLogging(environment.debug ? "debug" : "warn");
 
     if (environment.testing) {
