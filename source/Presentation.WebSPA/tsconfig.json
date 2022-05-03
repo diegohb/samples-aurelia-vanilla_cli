@@ -10,10 +10,11 @@
         "emitDecoratorMetadata": true,
         "experimentalDecorators": true,
         "moduleResolution": "node",
-        "lib": [ "es2017", "ESNext", "ESNext.Array", "dom" ],
+        "lib": ["es2017", "ESNext", "ESNext.Array", "dom"],
         "baseUrl": "src",
         "resolveJsonModule": true,
-        "esModuleInterop": true
+        "esModuleInterop": true,
+        "typeRoots": ["./node_modules/@types"]
     },
     "include": [
         "./src/**/*.ts",
