@@ -2,63 +2,31 @@
     "name": "aurelia-vanilla.presentation-webspa",
     "type": "project:application",
     "packageManager": "yarn",
-    "platform": {
-        "id": "aspnetcore",
-        "displayName": "ASP.NET Core",
-        "port": 5100,
-        "output": "wwwroot/js",
-        "index": "pages/shared/_AureliaBundleInclude.cshtml",
-        "baseDir": "./wwwroot",
-        "baseUrl": "js"
-    },
     "transpiler": {
         "id": "typescript",
-        "displayName": "TypeScript",
         "fileExtension": ".ts",
         "dtsSource": [
             "./custom_typings/**/*.d.ts",
             "./types/**/*.d.ts"
         ],
-        "source": "src/**/*.ts"
+        "source": [
+            "src/**/*.ts"
+        ]
     },
     "markupProcessor": {
-        "id": "minimum",
-        "displayName": "Minimal Minification",
-        "fileExtension": ".html",
         "source": [
             "src/**/*.html"
         ]
     },
     "cssProcessor": {
-        "id": "sass",
-        "displayName": "Sass",
-        "fileExtension": ".scss",
         "source": [
             "src/**/*.scss"
         ]
     },
     "jsonProcessor": {
-        "id": "none",
-        "displayName": "None",
-        "fileExtension": ".json",
         "source": [
             "src/**/*.json"
         ]
-    },
-    "editor": {
-        "id": "visualstudio",
-        "displayName": "Visual Studio"
-    },
-    "unitTestRunners": [
-        {
-            "id": "karma",
-            "displayName": "Karma",
-            "source": "test/unit/**/*.ts"
-        }
-    ],
-    "integrationTestRunner": {
-        "id": "none",
-        "displayName": "None"
     },
     "paths": {
         "root": "src",
@@ -69,9 +37,14 @@
         "valueConverters": "resources/value-converters",
         "bindingBehaviors": "resources/binding-behaviors"
     },
-    "testFramework": {
-        "id": "jasmine",
-        "displayName": "Jasmine"
+    "platform": {
+        "id": "aspnetcore",
+        "displayName": "ASP.NET Core",
+        "port": 5100,
+        "output": "wwwroot/js",
+        "index": "pages/shared/_AureliaBundleInclude.cshtml",
+        "baseDir": "./wwwroot",
+        "baseUrl": "js"
     },
     "build": {
         "targets": [
@@ -85,21 +58,6 @@
                 "baseUrl": "/js"
             }
         ],
-        "loader": {
-            "type": "system",
-            "configTarget": "vendor-bundle.js",
-            "includeBundleMetadataInConfig": "auto",
-            "plugins": [
-                {
-                    "name": "text",
-                    "extensions": [
-                        ".html",
-                        ".css"
-                    ],
-                    "stub": true
-                }
-            ]
-        },
         "options": {
             "minify": {
                 "prod": {
@@ -170,17 +128,13 @@
                 "prepend": [
                     "node_modules/whatwg-fetch/dist/fetch.umd.js",
                     "node_modules/promise-polyfill/dist/polyfill.min.js",
-                    "node_modules/systemjs/dist/system.js"
+                    "node_modules/requirejs/require.js"
                 ],
                 "dependencies": [
                     "aurelia-bootstrapper",
                     "aurelia-loader-default",
                     "aurelia-pal-browser",
-                    {
-                        "name": "text",
-                        "path": "../node_modules/systemjs-plugin-text",
-                        "main": "text"
-                    },
+                    "text",
                     {
                         "name": "aurelia-testing",
                         "env": "dev"
@@ -188,6 +142,21 @@
                 ]
             }
         ],
+        "loader": {
+            "type": "require",
+            "configTarget": "vendor-bundle.js",
+            "includeBundleMetadataInConfig": "auto",
+            "plugins": [
+                {
+                    "name": "text",
+                    "extensions": [
+                        ".html",
+                        ".css"
+                    ],
+                    "stub": false
+                }
+            ]
+        },
         "copyFiles": {
             "node_modules/bootstrap/dist/css/bootstrap.min.*": "wwwroot/css",
             "node_modules/bootstrap/dist/js/bootstrap.bundle.*": "wwwroot/js"

@@ -1,5 +1,8 @@
-﻿<script src="~/js/vendor-bundle.js"></script>
-
-<script>
-    SystemJS.import("aurelia-bootstrapper").catch(function (err) { console.log(err); });
-</script>
+﻿<script type="text/javascript" asp-src-include="~/js/runtime**.js"></script>
+<script type="text/javascript" asp-src-include="~/js/runtime*.bundle.js"></script>
+<script type="text/javascript" asp-src-include="~/js/vendor**.js"
+        asp-src-exclude="~/js/vendor*.async**.js"></script>
+<script type="text/javascript" asp-src-include="~/js/app**.js"
+        asp-src-exclude="~/js/app*.async**.js"></script>
+<script type="text/javascript" asp-src-include="~/js/*-spa**.js"
+        asp-src-exclude="~/js/*-spa**.async**.js"></script>
