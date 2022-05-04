@@ -1,20 +1,19 @@
 # Aurelia - Vanilla Skeleton
-Created from **au new** wizard (v0.32.x), using custom (option 3) and config below:
+Created from **au new** wizard (v2.x), using custom (option 3) and config below:
 - Platform: Web
-- Bundler: Aurelia-CLI
+- Bundler: Aurelia-CLI v2
 - Loader: SystemJS
 - Transpiler: TypeScript
 - Markup Processor: Minimal Minification
-- CSS Processor: Less
-- Unit Test Runner: Karma
+- CSS Processor: Sass
+- Unit Test Runner: Jest
 - Integration Test Runner: None
 - Editor: None
 
 ## Other Configurations
-- ASPNET Core 2.1.x
-- JQuery
-- Bootstrap w/ Less
-- Settings for VS2017 and VS Code.
+- ASPNET 6
+- Bootstrap 5 w/ Sass
+- Settings for VS2022 and VS Code.
 
 ## how to setup environment and run code
 1. Install chocolatey
@@ -28,7 +27,7 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.We
 
 3. Execute `choco install yarn`. Should install v1.7.x.
 
-4. Execute `yarn global aurelia-cli`. Should install > v0.32.x
+4. Execute `yarn global aurelia-cli`. Should install > v2.x
 
     Note: Execute `refreshenv` or restart machine if you can't run `yarn`.
 
@@ -45,7 +44,7 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.We
     6. Switch to "launch (web)" configuration up top.
     7. CTRL+F5 and the browser should launch.
 
-    Visual Studio 2017:
+    Visual Studio:
     1. Open PowerShell or Command Prompt and CD into Presentation.Web directory.
     2. Execute `yarn install`.
     3. Open solution file.
