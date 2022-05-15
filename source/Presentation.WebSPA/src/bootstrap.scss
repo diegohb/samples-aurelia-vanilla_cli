@@ -24,9 +24,10 @@
 //
 // Import just the styles you need. Note that some stylesheets are required no matter what.
 
-@import "../node_modules/bootstrap/scss/_functions"; // Required
-@import "../node_modules/bootstrap/scss/_variables"; // Required
-@import "../node_modules/bootstrap/scss/_mixins"; // Required
+@import "~bootstrap/scss/_functions"; // Required
+@import "~bootstrap/scss/_variables"; // Required
+@import "~bootstrap/scss/_mixins"; // Required
+
 
 //
 // Override Bootstrap here
@@ -37,18 +38,23 @@ $enable-gradients: true;
 $enable-shadows: true;
 
 // Customize some defaults
-$body-color: $black;
-$body-bg: #f5f5f5;
+$body-bg: $gray-200;
 $border-radius: .4rem;
 
+@import "./common/sketchy_themevars.scss";
+@import "~bootstrap/scss/bootstrap";
+@import "./common/sketchy_theme.scss";
+
+
+/*
 @import "../node_modules/bootstrap/scss/_root";
 @import "../node_modules/bootstrap/scss/_reboot"; // Required
 @import "../node_modules/bootstrap/scss/_type";
-@import "../node_modules/bootstrap/scss/images";
+@import "../node_modules/bootstrap/scss/_images";
 // @import "bootstrap/scss/code";
 @import "../node_modules/bootstrap/scss/_grid";
 // @import "bootstrap/scss/tables";
-@import "../node_modules/bootstrap/scss/forms";
+@import "../node_modules/bootstrap/scss/_forms";
 @import "../node_modules/bootstrap/scss/_buttons";
 @import "../node_modules/bootstrap/scss/_transitions";
 // @import "bootstrap/scss/dropdown";
@@ -57,7 +63,7 @@ $border-radius: .4rem;
 // @import "bootstrap/scss/custom-forms";
 @import "../node_modules/bootstrap/scss/_nav";
 @import "../node_modules/bootstrap/scss/_navbar"; // Requires nav
-@import "../node_modules/bootstrap/scss/card";
+@import "../node_modules/bootstrap/scss/_card";
 // @import "bootstrap/scss/breadcrumb";
 // @import "bootstrap/scss/pagination";
 // @import "bootstrap/scss/badge";
@@ -65,7 +71,7 @@ $border-radius: .4rem;
 // @import "bootstrap/scss/alert";
 // @import "bootstrap/scss/progress";
 // @import "bootstrap/scss/media";
-@import "../node_modules/bootstrap/scss/list-group";
+@import "../node_modules/bootstrap/scss/_list-group";
 @import "../node_modules/bootstrap/scss/_close";
 // @import "bootstrap/scss/toasts";
 @import "../node_modules/bootstrap/scss/_modal"; // Requires transitions
@@ -74,16 +80,15 @@ $border-radius: .4rem;
 // @import "bootstrap/scss/carousel";
 // @import "bootstrap/scss/spinners";
 @import "../node_modules/bootstrap/scss/_utilities";
+@import "../node_modules/bootstrap/scss/_containers";
 // @import "bootstrap/scss/print";
+    */
 
 
 //
 // Custom styles
 //
 
-body {
-    padding: 3rem 1.5rem;
-}
 
 // Style Bootstrap icons
 .bi {

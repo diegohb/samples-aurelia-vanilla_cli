@@ -1,0 +1,65 @@
+<Project>
+  <PropertyGroup>    
+    <DisableTransitiveProjectReferences>true</DisableTransitiveProjectReferences>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <IsTestProject>false</IsTestProject>
+    <IsPublishable>false</IsPublishable>
+    <ProjectKey Condition="'$(ProjectKey)'==''">SAMPLE</ProjectKey>
+  </PropertyGroup>
+  <PropertyGroup>
+    <!-- https://stackoverflow.com/a/42183301/1240322 -->
+    <VersionName Condition="'$(VersionName)'==''">0.1.0</VersionName>
+
+    <ReleaseName Condition="'$(ReleaseName)'==''"></ReleaseName>
+    <CommitID Condition="'$(CommitID)'==''">0</CommitID>
+    <BuildID Condition="'$(BuildID)'==''">0</BuildID>
+
+    <BuildNumber>$(CommitID).$(BuildID)</BuildNumber>
+    <BranchName Condition="'$(BranchName)'==''">master</BranchName>
+
+    <VersionPrefix>$(VersionName)</VersionPrefix>
+    <VersionSuffix>$(BuildNumber)</VersionSuffix>
+    <VersionPrerelease Condition="'$(BranchName)'!=''">$(ReleaseName).$(BranchName.Replace("-", "_"))</VersionPrerelease>
+    <VersionPrerelease Condition="'$(BranchName)'=='master'">$(ReleaseName)</VersionPrerelease>
+
+    <!--override default to msbuild which defaults to prerelease instead of build notation-->
+    <Version>$(VersionPrefix)+$(VersionSuffix)</Version>
+    <AssemblyVersion>$(VersionPrefix).0</AssemblyVersion>
+    <!--just first three segments of version to allow avoiding assembly reference updates when undesired-->
+    <FileVersion>$(VersionPrefix).$(CommitID)</FileVersion>
+
+    <InformationalVersion Condition="'$(VersionPrerelease)'!=''">$(VersionPrefix)-$(VersionPrerelease)+$(VersionSuffix)</InformationalVersion>
+    <InformationalVersion Condition="'$(VersionPrerelease)'==''">$(Version)</InformationalVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <!--Enabled Dynamic Compile Flags from CI-->
+    <DefineConstants Condition=" '$(CompileFlags)' != '' ">$(CompileFlags);$(DefineConstants)</DefineConstants>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- included in assembly meta to access via reflection -->
+    <AssemblyAttribute Include="System.Reflection.AssemblyMetadataAttribute" Condition="$(ProjectKey) != ''">
+      <_Parameter1>ProjectKey</_Parameter1>
+      <_Parameter2>$(ProjectKey)</_Parameter2>
+    </AssemblyAttribute>
+    <AssemblyAttribute Include="System.Reflection.AssemblyMetadataAttribute">
+      <_Parameter1>CompileTimestampUtc</_Parameter1>
+      <_Parameter2>$([System.DateTime]::UtcNow.ToString())</_Parameter2>
+    </AssemblyAttribute>
+    <AssemblyAttribute Include="System.Reflection.AssemblyMetadataAttribute" Condition="$(Configuration) != ''">
+      <_Parameter1>Configuration</_Parameter1>
+      <_Parameter2>$(Configuration)</_Parameter2>
+    </AssemblyAttribute>
+    <AssemblyAttribute Include="System.Reflection.AssemblyMetadataAttribute" Condition="$(EnvironmentName) != ''">
+      <_Parameter1>EnvironmentName</_Parameter1>
+      <_Parameter2>$(EnvironmentName)</_Parameter2>
+    </AssemblyAttribute>
+  </ItemGroup>
+  <ItemDefinitionGroup>
+    <!--<PackageReference>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <ProjectReference>
+      <PrivateAssets>all</PrivateAssets>
+    </ProjectReference>-->
+  </ItemDefinitionGroup>
+</Project>

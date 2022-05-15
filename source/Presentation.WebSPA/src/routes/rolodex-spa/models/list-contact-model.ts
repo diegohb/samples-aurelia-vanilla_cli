@@ -13,7 +13,7 @@ export class ListContactModel {
 
     public static fromDTO(dto: PersonDTO): ListContactModel {
         const contact = new ListContactModel(dto.id);
-        contact.displayName = `${dto.lastName}, ${dto.firstName}`;
+        contact.displayName = `${dto.name.lastname}, ${dto.name.firstname}`;
         contact.email = dto.email;
         return contact;
     }

@@ -9,11 +9,15 @@
     </PropertyGroup>
 
     <PropertyGroup>
-        <TargetFramework>net5.0</TargetFramework>
+        <TargetFramework>net6.0</TargetFramework>
         <AspNetCoreHostingModel>OutOfProcess</AspNetCoreHostingModel>
         <TypeScriptToolsVersion>latest</TypeScriptToolsVersion>
         <TypeScriptCompileBlocked>True</TypeScriptCompileBlocked>
     </PropertyGroup>
+
+    <ItemGroup>
+      <TypeScriptCompile Remove="node_modules\**" />
+    </ItemGroup>
 
     <ItemGroup>
         <None Remove=".yarnclean" />
@@ -27,8 +31,12 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="3.1.2" />
-        <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="3.1.2" />
+        <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="6.0.0" />
+        <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="6.0.0" />
+        <PackageReference Include="Microsoft.TypeScript.MSBuild" Version="4.6.4">
+          <PrivateAssets>all</PrivateAssets>
+          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
         <PackageReference Include="Microsoft.VisualStudio.Web.BrowserLink" Version="2.2.0" />
     </ItemGroup>
 

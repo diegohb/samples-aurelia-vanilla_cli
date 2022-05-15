@@ -15,9 +15,7 @@ export class LocationModel {
         const model = new LocationModel();
         model.street = dto.street;
         model.city = dto.city;
-        model.state = dto.state;
-        model.country = dto.country;
-        model.timezone = dto.timezone;
+        model.timezone = dto.zipcode;
         return model;
     }
 

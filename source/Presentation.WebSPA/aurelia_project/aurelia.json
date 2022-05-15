@@ -25,19 +25,25 @@
         "id": "minimum",
         "displayName": "Minimal Minification",
         "fileExtension": ".html",
-        "source": ["src/**/*.html"]
+        "source": [
+            "src/**/*.html"
+        ]
     },
     "cssProcessor": {
         "id": "sass",
         "displayName": "Sass",
         "fileExtension": ".scss",
-        "source": ["src/**/*.scss"]
+        "source": [
+            "src/**/*.scss"
+        ]
     },
     "jsonProcessor": {
         "id": "none",
         "displayName": "None",
         "fileExtension": ".json",
-        "source": ["src/**/*.json"]
+        "source": [
+            "src/**/*.json"
+        ]
     },
     "editor": {
         "id": "visualstudio",
@@ -57,7 +63,7 @@
     "paths": {
         "root": "src",
         "resources": "resources",
-        "common":  "common",
+        "common": "common",
         "elements": "resources/elements",
         "attributes": "resources/attributes",
         "valueConverters": "resources/value-converters",
@@ -131,15 +137,13 @@
                     ]
                 },
                 "dependencies": [
-                    "jquery",
                     {
                         "name": "bootstrap",
                         "path": "../node_modules/bootstrap",
-                        "deps": [ "jquery", "popper.js" ],
-                        "exports": "$",
-                        "resources": [
-
-                        ]
+                        "deps": [
+                            "@popperjs/core"
+                        ],
+                        "resources": []
                     }
                 ]
             },
@@ -186,8 +190,7 @@
         ],
         "copyFiles": {
             "node_modules/bootstrap/dist/css/bootstrap.min.*": "wwwroot/css",
-            "node_modules/bootstrap/dist/js/bootstrap.min.*": "wwwroot/js",
-            "node_modules/jquery/dist/jquery.min.*": "wwwroot/js"
+            "node_modules/bootstrap/dist/js/bootstrap.bundle.*": "wwwroot/js"
         }
     }
 }

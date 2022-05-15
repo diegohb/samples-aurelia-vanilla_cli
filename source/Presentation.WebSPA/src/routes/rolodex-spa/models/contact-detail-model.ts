@@ -32,14 +32,11 @@ export class ContactDetailModel {
 
     public static fromDTO(dto: PersonDTO): ContactDetailModel {
         const contact = new ContactDetailModel(dto.id);
-        contact.firstName = dto.firstName;
-        contact.lastName = dto.lastName;
+        contact.firstName = dto.name.firstname;
+        contact.lastName = dto.name.lastname;
         contact.email = dto.email;
         contact.phoneNumber = dto.phone;
-        contact.dateOfBirth = dto.dateOfBirth;
-        contact.pictureUrl = new URL(dto.picture);
-        contact.gender = dto.gender as GenderType;
-        contact.location = LocationModel.fromDTO(dto.location);
+        contact.location = LocationModel.fromDTO(dto.address);
         return contact;
     }
 
