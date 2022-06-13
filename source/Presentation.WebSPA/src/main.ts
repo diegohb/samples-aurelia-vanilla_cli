@@ -2,15 +2,20 @@ import { Aurelia } from "aurelia-framework"
 import * as auPathUtil from "aurelia-path";
 import environment from "./environment";
 import "bootstrap";
+import "@popperjs/core";
+import process from "process";
 
 export function configure(aurelia: Aurelia) {
     aurelia.use
         .standardConfiguration()
         .feature("resources");
 
+    //NOTE: hack fix for popperjs 2.x in bt5 because au-cli bundling struggles to stub out the "process" pkg
+    window.process = process;
+
     aurelia.use.globalResources("bootstrap.css");
     aurelia.use.globalResources("./common/sketchy_theme.css");
-    
+
     aurelia.use.developmentLogging(environment.debug ? "debug" : "warn");
 
     if (environment.testing) {
